@@ -65,6 +65,19 @@ export async function submitSetup(
   return { ok: true };
 }
 
+export async function verifyAdminPassword(
+  password: string
+): Promise<{ ok: boolean; error?: string }> {
+  const res = await fetch(`${API_BASE}/setup/verify`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ password }),
+  });
+  const data = await res.json();
+  if (!res.ok) return { ok: false, error: data.error ?? "Admin-Passwort ungültig." };
+  return { ok: true };
+}
+
 export async function sendChat(
   persona: Persona,
   history: ChatMessage[]

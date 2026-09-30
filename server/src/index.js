@@ -33,6 +33,16 @@ if (process.env.NODE_ENV === "production" && !process.env.ADMIN_PASSWORD) {
   throw new Error("ADMIN_PASSWORD must be configured in production.");
 }
 
+app.post("/api/setup/verify", (req, res) => {
+  const { password } = req.body ?? {};
+
+  if (!password || password !== ADMIN_PASSWORD) {
+    return res.status(401).json({ ok: false, error: "Ungültiges Admin-Passwort." });
+  }
+
+  return res.json({ ok: true });
+});
+
 app.post("/api/setup", (req, res) => {
   const { password, apiKey } = req.body ?? {};
 

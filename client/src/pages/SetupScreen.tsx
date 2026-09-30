@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Lock, KeyRound, ArrowRight, ShieldCheck, AlertCircle, Eye, EyeOff } from "lucide-react";
-import { submitSetup } from "../lib/api";
+import { submitSetup, verifyAdminPassword } from "../lib/api";
 
 interface Props {
   onDone: () => void;
@@ -17,13 +17,14 @@ export default function SetupScreen({ onDone }: Props) {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
-  const ADMIN_PASSWORD = "FhG2026#!";
-
-  function handlePassword(e: React.FormEvent) {
+  async function handlePassword(e: React.FormEvent) {
     e.preventDefault();
     setError(null);
-    if (password !== ADMIN_PASSWORD) {
-      setError("Falsches Passwort. Bitte erneut versuchen.");
+    setLoading(true);
+    const res = await verifyAdminPassword(password);
+    setLoading(false);
+    if (!res.ok) {
+      setError(res.error ?? "Admin-Passwort ungültig.");
       return;
     }
     setStep("apiKey");
@@ -99,6 +100,9 @@ export default function SetupScreen({ onDone }: Props) {
                     tabIndex={-1}
                   >
                     {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                <p className="mt-2 text-xs text-slate-400">
+                  Das Admin-Passwort ist separat in Render hinterlegt. Der FhG API-Key kommt im nächsten Schritt und kann unabhängig davon wechseln.
+                </p>
                   </button>
                 </div>
               </div>
