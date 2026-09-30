@@ -100,11 +100,11 @@ export default function SetupScreen({ onDone }: Props) {
                     tabIndex={-1}
                   >
                     {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
-                <p className="mt-2 text-xs text-slate-400">
-                  Das Admin-Passwort ist separat in Render hinterlegt. Der FhG API-Key kommt im nächsten Schritt und kann unabhängig davon wechseln.
-                </p>
                   </button>
                 </div>
+                <p className="mt-2 text-xs leading-5 text-slate-400">
+                  Admin-Passwort in Render hinterlegt. Den FhG API-Key gibst du im nächsten Schritt ein.
+                </p>
               </div>
 
               {error && <ErrorNote text={error} />}
