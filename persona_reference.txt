@@ -1,0 +1,544 @@
+D2.5 Report: Intersectional Analysis and Personas of Marginalized Groups for Energy Policy Development
+Contributors
+Clemens Striebing, Fraunhofer IAO
+Sabine Loos, Fraunhofer IAO
+Ravi Singh, Fraunhofer IAO
+Reviewers
+WP5 – Analyzing Marginalized Groups and Developing Personas for Energy Policy Support
+This report presents intersectional analyses and personas of marginalized groups in the EU and Sub-Saharan Africa to support the development of energy policies.
+Delivery date
+15/09/2025
+Dissemination level
+Public
+Progect Acronym
+gEneSys
+Agreement number
+101094326
+Project Full Title
+gEneSys -  Intersectional Analysis and Personas of Marginalized Groups for Energy Policy Development
+Funding Scheme
+Horizon Europe
+Deliverable Information
+Deliverable Name
+D.2.5 - Intersectional Analysis and Personas of Marginalized Groups for Energy Policy Development
+Dissemination level
+Public
+Funding Scheme
+Grant Agreement number
+101094326
+Contractual date of delivery
+15/09/2025
+Deliverable Leader
+Fraunhofer IAO
+WP/Task Responsible
+IRPPS-CNR
+Keywords
+Energy marginalization, intersectionality, vulnerable groups, personas, energy poverty, energy policy, EU, Sub-Saharan Africa, Energy Capability Index (ECI), eco-anxiety, sustainable behavior
+Abstract
+This report, part of the gEneSys project (WP2), presents an intersectional analysis of energy marginalization in the EU and Sub-Saharan Africa, identifying six vulnerable groups to inform future energy policy development. Using survey data (EU: n=18,465; Sub-Saharan Africa: n=11,536), we employed intersectional clustering to identify groups facing systematic exclusion from energy systems due to limited financial, social, and cultural resources. Key indices, including the Energy Capability Index (ECI) subdimensions (detailed in Annex: Energy Capability Index Subdimensions), were analyzed to assess how energy systems condition citizens’ substantive opportunities towards energy justice with particular attention to political agency, experiences of energy poverty, and opportunities to act environmentally friendly. . Detailed personas were developed for each group, integrating demographics, energy use, and marginalization factors, to humanize their challenges and support policy reflection. The report provides data-driven insights through statistical summaries and narrative descriptions, enabling experts to design targeted energy policies addressing issues like high energy poverty, low political self-efficacy, and eco-anxiety. This work, funded by Horizon Europe (No. 101094326), lays the foundation for equitable energy transitions without directly proposing policy recommendations.
+Document history
+Date
+Version
+Contributor(s)
+Description
+Supervision
+TABLE OF CONTENT
+1.Executive Summary4
+2.Introduction4
+3.Methodology5
+3.1.Group Identification5
+3.2.Data Sources5
+4.Group Formation Process5
+5.Persona Compilation6
+5.1.Statistical Analysis6
+5.2.Narrative Development7
+6.Results8
+6.1.Summary of Index Values8
+7.Vulnerable groups personas12
+8.Annex: Detailed Group Analyses24
+8.1.Demographic and Socioeconomic Characteristics24
+8.2.Health and Employment Characteristics25
+8.3.Energy Capability Index Subdimensions26
+9.Conclusion29
+LIST OF TABLES
+Table 1: Summary of Index Values
+Table 2: Summary of Energy Capability Index (ECI) Subdimensions
+Table 3: Demographic and Socioeconomic Characteristics by Group
+Table 4: Health and Employment Characteristics by Group
+Table 5: Energy Capability Index Subdimensions
+Executive Summary
+This report presents political recommendations for action based on key findings from the gEneSys project, focusing on energy marginalization in the EU and Sub-Saharan Africa. Energy marginalization is defined as the systematic exclusion from energy systems due to limited access to financial, social, and cultural resources, leading to high energy poverty, low political self-efficacy, and reduced sustainability capabilities. Drawing from analyses in our previous D2.2 and D2.3 reports, we identify three vulnerable groups per region (six total) that repeatedly experience such marginalization.
+Using statistical data from project surveys (EU: n=18,465; Sub-Saharan Africa: n=11,536), we modelled these groups with intersectional attributes and calculated persona data, including primary energy types and mean index values (e.g., Energy Capability Index - ECI subdimensions). The ECI subdimensions range from 1 to 7 or 1 to 5, assessing aspects like energy management, barriers, access, health impacts, decision-making, and political engagement, with higher values indicating better capabilities (except for Energy Barriers and Health Impacts, where higher values indicate greater challenges).
+Personas were developed to humanize these groups, providing one-page descriptions with demographics, energy use, marginalization factors, and representative images. Experts can use these for reflection and developing measures.
+Recommendations emphasize targeted policies like subsidies for renewables, education on energy efficiency, and community empowerment to reduce marginalization. This report's methodology ensures data-driven, transparent insights for EU and Sub-Saharan policymakers.
+Introduction
+The gEneSys project investigates energy marginalization, where vulnerable populations face barriers to equitable energy access and participation. Based on energy marginalization indicators and intersectional analyses, this D2.5 report identifies six vulnerable groups and provides personas to inform political recommendations. Groups were selected based on consistently low scores in indices specifically developed to capture the complex impacts of the energy system on citizens. 
+The report structure includes:
+Methodology: Group identification, modelling, and persona compilation.
+Results: Persona descriptions and index summaries.
+Methodology
+Group Identification
+Group identification was carried out with a particular focus on vulnerable populations, whose position was examined through their scores across a range of variables and composite indices developed within the study (see Reports D2.2 and D2.3 for details). We employed a combination of distinct variables and newly constructed indices, structuring the analysis in two stages. In the first step, a set of diverse indices included in the survey – each comprising multiple items (see Annex 8.xxx) - was selected. These indices capture different directions and are intended to represent various manifestations of vulnerability in the energy context. 
+1. Multiple Facets of Energy Vulnerability
+Energy-Saving Behavior
+Efficient Behavior
+Eco-Anxiety 
+Relative Deprivation 
+Pro-Environmental Tendency
+Community Efficacy
+For the second stage of the analysis, the Capability Approach, following Martha Nussbaum (2000), was operationalized. The aim was to provide a holistic representation of the complex impacts of the energy system on citizens. A range of survey items was developed for this purpose - some newly created, others adapted from existing questionnaire constructs. These items were subsequently validated, resulting in the creation of the Energy Capability Index, structured around a six-dimensional framework. The six factors, each comprising multiple survey items (see Annex 8.3), are presented below.
+2. Energy Capability Index (ECI)
+Energy Management and Environmental Choices (measures the ability to optimize energy use and make eco-friendly decisions)
+Energy Barriers to Daily Life (measures the impact of energy costs and availability on daily activities)
+Energy Access and Safety (measures the reliability and safety of energy supplies)
+Health Impacts of Energy (measures physical and mental health effects from energy issues)
+Energy Decision-Making (measures the ability to make informed energy choices)
+Political Engagement on Energy (measures the ability of involvement in energy policy discussions)
+The identified vulnerable groups showed repeated disadvantages across these, justified by lack of capital (financial, social, cultural) and structural factors (e.g., gender inequality in EU, infrastructure gaps in Sub-Saharan Africa).
+Data Sources
+EU : 18,465 respondents.
+Sub-Saharan Africa: 11,536 respondents.
+To understand how vulnerability and disadvantage are distributed across different segments of the population, we examined key demographic identity variables. This allowed us to capture intersecting social positions and explore how multiple forms of identity shape experiences of energy-related risks and capabilities. Intersectionality was assessed by examining demographic identity variables, including relationship status (QP21: 1=Single, 5=Divorced/Separated, 6=Widowed), education level (edu_lvl: 1=Low/Primary or less), gender (QS1: 1=Women), age (resp_age: continuous, years), ethnic minority status (QP12: 1=Yes), care responsibilities (QG0), urbanity (QP28: 1-7 scale, 1=rural to 7=very urban), household size (QP24: continuous, number of inhabitants).
+Group Formation Process
+The groups were selected through a multi-step process: First, we analyzed the D2.2 and D2.3 reports using a large language model (LLM) to identify groups performing consistently low on  our indices created (see above). This generated an initial list of potential vulnerable groups. We then double-checked this list manually against the raw data and reports, followed by team discussions to refine the selection based on vulnerability criteria such as intersectional disadvantages and repeated marginalization patterns. In the end, the group selection was a discursive, interpretative process grounded in the D2.2 and D2.3 data analyses, ensuring alignment with project goals of addressing energy injustice.
+Groups were formed using SPSS syntax for intersectional clustering:
+Initialization: Group variables set to 0.
+Computation:
+EU Group 1: Single (QP21=1,5,6), low edu (edu_lvl=1), women (QS1=1).
+EU Group 2: Young (<30, resp_age<30), minority (QP12=1), low edu (edu_lvl=1).
+EU Group 3: Middle-aged (30-50), care responsibilities (QG0=1,2,4), women (QS1=1).
+Africa Group 1: Low edu (edu_lvl=1), care (QG0=1,2,4), rural (QP28<=3).
+Africa Group 2: Young (<30), (QP12=1).
+Africa Group 3: Large households (QP24>=5), urban (QP28>=5), precarious (QP26=2,3,4; finding it difficult/very difficult on income).
+Validation: Frequencies computed for group sizes and distributions.
+EU: Group1=481 (2.6%), Group2=60 (0.3%), Group3=1967 (10.8%).
+Africa: Group1=150 (1.3%), Group2=2480 (21.5%), Group3=1902 (17.2%).
+Aspects Covered: Intersectionality (e.g., gender + education + age), marginalization factors (low EPSEI, high poverty via low EPI, no RE ownership).
+Persona Compilation
+Statistical Analysis
+For each group, selected cases and computed:
+Modes for categorical variables (e.g., energy types: QD2 cooking, QD6 heating, QD7 fuel, QD9 lighting, QD10 electricity source).
+Means/SD for indices (energysaving_behavior_ind, efficientbehavior_ind, ecoanx_ind, personel_relative_deprivation, proenv_ind, commeff_ind, resp_age) using DESCRIPTIVES (listwise missing handling).
+Group Interpretations:
+EU Group1: Mode cooking=electric stove (58.4%), heating=central (52.1%), fuel=gas (34.5%), lighting=electricity (79.0%), source=grid (78.9%). Mean Energy-Saving Behaviour=4.82 (slightly above average), Efficient Behaviour=4.95 (slightly above average), Eco-Anxiety=1.97 (below average), Relative Deprivation=3.73 (above average), Pro-Environmental Tendency=4.83 (above average), Community Efficacy=3.41 (below average).
+EU Group2: Smaller group; low Energy-Saving Behaviour=3.77 (below average), Efficient Behaviour=4.71 (below average), high Eco-Anxiety=2.85 (above average), Relative Deprivation=3.96 (above average), Pro-Environmental Tendency=4.23 (below average), Community Efficacy=3.39 (below average).
+EU Group3: Larger; Energy-Saving Behaviour=4.68 (near average), Efficient Behaviour=4.89 (near average), Eco-Anxiety=2.19 (above average), Relative Deprivation=3.66 (above average), Pro-Environmental Tendency=4.81 (above average), Community Efficacy=3.56 (above average).
+Africa Group1: Rural focus; cooking=three-stone fire (26.8%), high use of wood/charcoal. Energy-Saving Behaviour=4.60 (below average), Efficient Behaviour=5.20 (near average), Eco-Anxiety=2.90 (above average), Relative Deprivation=3.94 (above average), Pro-Environmental Tendency=4.98 (below average), Community Efficacy=3.51 (below average).
+Africa Group2: Young; diverse energy. Energy-Saving Behaviour=4.96 (below average), Efficient Behaviour=5.56 (near average), Eco-Anxiety=2.80 (above average), Relative Deprivation=3.62 (above average), Pro-Environmental Tendency=5.35 (below average), Community Efficacy=3.67 (below average).
+Africa Group3: Urban large households; electricity dominant. Energy-Saving Behaviour=5.36 (above average), Efficient Behaviour=5.53 (near average), Eco-Anxiety=2.47 (below average), Relative Deprivation=3.37 (below average), Pro-Environmental Tendency=5.51 (above average), Community Efficacy=3.74 (near average).
+Primary energy: Inferred from modes (e.g., electricity/grid for most EU, biomass/wood for rural Africa).
+Narrative Development
+Personas synthesized demographics (age mean, gender), energy use (modes), indices (means vs. regional avg), challenges (from D2.2/D2.3 justifications).
+Results
+Summary of Index Values
+* Highligted with green colour is the mean value for the entire dataset for EU and Africa in order to have a comparison with other groups.
+Region
+Group
+n
+Energy-Saving Behavior Mean (SD)
+Efficient Behavior Mean (SD)
+Eco-Anxiety Mean (SD)
+Relative Deprivation Mean (SD)
+Pro-Environmental Tendency Mean (SD)
+Community Efficacy Mean (SD)
+Age Mean (SD)
+EU Avg
+Global North
+18465
+4.71 (1.10)
+4.93 (1.17)
+1.98 (1.00)
+3.52 (1.18)
+4.73 (1.06)
+3.52 (0.61)
+47.15 (14.17)
+EU G1
+Single low-edu women
+481
+4.82 (1.10)
+4.95 (1.24)
+1.97 (0.99)
+3.73 (1.28)
+4.83 (1.18)
+3.41 (0.74)
+53 (14)
+EU G2
+Young minority low-edu
+60
+3.77 (0.83)
+4.71 (1.31)
+2.85 (1.22)
+3.96 (0.85)
+4.23 (1.16)
+3.39 (0.71)
+23 (4)
+EU G3
+Middle-aged care women
+1967
+4.68 (1.10)
+4.89 (1.19)
+2.19 (1.06)
+3.66 (1.19)
+4.81 (1.01)
+3.56 (0.58)
+40 (6)
+Africa Avg
+Global South
+11536
+5.21 (1.02)
+5.51 (1.23)
+2.55 (0.99)
+3.50 (1.29)
+5.43 (0.84)
+3.71 (0.45)
+32.03 (10.00)
+Africa G1
+Low-edu care rural
+150
+4.60 (1.30)
+5.20 (1.62)
+2.90 (0.99)
+3.94 (1.30)
+4.98 (1.45)
+3.51 (0.67)
+28 (8)
+Africa G2
+Young marginalized
+2480
+4.96 (1.12)
+5.56 (1.24)
+2.80 (1.04)
+3.62 (1.22)
+5.35 (0.92)
+3.67 (0.48)
+24 (3.07)
+Africa G3
+Large urban precarious
+1902
+5.36 (0.90)
+5.53 (1.18)
+2.47 (0.94)
+3.37 (1.32)
+5.51 (0.76)
+3.74 (0.42)
+34 (10)
+Table 1: Summary of Index Values
+Interpretations: 
+Groups generally show varying levels of sustainability behaviors, eco-anxiety, deprivation, pro-environmental tendencies, and community efficacy compared to regional averages. 
+The table summarizes key index values for vulnerable groups compared to regional averages (highlighted in green). 
+For EU Group 1 (single low-education women), Energy-Saving Behaviour (4.82 ± 1.10) and Efficient Behaviour (4.95 ± 1.24) are close to or slightly above averages (4.71 ± 1.10 and 4.93 ± 1.17), but Eco-Anxiety (1.97 ± 0.99) is low, Relative Deprivation (3.73 ± 1.28) is elevated, Pro-Environmental Tendency (4.83 ± 1.18) is slightly above average, and Community Efficacy (3.41 ± 0.74) is below average. 
+EU Group 2 (young minority low-education) deviates most in Eco-Anxiety (2.85 ± 1.22 vs. 1.98 ± 1.00, high worry), with Energy-Saving Behaviour (3.77 ± 0.83 vs. 4.71 ± 1.10) well below average, Efficient Behaviour (4.71 ± 1.31 vs. 4.93 ± 1.17) below average, Relative Deprivation (3.96 ± 0.85 vs. 3.52 ± 1.18) elevated, Pro-Environmental Tendency (4.23 ± 1.16 vs. 4.73 ± 1.06) below average, and Community Efficacy (3.39 ± 0.71 vs. 3.52 ± 0.61) below average. 
+EU Group 3 (middle-aged care women) shows mild deviations: Eco-Anxiety (2.19 ± 1.06 vs. 1.98 ± 1.00) is elevated, Energy-Saving Behaviour (4.68 ± 1.10 vs. 4.71 ± 1.10) near average, Efficient Behaviour (4.89 ± 1.19 vs. 4.93 ± 1.17) near average, Relative Deprivation (3.66 ± 1.19 vs. 3.52 ± 1.18) slightly above average, Pro-Environmental Tendency (4.81 ± 1.01 vs. 4.73 ± 1.06) slightly above average, and Community Efficacy (3.56 ± 0.58 vs. 3.52 ± 0.61) slightly above average.
+For African groups, Africa Group 1 (low-education rural caregivers) stands out with Energy-Saving Behaviour (4.60 ± 1.30 vs. 5.21 ± 1.02) below average and Efficient Behaviour (5.20 ± 1.62 vs. 5.51 ± 1.23) below average, high Eco-Anxiety (2.90 ± 0.99 vs. 2.55 ± 0.99), Relative Deprivation (3.94 ± 1.30 vs. 3.50 ± 1.29) elevated, Pro-Environmental Tendency (4.98 ± 1.45 vs. 5.43 ± 0.84) below average, and Community Efficacy (3.51 ± 0.67 vs. 3.71 ± 0.45) below average. 
+Africa Group 2 (young marginalized) has Energy-Saving Behaviour (4.97 ± 1.12 vs. 5.21 ± 1.02) slightly below average, Efficient Behaviour (5.56 ± 1.24 vs. 5.51 ± 1.23) near average, elevated Eco-Anxiety (2.80 ± 1.04 vs. 2.55 ± 0.99), Relative Deprivation (3.62 ± 1.22 vs. 3.50 ± 1.29) slightly above average, Pro-Environmental Tendency (5.35 ± 0.92 vs. 5.43 ± 0.84) slightly below average, and Community Efficacy (3.67 ± 0.48 vs. 3.71 ± 0.45) slightly below average. 
+Africa Group 3 (large urban precarious households) shows above-average Energy-Saving Behaviour (5.36 ± 0.90 vs. 5.21 ± 1.02) and Efficient Behaviour (5.53 ± 1.18 vs. 5.51 ± 1.23), slightly lower Eco-Anxiety (2.47 ± 0.94 vs. 2.55 ± 0.99), Relative Deprivation (3.37 ± 1.32 vs. 3.50 ± 1.29) slightly below average, Pro-Environmental Tendency (5.51 ± 0.76 vs. 5.43 ± 0.84) slightly above average, and Community Efficacy (3.74 ± 0.42 vs. 3.71 ± 0.45) near average.
+Table 2: Summary of Energy Capability Index (ECI) Subdimensions
+Region
+Group
+n
+Energy Management and Environmental Choices Mean (SD)
+Energy Barriers to Daily Life Mean (SD)
+Energy Access and Safety Mean (SD)
+Health Impacts of Energy Mean (SD)
+Energy Decision-Making Mean (SD)
+Political Engagement on Energy Mean (SD)
+EU Avg
+Global North
+18465
+4.85 (1.21)
+4.19 (1.80)
+5.75 (1.12)
+4.86 (1.93)
+5.41 (1.25)
+2.40 (1.14)
+EU G1
+Single low-edu women
+481
+4.84 (1.27)
+4.40 (1.67)
+5.62 (1.22)
+5.21 (1.86)
+5.24 (1.41)
+2.10 (1.15)
+EU G2
+Young minority low-edu
+60
+4.71 (1.32)
+3.68 (1.53)
+4.76 (1.38)
+3.89 (2.00)
+4.90 (1.58)
+2.98 (1.36)
+EU G3
+Middle-aged care women
+1967
+4.82 (1.24)
+3.81 (1.74)
+5.59 (1.11)
+4.28 (1.95)
+5.31 (1.22)
+2.50 (1.22)
+Africa Avg
+Global South
+11536
+5.49 (1.26)
+2.86 (1.62)
+5.00 (1.48)
+4.07 (2.09)
+5.46 (1.46)
+2.69 (1.35)
+Africa G1
+Low-edu care rural
+150
+5.19 (1.66)
+2.94 (1.69)
+4.34 (1.82)
+3.98 (2.31)
+5.00 (1.98)
+2.89 (1.51)
+Africa G2
+Young marginalized
+2480
+5.56 (1.27)
+2.77 (1.59)
+4.98 (1.50)
+3.71 (2.11)
+5.49 (1.49)
+2.96 (1.39)
+Africa G3
+Large urban precarious
+1902
+5.51 (1.23)
+2.78 (1.55)
+4.94 (1.44)
+4.04 (2.08)
+5.52 (1.37)
+2.66 (1.32)
+Table 2: Summary of Energy Capability Index (ECI) Subdimensions
+Interpretations: 
+The table summarizes the mean values for the six subdimensions of the Energy Capability Index (ECI) for vulnerable groups compared to regional averages (highlighted in green). These subdimensions assess various aspects of energy capability: Energy Management and Environmental Choices, Energy Barriers to Daily, Energy Access and Safety, Health Impacts of Energy, Energy Decision-Making, Political Engagement on Energy.
+For EU Group 1 (single low-education women), Energy Management and Environmental Choices (4.84 ± 1.27) is close to average (4.85 ± 1.21), Energy Barriers to Daily Life (4.40 ± 1.67 vs. 4.19 ± 1.80) is above average, Energy Access and Safety (5.62 ± 1.22 vs. 5.75 ± 1.12) is slightly below average, Health Impacts of Energy (5.21 ± 1.86 vs. 4.86 ± 1.93) is less severe, Energy Decision-Making (5.24 ± 1.41 vs. 5.41 ± 1.25) is slightly below average, and Political Engagement on Energy (2.10 ± 1.15 vs. 2.40 ± 1.14) is below average. 
+EU Group 2 (young minority low-education) shows Energy Management and Environmental Choices (4.71 ± 1.32 vs. 4.85 ± 1.21) below average, Energy Barriers to Daily Life (3.68 ± 1.53 vs. 4.19 ± 1.80) below average, Energy Access and Safety (4.76 ± 1.38 vs. 5.75 ± 1.12) below average, Health Impacts of Energy (3.89 ± 2.00 vs. 4.86 ± 1.93) more severe, Energy Decision-Making (4.90 ± 1.58 vs. 5.41 ± 1.25) below average, and Political Engagement on Energy (2.98 ± 1.36 vs. 2.40 ± 1.14) above average. 
+EU Group 3 (middle-aged care women) has Energy Management and Environmental Choices (4.82 ± 1.24 vs. 4.85 ± 1.21) near average, Energy Barriers to Daily Life (3.81 ± 1.74 vs. 4.19 ± 1.80) below average, Energy Access and Safety (5.59 ± 1.11 vs. 5.75 ± 1.12) slightly below average, Health Impacts of Energy (4.28 ± 1.95 vs. 4.86 ± 1.93) more severe, Energy Decision-Making (5.31 ± 1.22 vs. 5.41 ± 1.25) near average, and Political Engagement on Energy (2.50 ± 1.22 vs. 2.40 ± 1.14) slightly above average.
+For African groups, Africa Group 1 (low-education rural caregivers) has Energy Management and Environmental Choices (5.19 ± 1.66 vs. 5.49 ± 1.26) below average, Energy Barriers to Daily Life (2.94 ± 1.69 vs. 2.86 ± 1.62) slightly above average, Energy Access and Safety (4.34 ± 1.82 vs. 5.00 ± 1.48) below average, Health Impacts of Energy (3.98 ± 2.31 vs. 4.07 ± 2.09) slightly more severe, Energy Decision-Making (5.00 ± 1.98 vs. 5.46 ± 1.46) below average, and Political Engagement on Energy (2.89 ± 1.51 vs. 2.69 ± 1.35) above average. 
+Africa Group 2 (young marginalized) shows Energy Management and Environmental Choices (5.56 ± 1.27 vs. 5.49 ± 1.26) near average, Energy Barriers to Daily Life (2.77 ± 1.59 vs. 2.86 ± 1.62) slightly below average, Energy Access and Safety (4.98 ± 1.50 vs. 5.00 ± 1.48) near average, Health Impacts of Energy (3.71 ± 2.11 vs. 4.07 ± 2.09) more severe, Energy Decision-Making (5.49 ± 1.49 vs. 5.46 ± 1.46) near average, and Political Engagement on Energy (2.96 ± 1.39 vs. 2.69 ± 1.35) above average. 
+Africa Group 3 (large urban precarious households) has Energy Management and Environmental Choices (5.51 ± 1.23 vs. 5.49 ± 1.26) near average, Energy Barriers to Daily Life (2.78 ± 1.55 vs. 2.86 ± 1.62) slightly below average, Energy Access and Safety (4.94 ± 1.44 vs. 5.00 ± 1.48) slightly below average, Health Impacts of Energy (4.04 ± 2.08 vs. 4.07 ± 2.09) near average, Energy Decision-Making (5.52 ± 1.37 vs. 5.46 ± 1.46) near average, and Political Engagement on Energy (2.66 ± 1.32 vs. 2.69 ± 1.35) slightly below average.
+Most Affected Index Means Across Groups: 
+EU Group 1 (single, low-education women) has a lower EPSEI (2.47 ± 0.99 vs. EU avg 2.88 ± 0.93), indicating reduced political agency, and a slightly lower EPI (5.57 ± 1.30 vs. 5.70 ± 1.19), reflecting moderate energy poverty. 
+EU Group 2 (young minority, low-education) shows high Eco-Anxiety (2.85 ± 1.22 vs. 1.98 ± 1.00) and the lowest EPI (4.69 ± 1.38 vs. 5.70 ± 1.19), with Energy-Saving Behavior (3.77 ± 0.83 vs. 4.71 ± 1.10) well below average. 
+EU Group 3 (middle-aged care women) has slightly elevated Eco-Anxiety (2.19 ± 1.06 vs. 1.98 ± 1.00). 
+Africa Group 1 (low-education, rural caregivers) has the lowest EPI (4.19 ± 1.97 vs. 4.90 ± 1.61) and high Eco-Anxiety (2.89 ± 0.98 vs. 2.55 ± 0.99). 
+Africa Group 2 (young marginalized) shows higher EPSEI (3.52 ± 1.01 vs. 3.36 ± 1.00), while Africa Group 3 (large urban precarious households) has above-average Energy-Saving Behavior (5.36 ± 0.90 vs. 5.21 ± 1.02).
+Additional Group Characteristics Overview: 
+EU Group 1 (age 53, 55.3% live alone, 64% in flats/apartments, 56.5% rent, ~38% in rented flats, 87.1% no RE ownership, 43.9% income difficulties). 
+EU Group 2 (age 23, 100% ethnic minorities, 36.7% in flats, 40% rent, ~16% in rented flats, 46.7% no RE ownership, 28.3% income difficulties). 
+EU Group 3 (age 40, 52.8% with partner/children, 49.4% in flats, 28.3% rent, ~14% in rented flats, 78.1% no RE ownership, 29.4% income difficulties). 
+Africa Group 1 (age 28, 65% caregivers, 8.7% in flats, 46% rent, ~4% in rented flats, 62.7% no RE ownership, 62.7% income difficulties). 
+Africa Group 2 (age 24, 55.4% single, 32.5% in flats, 46.3% rent, ~15% in rented flats, 52.5% no RE ownership, 38.9% income difficulties). 
+Africa Group 3 (5+ household members, 98.5% urban, 37% in flats, 46.5% rent, ~17% in rented flats, 62.9% no RE ownership, 50.6% income difficulties). Detailed breakdowns
+Vulnerable groups personas
+EU Countries – 
+Single individuals with low education (especially women) –
+Persona description is as follows, Maria is a single woman in her early fifties, residing in a moderately urban area in an EU country such as Poland or Italy. With only primary education or less, she is often retired or living on a pension, though some in her group engage in part-time or full-time work. Her income, primarily from wages or social transfers like pensions, feels strained, making it challenging to live comfortably. She lives alone in a modest rented flat, managing her household independently without the support of a partner or family.
+Maria’s health is fair, neither particularly good nor poor, and she lives with a chronic illness, such as joint pain or respiratory issues, that has persisted for months. While she does not consider herself to have a disability, mental health diagnoses like depression or anxiety are common among her group, though she personally focuses more on her physical well-being. She identifies with a Christian worldview, though some in her group hold no specific beliefs or identify as atheist or agnostic.
+In her flat, Maria primarily uses an electric stove for cooking meals, tea, or boiling water, and relies on central heating powered by piped natural gas to warm her home. Her lighting and overall electricity needs are met through a national grid connection, with occasional use of liquefied petroleum gas or wood for specific purposes. She does not own or co-own any renewable energy installations, such as solar panels, and depends entirely on traditional energy sources, reflecting limited access to sustainable alternatives.
+Her efforts to save energy, such as turning off appliances or managing heating, are slightly above average, showing a moderate commitment to energy conservation despite financial and educational constraints. Her capability for energy-efficient and sustainable behaviors aligns closely with the EU average, suggesting she makes reasonable efforts to adopt such practices when possible. However, environmental concerns cause her less stress than the average EU resident, as her focus remains on immediate needs like health and household expenses. Maria feels relatively disadvantaged compared to others, perceiving her situation as less favorable, and her pro-environmental tendency is moderate, showing some care for nature but not a strong inclination toward activism. Her sense of community empowerment is lower than average, reflecting limited belief in the impact of collective action.
+Maria’s group performs close to the EU average in Energy Management and Environmental Choices, indicating a reasonable ability to optimize energy use and make environmentally friendly decisions when feasible. However, they face more Energy Barriers to Daily Life than the average EU resident, suggesting that affordability and availability of energy impact their daily activities, such as studying, working, or enjoying recreational activities at home. Their Energy Access and Safety is slightly below average, meaning they experience less consistent access to reliable and safe energy supplies. Health Impacts of Energy are less severe than the EU average, indicating that energy-related issues affect their health to a lesser extent. Their Energy Decision-Making capability is slightly below average, reflecting some limitations in making informed choices about energy use. Finally, their Political Engagement on Energy is notably lower than the EU average, highlighting a significant disconnect from energy policy discussions and advocacy.
+Implications for Support Programs
+Maria’s life underscores the challenges faced by single women with low education: financial strain, limited political agency, and reliance on traditional energy sources. Support programs could address these by providing accessible education on energy efficiency and renewable energy options, tailored to low-literacy audiences. Subsidies or financing for small-scale renewable installations, like solar panels, could reduce energy poverty and improve access to sustainable energy. Community-based initiatives that foster collective action and build confidence in influencing energy policy would empower Maria and her group. Additionally, targeted health support addressing chronic illnesses, alongside financial assistance to alleviate energy cost burdens, would enhance her well-being and ability to manage daily energy barriers. Strengthening local networks could also help reduce her sense of relative deprivation and encourage pro-environmental behaviors, aligning her closer to broader EU sustainability goals.
+Young adults from minority groups with low education – 
+Persona description is as follows,
+Aisha is a young woman in her early twenties, living in a moderately urban neighborhood or small city in an EU country such as Germany or France. She identifies as a member of an ethnic, religious, or cultural minority, experiencing discrimination based on skin color, origin, religion, or language. With only primary education or less, she is typically a student or engaged in casual employment, though some in her group work full-time, are self-employed, or are unemployed. Her income, derived from wages, social transfers, or scholarships, is often insufficient, leading to financial strain. Aisha lives with her parents or siblings in a rented flat or compound house, relying on family support to navigate her circumstances.
+Her physical health is generally very good or good, but she has been diagnosed with depression or anxiety, which poses significant emotional challenges in her daily life. She does not have a chronic illness, though some in her group do, and she does not consider herself to have a disability, despite a notable portion of her peers reporting disabilities. Aisha identifies as Christian, but her group reflects diverse worldviews, including Muslim, Buddhist, Hindu, Jewish, atheist, agnostic, or no particular affiliation.
+For cooking, Aisha primarily uses an electric stove for meals, tea, or boiling water, though some in her group use piped natural gas or traditional solid fuel stoves. Her home is typically warmed by central heating, often fueled by electricity or piped natural gas, with some reliance on wood or other fuels like charcoal or biomass. For lighting, she depends on electricity from the national grid, but a significant portion of her group uses solar home systems, lanterns, or even candles, reflecting varied access to energy sources. While some in her group have access to renewable energy installations, Aisha does not own or co-own any, limiting her engagement with sustainable energy practices.
+Her efforts to save energy are notably below average, constrained by limited resources and education. Her capacity for energy-efficient and sustainable behaviors is slightly below the EU average, suggesting challenges in adopting such practices consistently. Aisha experiences significantly higher eco-anxiety than the average EU resident, with environmental degradation frequently affecting her concentration and well-being. She feels relatively deprived compared to her peers, perceiving herself as less well-off and more excluded from opportunities. Her pro-environmental tendency is lower than average, as immediate financial and personal concerns take precedence. While she has a moderate belief in her community’s strength, her sense of empowerment through collective action is slightly below the EU average.
+Aisha’s group performs slightly below the EU average in Energy Management and Environmental Choices, indicating limited ability to optimize energy use or make environmentally friendly decisions due to resource constraints. They face fewer Energy Barriers to Daily Life compared to the EU average, suggesting that energy affordability and availability impact their daily activities (e.g., studying, working, or recreation) to a lesser extent. However, their Energy Access and Safety is notably lower than average, reflecting less reliable and safe energy supplies. Health Impacts of Energy are more severe than the EU average, indicating that energy-related issues, such as affordability or local energy conditions, significantly affect their health. Their Energy Decision-Making capability is below average, showing constraints in making informed choices about energy use. Conversely, their Political Engagement on Energy is higher than the EU average, suggesting a stronger connection to energy policy discussions compared to other groups, despite their low education.
+Implications for Support Programs
+Aisha’s life highlights the vulnerabilities of young adults from minority groups with low education: financial instability, mental health challenges, high eco-anxiety, and significant energy poverty. Support programs should prioritize accessible education on energy efficiency and renewable energy, tailored to low-literacy and minority communities, to enhance Energy Management and Decision-Making capabilities. Mental health services are critical to address her anxiety and depression, which are exacerbated by environmental concerns. Subsidies for affordable renewable energy solutions, such as solar home systems, could improve Energy Access and Safety, reducing energy poverty. Community-based initiatives that leverage her group’s relatively higher Political Engagement on Energy could foster advocacy and collective action, reducing feelings of deprivation and social marginalization. These efforts would empower Aisha, alleviate her eco-anxiety, and promote sustainable practices, aligning her closer to broader EU environmental goals.
+Middle aged individuals (mostly women) with care responsibilities –
+Persona description is as follows, 
+ Elena is a woman in her early forties, living in a moderately urban area, such as a suburban neighborhood or small city, in an EU country like Portugal or Hungary. She is typically married and lives with her partner and children in an owned apartment or house. With medium to high education, often at the tertiary level, she is most often in full-time employment, relying on regular wages as her primary income source. While this provides a degree of financial stability, she occasionally struggles to manage household expenses, reflecting the demands of supporting a family.
+Her health is generally good, though some in her group report fair health. Many live with a chronic illness, such as joint pain or respiratory issues, and a significant portion experience depression or anxiety, reflecting the emotional toll of balancing work and caregiving responsibilities. Elena does not consider herself to have a disability, though some in her group do. She identifies with a Christian worldview, but her peers include atheists, agnostics, Muslims, or those with no particular affiliation.
+In her household, Elena cooks primarily with an electric stove for meals, tea, or boiling water, though some use piped natural gas or liquefied petroleum gas. Her home is warmed by central heating, typically powered by electricity or piped natural gas, with some households using wood or heat pumps. Lighting and electricity are sourced from the national grid, with a small portion of her group using solar home systems or generators. Renewable energy ownership, such as solar panels, remains uncommon, limiting engagement with sustainable energy practices.
+Compared to the broader EU population, Elena’s efforts to save energy, such as turning off appliances or managing heating, are close to average, though her busy schedule limits consistency. Her capability for energy-efficient and sustainable behaviors is slightly below average, constrained by financial pressures and time demands from caregiving. She experiences higher eco-anxiety than the average EU resident, frequently worrying about environmental degradation, which affects her concentration and daily well-being. Elena feels somewhat deprived compared to her peers, aware that she has fewer resources despite her hard work. Her pro-environmental tendency is close to the EU average, showing care for nature but not a strong drive toward activism. Her belief in community efficacy is slightly above average, indicating a moderate confidence in the potential of collective action, though she does not feel strongly empowered by it.
+Elena’s group performs close to the EU average in Energy Management and Environmental Choices, indicating a reasonable ability to optimize energy use and make environmentally friendly decisions when time and resources allow. They face fewer Energy Barriers to Daily Life than the average EU resident, suggesting that energy affordability and availability have a relatively lower impact on daily activities like studying, working, or recreation. Their Energy Access and Safety is slightly below average, reflecting occasional challenges with reliable and safe energy supplies. Health Impacts of Energy are more severe than the EU average, indicating that energy-related issues, such as affordability or local energy conditions, significantly affect their health, likely exacerbated by caregiving stress. Their Energy Decision-Making capability is close to the EU average, showing a moderate ability to make informed energy choices despite constraints. Political Engagement on Energy is slightly above average, suggesting a stronger connection to energy policy discussions compared to other groups, possibly driven by their education and caregiving responsibilities.
+Implications for Support Programs
+Elena’s life reflects the challenges faced by middle-aged women with care responsibilities: balancing work, family, mental health, and sustainability goals under financial and time constraints. Support programs should offer flexible, accessible energy-saving programs tailored to busy schedules, promoting Energy Management and Decision-Making capabilities. Affordable access to renewable energy solutions, such as solar panels, could improve Energy Access and Safety, reducing health impacts and financial strain. Mental health services are crucial to address anxiety, depression, and eco-anxiety, particularly given the severe health impacts of energy issues in this group. Community-based initiatives that build on their slightly higher Political Engagement on Energy and community efficacy could foster advocacy and collective action, reducing feelings of deprivation and enhancing participation in sustainable energy transitions. These measures would alleviate emotional and financial pressures, empowering Elena to contribute to broader EU environmental goals.
+African Countries – 
+People with low education and care responsibilities in rural areas –
+Persona description is as follows,
+ Amina is a woman in her late twenties, living in a rural village in a Sub-Saharan African country. She typically lives with her children, parents, or siblings in a rented or family-owned compound house, separate house, or hut. With only primary education or less, she engages in self-employment, casual labor, part-time farming, or studies, though some in her group are unemployed or rely on irregular income or social transfers. Despite her efforts, she frequently struggles to cover basic needs, with many in her group finding it difficult or very difficult to live on their current income.
+Her health is generally good or very good, though some in her group report fair health. A significant portion live with chronic illnesses, such as respiratory or joint issues, and many experience depression or anxiety, reflecting the emotional and physical strain of caregiving responsibilities for children or elders. A smaller portion consider themselves to have a disability. Amina identifies as Christian or Muslim, with her peers also including other religious affiliations or no particular worldview.
+Energy access in Amina’s household is limited, shaped by affordability and availability. She primarily cooks using three-stone stoves, open fires, or traditional solid fuel stoves, relying on wood, charcoal, or crop residues. Heating, where needed, uses similar traditional devices, with wood or charcoal as common fuels, though some use electricity or liquefied petroleum gas. For lighting, she often relies on solar lanterns, candles, or kerosene lamps, though some households use electricity from the national grid or solar home systems. Renewable energy ownership, such as solar panels, is uncommon, restricting engagement with sustainable energy practices.
+Compared to the broader African population, Amina’s efforts to save energy are slightly below average, constrained by limited resources and education. However, her capacity for energy-efficient and sustainable behaviors is close to average, showing some ability to adopt such practices when feasible. She experiences higher eco-anxiety than the average African resident, with environmental and climate concerns frequently impacting her well-being and concentration. Amina feels relatively deprived compared to others, perceiving her conditions as less favorable. Her pro-environmental tendency is slightly below average, reflecting a cultural connection to nature but limited scope for activism due to daily pressures. Her belief in community efficacy is slightly below average, indicating moderate confidence in collective action, constrained by resource and systemic limitations.
+Amina’s group performs slightly below the African average in Energy Management and Environmental Choices, indicating challenges in optimizing energy use or making environmentally friendly decisions due to limited access and education. They face slightly higher Energy Barriers to Daily Life, suggesting that energy affordability and availability impact daily activities like cooking, studying, or caregiving more than average. Their Energy Access and Safety is notably lower than average, reflecting less reliable and safe energy supplies, such as dependence on traditional fuels. Health Impacts of Energy are slightly more severe than the African average, indicating that energy-related issues, like exposure to smoke from solid fuels, significantly affect health. Their Energy Decision-Making capability is below average, showing constraints in making informed energy choices. Political Engagement on Energy is above average, suggesting a stronger connection to energy policy discussions, possibly driven by community needs and caregiving responsibilities.
+Implications for Support Programs
+Amina’s life underscores the challenges of rural living, low education, caregiving responsibilities, and limited energy access. Support programs should prioritize affordable clean cooking and lighting solutions, such as improved cookstoves or solar lanterns, to reduce Energy Barriers and improve Access and Safety. Rural livelihoods programs, including income-generating opportunities like farming cooperatives, could enhance financial stability and Energy Decision-Making. Community-based renewable energy initiatives, leveraging the group’s higher Political Engagement on Energy, could foster collective action and reduce deprivation. Accessible healthcare and awareness programs are critical to address chronic illnesses, mental health concerns, and eco-anxiety, mitigating severe Health Impacts of Energy. These measures would empower Amina, improve her quality of life, and align her with sustainable energy transitions in Africa.
+Young people from marginalised groups, ex ethnically – 
+Persona description is as follows,
+Zainab is a young woman in her mid-twenties, living in an urban or semi-urban area, such as a city or large town, in a Sub-Saharan African country like Nigeria or Ghana. As a member of an ethnically marginalized group, she faces discrimination based on her ethnicity, religion, or language, which limits her social capital and access to opportunities. Typically single, she lives with her parents, siblings, or in a shared household in a rented flat or compound house, reflecting her constrained financial resources. With varying levels of education, she is often in full-time paid employment or studying, relying on regular wages or other income sources like entrepreneurship, though she frequently struggles to make ends meet, only coping or finding it difficult to manage financially.
+Her health is generally very good or good, with few reporting chronic illnesses or disabilities. However, she has been diagnosed with depression or anxiety, a consequence of social exclusion, discrimination, and systemic barriers. Zainab is predominantly Christian, though her community includes Muslims, Hindus, and those with no particular religious affiliation.
+For cooking, Zainab primarily uses an electric stove or liquefied petroleum gas, powered by electricity from the national grid or generators, though affordability remains a challenge. Heating, when needed, relies on manufactured space heaters or open fires, using electricity, wood, or LPG, as access to modern heating solutions is limited. For lighting, she mainly uses electricity from the national grid, with some relying on solar home systems, lanterns, or candles due to inconsistent grid access. Renewable energy ownership, such as solar panels, is uncommon, constrained by financial barriers and limited access to government programs.
+Compared to the broader African population, Zainab’s energy-saving behavior is slightly below average, as she attempts to conserve energy but faces challenges from unreliable electricity and high costs. Her capability for energy-efficient and sustainable behaviors is close to average, benefiting from urban infrastructure but limited by affordability and availability of sustainable technologies.
+ She experiences higher eco-anxiety than the average African resident, with frequent worries about environmental degradation impacting her mental well-being. Her sense of relative deprivation is slightly above average, as she feels somewhat less well-off compared to non-marginalized peers. Her pro-environmental tendency is slightly below average, reflecting respect for nature but limited scope for activism due to social and economic pressures. Her belief in community efficacy is slightly below average, indicating moderate confidence in collective action, constrained by social fragmentation and marginalization.
+Zainab’s group performs close to the African average in Energy Management and Environmental Choices, indicating a reasonable ability to optimize energy use and make environmentally friendly decisions when resources allow. They face slightly fewer Energy Barriers to Daily Life than average, suggesting that energy affordability and availability have a relatively lower impact on daily activities like work or studying. Their Energy Access and Safety is slightly below average, reflecting challenges with reliable and safe energy supplies, such as frequent power outages. Health Impacts of Energy are more severe than the African average, indicating that energy-related issues, like exposure to traditional fuels or unreliable electricity, significantly affect health, compounded by mental health challenges. Their Energy Decision-Making capability is close to average, showing a moderate ability to make informed energy choices despite constraints. Political Engagement on Energy is above average, suggesting a stronger connection to energy policy discussions, possibly driven by urban exposure and awareness of marginalization.
+Implications for Support Programs
+Zainab’s life reflects the challenges of young, marginalized adults in urban African settings: social exclusion, mental health struggles, and limited energy access. Targeted interventions should include affordable clean energy solutions, such as subsidized solar home systems or efficient cookstoves, to improve Energy Access and Safety and reduce Health Impacts of Energy. Government programs for marginalized youth, including vocational training and entrepreneurship support, could enhance financial stability and Energy Decision-Making. Mental health support and anti-discrimination initiatives are critical to address eco-anxiety, depression, and social exclusion, reducing feelings of deprivation. Community-based programs leveraging the group’s higher Political Engagement on Energy could foster advocacy and collective action, enhancing social capital and participation in sustainable energy transitions.
+Large household in precarious urban settlements –
+Persona description is as follows,
+ Fatuma is a woman in her mid-thirties, living in a densely populated urban settlement, such as a slum or informal neighborhood, in a Sub-Saharan African city like Lagos, Nigeria, or Nairobi, Kenya. She belongs to a large household, typically with five or more members, often living with her partner and children in a rented or owned flat or compound house, reflecting the precarious nature of her living situation. With varying levels of education, Fatuma is usually employed full-time or self-employed, relying on regular wages or entrepreneurship, but her household struggles financially, often coping or finding it difficult to manage due to high energy demands and low per capita income. 
+Her health is generally good or very good, though some in her group report fair health. Few have chronic illnesses or disabilities, and she has not been diagnosed with mental health issues, though the stress of providing for a large family in a precarious setting contributes to her well-being challenges. Fatuma is predominantly Christian, with some community members identifying as Muslim or having no particular religious affiliation. About half identify as part of an ethnic minority or racialized group, facing potential discrimination.
+For cooking, Fatuma primarily uses a liquefied petroleum gas (LPG) stove or electric stove, powered by LPG or electricity from the national grid, though affordability remains a significant barrier. Heating, when needed, relies on manufactured space heaters or open fires, using electricity, LPG, or wood, constrained by inconsistent urban infrastructure. For lighting, she mainly uses electricity from the national grid, with some households relying on solar home systems, lanterns, or candles due to reliability issues. Renewable energy ownership, such as solar panels, is rare, limited by financial constraints and lack of legal security in her settlement, which hinders investments in energy systems.
+Compared to the broader African population, Fatuma’s energy-saving behavior is above average, as she actively tries to conserve energy to manage costs, though limited by high household demand and infrastructure challenges. Her capability for energy-efficient and sustainable behaviors is close to average, benefiting from urban access but constrained by affordability and limited access to modern energy technologies. She experiences slightly lower eco-anxiety than the average African resident, though environmental concerns still affect her well-being, particularly given her precarious living conditions. Her sense of relative deprivation is slightly below average, indicating a moderate perception of being less well-off compared to others in more stable urban settings. Her pro-environmental tendency is above average, reflecting a strong respect for nature, possibly heightened by awareness of environmental challenges in her settlement. Her belief in community efficacy is close to average, suggesting a balanced confidence in collective action, tempered by the instability of her settlement.
+Fatuma’s group performs close to the African average in Energy Management and Environmental Choices, indicating a reasonable ability to optimize energy use and make environmentally friendly decisions when resources allow. They face slightly fewer Energy Barriers to Daily Life than average, suggesting that energy affordability and availability have a relatively lower impact on daily activities like cooking or caregiving, despite infrastructure challenges. Their Energy Access and Safety is slightly below average, reflecting issues with reliable and safe energy supplies, such as frequent outages. Health Impacts of Energy are close to the African average, indicating that energy-related issues, like exposure to traditional fuels, have a moderate effect on health. Their Energy Decision-Making capability is close to average, showing a reasonable ability to make informed energy choices despite constraints. Political Engagement on Energy is slightly below average, suggesting limited connection to energy policy discussions, likely due to structural barriers and focus on household needs.
+Implications for Support Programs
+Fatuma’s life reflects the challenges of large households in precarious urban settlements, marked by financial strain, high energy demands, and limited infrastructure. Support programs should prioritize affordable and reliable clean energy solutions, such as subsidized LPG or solar home systems, to improve Energy Access and Safety and reduce Health Impacts of Energy. Improved urban infrastructure, including reliable electricity grids, and legal security for housing could enhance Energy Management and Decision-Making capabilities. Support for large families, such as income-generating programs or
+energy subsidies, would alleviate financial pressures and reduce deprivation. Community-based initiatives leveraging her pro-environmental tendency and community efficacy could foster collective action and advocacy, enhancing participation in sustainable energy transitions and addressing eco-anxiety through environmental education.
+Annex: Detailed Group Analyses
+The following tables provide detailed breakdowns of group characteristics for transparency and further reference and analysis. The tables include additional variables for reference and analysis and also explanation about the ECI factors in detail.
+Demographic and Socioeconomic Characteristics
+Group
+n
+Age Mean (SD)
+% Living Alone
+% in Flats/Apts
+% Renting
+% No RE Ownership
+% Income Difficulties
+% Ethnic Minority
+EU Group 1
+481
+53 (14)
+55.3% (266/481)
+64% (308/481)
+56.5% (272/481)
+87.1% (419/481)
+43.9% (211/481)
+9.8% (47/481)
+EU Group 2
+60
+23 (4)
+0% (0/60)
+36.7% (22/60)
+40% (24/60)
+46.7% (28/60)
+28.3% (17/60)
+100% (60/60)
+EU Group 3
+1967
+40 (6)
+0% (0/1967)
+49.4% (971/1967)
+28.3% (557/1967)
+78.1% (1537/1967)
+29.4% (577/1967)
+11.4% (224/1967)
+Africa Group 1
+150
+28 (8)
+0% (0/150)
+8.7% (13/150)
+46% (69/150)
+62.7% (94/150)
+62.7% (94/150)
+56.7% (85/150)
+Africa Group 2
+2480
+24 (3.07)
+0% (0/2480)
+32.5% (805/2480)
+46.3% (1147/2480)
+52.5% (1301/2480)
+38.9% (965/2480)
+100% (2480/2480)
+Africa Group 3
+1902
+34 (10)
+0% (0/1902)
+37% (704/1902)
+46.5% (884/1902)
+64.8% (1233/1902)
+50.6% (962/1902)
+42.4% (807/1902)
+Table 3: Demographic and Socioeconomic Characteristics by Group
+Health and Employment Characteristics
+Group
+n
+% Mental Health Diagnoses
+% Disabilities
+% Chronic Illnesses
+% Employed (Full/Part-Time)
+% Students
+EU Group 1
+481
+32% (154/481)
+22.7% (109/481)
+49.3% (237/481)
+49.5% (238/481)
+0% (0/481)
+EU Group 2
+60
+56.7% (34/60)
+33.3% (20/60)
+33.3% (20/60)
+36.7% (22/60)
+23.3% (14/60)
+EU Group 3
+1967
+34.7% (682/1967)
+12% (236/1967)
+35.9% (706/1967)
+57.9% (1138/1967)
+0% (0/1967)
+Africa Group 1
+150
+34% (51/150)
+18% (27/150)
+26% (39/150)
+40% (60/150)
+0% (0/150)
+Africa Group 2
+2480
+28.9% (716/2480)
+6.7% (167/2480)
+14.9% (370/2480)
+48.3% (1198/2480)
+18.9% (469/2480)
+Africa Group 3
+1902
+17.8% (338/1902)
+5% (96/1902)
+15.7% (299/1902)
+40.1% (762/1902)
+0% (0/1902)
+Table 4: Health and Employment Characteristics by Group
+Energy Capability Index Subdimensions
+The following tables provide detailed breakdowns of group characteristics and ECI subdimensions for transparency and further reference.
+The Energy Capability Index (ECI) comprises six subdimensions, each derived from survey items tested for cultural relevance and reliability. The table below summarizes each subdimension, its definition, and corresponding survey items. 
+Dimension
+Definition
+Item Formulations
+Factor 1: Energy Management and Environmental Choices
+This part measures how well people can control their energy use to save resources and protect the environment. It looks at whether they can use energy efficiently, understand energy policies, reduce waste, and choose eco-friendly options like renewable energy or green products. This reflects their ability to make choices that support sustainability and climate goals, which is important for both personal and global well-being.
+- QE1_11: Are you able to optimize and manage your energy consumption in the most efficient way possible? - QE1_12: Do you feel competent about energy policies and regulations that may impact your energy choices? - QE1_13: Are you able to avoid unnecessary waste of energy in your household? - QE1_14: Are you able to engage in environmental and climate protection? - QE1_15: Are you able to choose to use renewable energy sources (for cooking, heating, vehicle’s fuel, etc.)? - QE1_16: Are you able to choose environmentally friendly alternatives when you make purchasing decisions?
+Factor 2: Energy Barriers to Daily Life
+This part checks how much energy costs or shortages get in the way of everyday activities. It asks if a lack of affordable or available energy stops people from working, studying, feeling safe, staying connected online, or enjoying hobbies like watching TV or listening to music. These barriers can lower quality of life, so this sub-dimension highlights how energy access affects daily routines and well-being.
+- QE1_7: Does affordability or availability of energy impact your ability to study or work at home? - QE1_8: Does affordability or availability of energy impact your ability to have visitors at your home? - QE1_9: Does affordability or availability of energy impact your sense of safety and security in your home? - QE1_19: Does affordability or availability of energy impact your ability to access online and digital communication services such as websites, messaging, and phone calls? - QE1_20: Does affordability or availability of energy impact your ability to enjoy recreational activities (such as TV, radio, and music) and hobbies in your home?
+Factor 3: Energy Access and Safety
+This part measures whether people have enough energy for their homes and if it’s safe to use. It looks at affordability, availability, reliability (no power outages), and health risks from energy use, like pollution or unsafe equipment. It also checks if people can move around without fear of energy-related dangers, like electrical shocks or gas leaks. This sub-dimension is key to ensuring energy supports a safe and comfortable life.
+- QD11_1: I can financially afford the amount of energy and energy resources required to supply all areas of my household. - QD11_2: Energy and energy resources are available to me in the amounts needed to supply my household. - QD11_3: My household’s energy and energy resources supply are reliable without outages. - QD11_4: The energy use in my household does not cause any harm or risks to my health (including the sourcing of materials and energy generation). - QE1_4: Are you able to move from one place to another without fear of energy-related hazards (such as electrical shocks, gas leaks, fires caused by faulty wiring, and other similar dangers)?
+Factor 4: Health Impacts of Energy
+This part focuses on how energy problems, like high costs or poor energy services in the area, affect people’s health. It asks if struggles to afford energy or local energy issues (e.g., pollution or unreliable supply) make people feel sick or stressed. This sub-dimension is important because health is a core part of well-being, and energy access can directly influence it.
+- QE1_2: Is your health impacted by affordability or availability of your energy use? - QE1_3: Is your health impacted by the energy situation in your area?
+Factor 5: Energy Decision-Making
+This part measures how well people can understand energy issues and make choices that match their values. It looks at whether they can make informed decisions about energy use, form opinions about energy sources and policies, and choose energy options that align with their beliefs, like saving energy or supporting green energy. This reflects their ability to take control of their energy use and contribute to energy discussions.
+- QE1_5: Are you able to make informed decisions about your energy use? - QE1_6: Are you able to form an opinion about energy issues such as energy sources available and how energy is produced or distributed? - QE1_10: Are you able to make conscious choices about your energy use in line with your values?
+Factor 6: Political Engagement on Energy
+This part checks if people feel that politicians listen to them about energy concerns. It asks whether leaders stay in touch with ordinary people and care about their thoughts on energy issues, like prices or renewable energy policies. This sub-dimension shows how much people trust that their voices matter in shaping energy decisions, which is part of energy justice.
+- QA2_1: Politicians strive to keep in close touch with the people regarding energy issues. - QA2_2: Politicians care about what ordinary people think about energy issues.
+Table 5: Energy Capability Index Factors
+Conclusion
+This report advances the gEneSys project's mission to address energy marginalization by conducting a comprehensive intersectional analysis of vulnerable groups in the EU and Sub-Saharan Africa. Through rigorous methodology, including survey data from over 30,000 respondents, group formation via SPSS syntax, and persona compilation based on key indices like the Energy Capability Index (ECI) subdimensions, it identifies six marginalized groups characterized by intersecting factors such as gender, education, age, ethnicity, care responsibilities, and urbanity. The developed personas—Maria, Aisha, Elena for the EU, and Amina, Zainab, Fatuma for Sub-Saharan Africa—humanize these groups, detailing their demographics, energy use patterns, health challenges, and socio-economic vulnerabilities, while highlighting implications for support programs to enhance energy access, sustainability, and well-being.
+By providing data-driven insights into energy poverty, low political self-efficacy, and eco-anxiety, this work lays a solid foundation for policymakers and experts to craft targeted interventions, such as subsidies for renewables, education on efficiency, and community empowerment initiatives.
+This project has received funding from the European Union's Horizon Europe - Culture, creativity and inclusive society - under grant agreement no. 101094326
+

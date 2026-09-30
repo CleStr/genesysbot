@@ -1,0 +1,15 @@
+{
+  "name": "genesysbot-server",
+  "version": "1.0.0",
+  "description": "Backend proxy for gEneSysBot — holds the FhG API key server-side and forwards chat requests.",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  }
+}
