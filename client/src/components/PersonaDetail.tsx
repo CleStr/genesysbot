@@ -97,7 +97,13 @@ export default function PersonaDetail({ persona, onClose, onStartChat }: Props) 
                 meist <strong>besser</strong> – außer bei Dingen, die belasten (z. B. Alltagsbarrieren,
                 Gesundheitsfolgen). Dort bedeutet größer <strong>mehr Belastung</strong>.
               </ExplainBox>
-              <RadarChart values={persona.eci ?? []} title="Energie im Alltag" size={280} />
+              <RadarChart
+                values={persona.eci ?? []}
+                title="Energie im Alltag"
+                size={280}
+                valueLabel={persona.name}
+                averageLabel="Regionsdurchschnitt"
+              />
               <div className="w-full">
                 <IndexBars values={persona.eci ?? []} title="Im Detail verglichen" />
               </div>
@@ -204,6 +210,15 @@ function ProfileTab({ persona }: { persona: Persona }) {
           </div>
         </div>
       )}
+
+      <ExplainBox>
+        <strong>Transparenz:</strong> {persona.name} ist eine fiktive Person. Ihre Merkmale
+        (Region, Bildung, Einkommen, Energieverhalten, Werte) basieren auf echten
+        Fraunhofer-Umfragedaten (gEneSys-Studie). Alter, Name und Alltagsdetails sind
+        illustrativ. Alles, was die KI im Chat darüber hinaus erzählt – Emotionen,
+        Anekdoten, Einschätzungen – ist eine modellbasierte Schätzung des Sprachmodells
+        und kein Umfrageergebnis.
+      </ExplainBox>
     </div>
   );
 }

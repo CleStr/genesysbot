@@ -2,9 +2,11 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowLeft, Send, Sparkles, AlertCircle, Info, Users, Radar, ArrowRight } from "lucide-react";
 import type { ChatMessage, Persona } from "../types";
 import { sendChat } from "../lib/api";
+import { detectEnglishMix } from "../lib/languageCheck";
 import PersonaAvatar from "./PersonaAvatar";
 import MessageBubble, { TypingIndicator } from "./MessageBubble";
 import PersonaDetail from "./PersonaDetail";
+import HelpPanel from "./HelpPanel";
 
 interface Props {
   persona: Persona;
@@ -57,6 +59,14 @@ export default function ChatWindow({ persona, onBack, onNavigateTab }: Props) {
         createdAt: Date.now(),
       };
       setMessages((m) => [...m, botMsg]);
+      // P3 QA: lightweight client-side language-mix check (no LLM call).
+      const lang = detectEnglishMix(reply);
+      if (lang.detected) {
+        console.warn(
+          `[QA] Möglicher Sprachmix in der Antwort von ${persona.name}:`,
+          lang.markers.slice(0, 8).join(", ")
+        );
+      }
     } catch (e) {
       setError(e instanceof Error ? e.message : "Ein Fehler ist aufgetreten.");
     } finally {
@@ -95,6 +105,7 @@ export default function ChatWindow({ persona, onBack, onNavigateTab }: Props) {
         >
           <Info className="h-5 w-5" />
         </button>
+        <HelpPanel />
         <span className="hidden items-center gap-1.5 rounded-full bg-brand-50 px-2.5 py-1 text-xs font-medium text-brand-600 sm:inline-flex">
           <span className="h-1.5 w-1.5 rounded-full bg-brand-500" />
           Online

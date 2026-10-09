@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import {
   X,
   KeyRound,
-  Link2,
   Lock,
   Eye,
   EyeOff,
@@ -25,13 +25,14 @@ type TestState =
   | { kind: "idle" }
   | { kind: "testing" }
   | { kind: "ok" }
-  | { kind: "fail"; reason: string; detail?: string };
+  | { kind: "fail"; reason: string };
 
 const REASON_LABELS: Record<string, string> = {
-  "no-key": "Kein API-Key gesetzt.",
-  "placeholder-url": "Basis-URL ist noch ein Platzhalter (example.com).",
-  "upstream-error": "Die API hat mit einem Fehler geantwortet.",
-  "connection-failed": "Verbindung zur API fehlgeschlagen.",
+  "no-key": "Keine gültige Sitzung — bitte Seite neu laden.",
+  "placeholder-url": "Der FhGenie-Endpunkt ist nicht konfiguriert.",
+  "token-invalid": "Der API-Token ist ungültig oder abgelaufen.",
+  "upstream-error": "FhGenie ist derzeit nicht erreichbar.",
+  "connection-failed": "Verbindungsproblem — bitte erneut versuchen.",
   "server-error": "Server-Fehler beim Test.",
 };
 
@@ -39,7 +40,7 @@ export default function ApiConfigModal({ open, onClose, onSaved }: Props) {
   const [password, setPassword] = useState("");
   const [apiKey, setApiKey] = useState("");
   const [baseUrl, setBaseUrl] = useState("");
-  const [hasApiKey, setHasApiKey] = useState(false);
+  const [baseUrlLocked, setBaseUrlLocked] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showKey, setShowKey] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -47,7 +48,7 @@ export default function ApiConfigModal({ open, onClose, onSaved }: Props) {
   const [saved, setSaved] = useState(false);
   const [test, setTest] = useState<TestState>({ kind: "idle" });
 
-  // Load current config when the modal opens.
+  // Load current session config when the modal opens.
   useEffect(() => {
     if (!open) return;
     setError(null);
@@ -56,11 +57,10 @@ export default function ApiConfigModal({ open, onClose, onSaved }: Props) {
     getConfig()
       .then((cfg) => {
         setBaseUrl(cfg.baseUrl);
-        setHasApiKey(cfg.hasApiKey);
-        // Don't prefill the API key — leave it empty so the user knows it's masked.
+        setBaseUrlLocked(Boolean(cfg.baseUrlLocked));
         setApiKey("");
       })
-      .catch(() => setError("Konfiguration konnte nicht geladen werden."));
+      .catch(() => setError("Sitzung abgelaufen — bitte Seite neu laden."));
   }, [open]);
 
   if (!open) return null;
@@ -79,10 +79,10 @@ export default function ApiConfigModal({ open, onClose, onSaved }: Props) {
     // Only send fields the user actually changed.
     const payload: { apiKey?: string; baseUrl?: string } = {};
     if (apiKey.trim().length > 0) payload.apiKey = apiKey.trim();
-    if (baseUrl.trim().length > 0) payload.baseUrl = baseUrl.trim();
+    if (!baseUrlLocked && baseUrl.trim().length > 0) payload.baseUrl = baseUrl.trim();
 
     if (Object.keys(payload).length === 0) {
-      setError("Es gibt nichts zu speichern — ändere API-Key oder Basis-URL.");
+      setError("Es gibt nichts zu speichern — ändere den API-Token oder die Basis-URL.");
       return;
     }
 
@@ -96,7 +96,6 @@ export default function ApiConfigModal({ open, onClose, onSaved }: Props) {
     }
 
     setSaved(true);
-    setHasApiKey(Boolean(res.hasApiKey));
     setApiKey("");
     onSaved?.();
   }
@@ -109,13 +108,12 @@ export default function ApiConfigModal({ open, onClose, onSaved }: Props) {
     } else {
       setTest({
         kind: "fail",
-        reason: REASON_LABELS[res.reason ?? ""] ?? res.reason ?? "Unbekannt",
-        detail: res.detail,
+        reason: REASON_LABELS[res.reason ?? ""] ?? "Unbekannter Fehler.",
       });
     }
   }
 
-  return (
+  return createPortal(
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
       {/* Backdrop */}
       <div
@@ -133,10 +131,10 @@ export default function ApiConfigModal({ open, onClose, onSaved }: Props) {
             </div>
             <div>
               <h2 className="text-base font-semibold text-slate-900">
-                API-Konfiguration
+                Verbindungsstatus
               </h2>
               <p className="text-xs text-slate-500">
-                FhG API-Key und Endpunkt verwalten
+                Persönlichen API-Token für diese Sitzung verwalten
               </p>
             </div>
           </div>
@@ -150,28 +148,6 @@ export default function ApiConfigModal({ open, onClose, onSaved }: Props) {
 
         {/* Body */}
         <form onSubmit={handleSave} className="space-y-5 px-6 py-5">
-          {/* Current status */}
-          <div className="flex items-center gap-3 rounded-lg bg-slate-50 px-3 py-2.5 text-sm">
-            <span
-              className={`h-2.5 w-2.5 shrink-0 rounded-full ${
-                hasApiKey ? "bg-brand-500" : "bg-red-500"
-              }`}
-            />
-            <span className="text-slate-600">
-              API-Key:{" "}
-              <span className={hasApiKey ? "text-brand-700" : "text-red-700"}>
-                {hasApiKey ? "gesetzt" : "nicht gesetzt"}
-              </span>
-            </span>
-            <span className="mx-1 text-slate-300">·</span>
-            <span className="truncate text-slate-600">
-              URL:{" "}
-              <span className="font-mono text-xs text-slate-700">
-                {baseUrl || "—"}
-              </span>
-            </span>
-          </div>
-
           {/* Admin password */}
           <div>
             <label className="mb-1.5 block text-sm font-medium text-slate-700">
@@ -197,19 +173,17 @@ export default function ApiConfigModal({ open, onClose, onSaved }: Props) {
               </button>
             </div>
             <p className="mt-1 text-xs text-slate-400">
-              Nötig, um Änderungen zu speichern. Standard: FhG2026#!
+              Nötig, um Änderungen an dieser Sitzung zu speichern.
             </p>
           </div>
 
-          {/* API key */}
+          {/* API token */}
           <div>
             <label className="mb-1.5 block text-sm font-medium text-slate-700">
-              FhG API-Key{" "}
-              {hasApiKey && (
-                <span className="text-xs font-normal text-slate-400">
-                  (nur ausfüllen, wenn du ihn ändern willst)
-                </span>
-              )}
+              Persönlicher FhGenie API-Token{" "}
+              <span className="text-xs font-normal text-slate-400">
+                (nur ausfüllen, wenn du ihn für diese Sitzung ändern willst)
+              </span>
             </label>
             <div className="relative">
               <KeyRound className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
@@ -217,7 +191,7 @@ export default function ApiConfigModal({ open, onClose, onSaved }: Props) {
                 type={showKey ? "text" : "password"}
                 value={apiKey}
                 onChange={(e) => setApiKey(e.target.value)}
-                placeholder={hasApiKey ? "••••••••••••" : "API-Key eingeben"}
+                placeholder="••••••••••••"
                 className="input-field pl-10 pr-10"
                 autoComplete="off"
               />
@@ -230,28 +204,30 @@ export default function ApiConfigModal({ open, onClose, onSaved }: Props) {
                 {showKey ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
               </button>
             </div>
+            <p className="mt-1 text-xs text-slate-400">
+              Der Token gilt nur für diese Sitzung und wird nicht dauerhaft gespeichert.
+            </p>
           </div>
 
           {/* Base URL */}
           <div>
             <label className="mb-1.5 block text-sm font-medium text-slate-700">
-              FhG API Basis-URL
+              FhGenie Basis-URL
             </label>
-            <div className="relative">
-              <Link2 className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
-              <input
-                type="text"
-                value={baseUrl}
-                onChange={(e) => setBaseUrl(e.target.value)}
-                placeholder="https://api.fraunhofer.de/v1"
-                className="input-field pl-10 font-mono text-sm"
-                autoComplete="off"
-                spellCheck={false}
-              />
-            </div>
+            <input
+              type="text"
+              value={baseUrl}
+              onChange={(e) => setBaseUrl(e.target.value)}
+              placeholder="https://fhgenie.fraunhofer.de/v1"
+              disabled={baseUrlLocked}
+              className="input-field font-mono text-sm disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400"
+              autoComplete="off"
+              spellCheck={false}
+            />
             <p className="mt-1 text-xs text-slate-400">
-              OpenAI-kompatibler Endpunkt. Der Pfad <code>/chat/completions</code>{" "}
-              wird automatisch angehängt.
+              {baseUrlLocked
+                ? "In dieser Umgebung ist der Endpunkt fest konfiguriert."
+                : "OpenAI-kompatibler Endpunkt. Der Pfad /chat/completions wird automatisch angehängt."}
             </p>
           </div>
 
@@ -260,7 +236,7 @@ export default function ApiConfigModal({ open, onClose, onSaved }: Props) {
           {saved && (
             <div className="flex items-center gap-2 rounded-lg bg-brand-50 px-3 py-2 text-sm text-brand-700">
               <CheckCircle2 className="h-4 w-4 shrink-0" />
-              Konfiguration gespeichert.
+              Für diese Sitzung gespeichert.
             </div>
           )}
 
@@ -274,20 +250,13 @@ export default function ApiConfigModal({ open, onClose, onSaved }: Props) {
           {test.kind === "ok" && (
             <div className="flex items-center gap-2 rounded-lg bg-brand-50 px-3 py-2 text-sm text-brand-700">
               <CheckCircle2 className="h-4 w-4 shrink-0" />
-              Verbindung erfolgreich! Die API antwortet.
+              Verbindung erfolgreich! FhGenie antwortet.
             </div>
           )}
           {test.kind === "fail" && (
             <div className="flex items-start gap-2 rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700">
               <AlertCircle className="mt-0.5 h-4 w-4 shrink-0" />
-              <div>
-                <p>{test.reason}</p>
-                {test.detail && (
-                  <p className="mt-0.5 font-mono text-xs text-red-500">
-                    {test.detail}
-                  </p>
-                )}
-              </div>
+              <p>{test.reason}</p>
             </div>
           )}
 
@@ -326,7 +295,8 @@ export default function ApiConfigModal({ open, onClose, onSaved }: Props) {
           </div>
         </form>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
 

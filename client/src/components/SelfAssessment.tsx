@@ -56,13 +56,29 @@ const QUESTIONS: Question[] = [
     ],
   },
   {
-    id: "energySecurity",
+    id: "energyReliability",
     prompt: "Wie zuverlässig ist deine Energieversorgung (Strom, Kochen, Heizen)?",
-    hint: "Denk an Stromausfälle, teure Rechnungen oder fehlenden Zugang.",
+    hint: "Denk an Stromausfälle oder unterbrochene Versorgung.",
     options: [
-      { label: "Oft unzuverlässig oder teuer", value: "low" },
-      { label: "Mal gut, mal schwierig", value: "moderate" },
-      { label: "Zuverlässig und erschwinglich", value: "high" },
+      { label: "Sehr zuverlässig", value: "5" },
+      { label: "Eher zuverlässig", value: "4" },
+      { label: "Teils, teils", value: "3" },
+      { label: "Eher unzuverlässig", value: "2" },
+      { label: "Sehr unzuverlässig", value: "1" },
+      { label: "Keine Angabe", value: "na" },
+    ],
+  },
+  {
+    id: "energyAffordability",
+    prompt: "Wie stark belasten dich die Kosten für Energie?",
+    hint: "Z. B. Stromrechnung, Brennstoffe, Kohle oder Gas.",
+    options: [
+      { label: "Überhaupt nicht", value: "1" },
+      { label: "Wenig", value: "2" },
+      { label: "Mittel", value: "3" },
+      { label: "Stark", value: "4" },
+      { label: "Sehr stark", value: "5" },
+      { label: "Keine Angabe", value: "na" },
     ],
   },
   {
@@ -144,7 +160,9 @@ const FEATURE_LABELS: Record<string, string> = {
   region: "Region",
   education: "Bildung",
   income: "Einkommen",
-  energySecurity: "Energiezugang",
+  energySecurity: "Energie: Zuverlässigkeit",
+  energyReliability: "Energie: Zuverlässigkeit",
+  energyAffordability: "Energie: Bezahlbarkeit",
   ecoAnxiety: "Eco-Angst",
   politicalEfficacy: "Politisches Vertrauen",
   healthChallenges: "Gesundheit",
@@ -152,6 +170,41 @@ const FEATURE_LABELS: Record<string, string> = {
   energySaving: "Energiesparen",
   relativeDeprivation: "Benachteiligung",
 };
+
+/* ── Transparentes Mapping der Energie-Split-Fragen (P4) ────────────────
+ *
+ * Die beiden neuen Fragen erfassen getrennt, was die alte Frage
+ * "energySecurity" vermischt hat: Zuverlässigkeit der Versorgung (A) und
+ * Belastung durch Kosten (B). Der Persona-Abgleich (matchPersona) nutzt
+ * die Original-Kategorien low|moderate|high der Studiendaten. Wir
+ * rekodieren daher NICHT stillschweigend die Original-Daten, sondern
+ * leiten aus den beiden Antworten eine der drei Kategorien ab:
+ *
+ *   reliability (1–5) und affordability-Belastung (1–5, höher = stärker
+ *   belastet) werden gemittelt und invertiert (hoher Wert = gute
+ *   Versorgung):
+ *     ≥ 3.5  → high   (zuverlässig und erschwinglich)
+ *     2.5–3.5 → moderate
+ *     < 2.5  → low    (unzuverlässig oder stark kostenbelastet)
+ *
+ * "Keine Angabe" fließt nicht in den Mittelwert ein; fehlt eine Angabe,
+ * gilt die Kategorie als moderate (neutraler Mittelpunkt).
+ */
+export function deriveEnergySecurity(answers: Record<string, string>): "low" | "moderate" | "high" {
+  const rel = answers.energyReliability;
+  const aff = answers.energyAffordability;
+  const relNum = rel && rel !== "na" ? Number(rel) : NaN;
+  // affordability: 1 = überhaupt nicht belastet (gut) … 5 = sehr stark belastet (schlecht)
+  const affNum = aff && aff !== "na" ? Number(aff) : NaN;
+  const parts: number[] = [];
+  if (!Number.isNaN(relNum)) parts.push(relNum);
+  if (!Number.isNaN(affNum)) parts.push(6 - affNum); // invertieren: hohe Belastung → schlechter
+  if (parts.length === 0) return "moderate";
+  const score = parts.reduce((a, b) => a + b, 0) / parts.length;
+  if (score >= 3.5) return "high";
+  if (score >= 2.5) return "moderate";
+  return "low";
+}
 
 interface FeatureMatch {
   /** Matching sociodemographic features (0–3) */
@@ -199,7 +252,7 @@ function answersToValues(answers: Record<string, string>): PersonaValues {
     region: answers.region as "north" | "south",
     education: answers.education as "low" | "medium" | "high",
     income: answers.income as "struggling" | "coping" | "comfortable",
-    energySecurity: answers.energySecurity as "low" | "moderate" | "high",
+    energySecurity: deriveEnergySecurity(answers),
     ecoAnxiety: answers.ecoAnxiety as "low" | "moderate" | "high",
     politicalEfficacy: answers.politicalEfficacy as "low" | "moderate" | "high",
     healthChallenges: answers.healthChallenges as "few" | "moderate" | "significant",
@@ -552,9 +605,11 @@ export default function SelfAssessment({ onPick }: Props) {
         {/* Method note */}
         <div className="mb-6 rounded-lg bg-brand-50 px-4 py-3 text-sm text-slate-600 ring-1 ring-brand-100">
           <strong className="text-brand-700">Grundlage:</strong>{" "}
-          Vergleich deiner 10 Antworten mit den Merkmalen jeder Person aus der
-          gEneSys-Studie (n=18.465 in Europa, n=4.620 in Sub-Sahara-Afrika).
-          Jede Übereinstimmung zählt als ein Merkmal.
+          Vergleich deiner 10 Merkmale mit den Merkmalen jeder Person aus der
+          gEneSys-Studie (n=18.465 in Europa, n=11.536 in Sub-Sahara-Afrika).
+          Jede Übereinstimmung zählt als ein Merkmal. Für den Vergleich wird
+          deine Energie-Antwort (Zuverlässigkeit und Bezahlbarkeit) transparent
+          auf die drei Studiengruppen (niedrig/mittel/hoch) abgebildet.
         </div>
 
         {/* Restart */}

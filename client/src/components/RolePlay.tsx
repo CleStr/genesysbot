@@ -24,6 +24,7 @@ import type { Role, Scenario, PersonaScore, GameResult } from "../types/roleplay
 import { personas } from "../data/personas";
 import { ROLES, getScenariosForRole } from "../data/roleplay";
 import { sendRoleChat, evaluateConversation } from "../lib/api";
+import { detectEnglishMix } from "../lib/languageCheck";
 import PersonaAvatar from "./PersonaAvatar";
 import MessageBubble, { TypingIndicator } from "./MessageBubble";
 
@@ -371,6 +372,14 @@ export default function RolePlay({ onPick }: Props) {
               content: reply,
               createdAt: Date.now(),
             };
+            // P3 QA: lightweight client-side language-mix check (no LLM call).
+            const lang = detectEnglishMix(reply);
+            if (lang.detected) {
+              console.warn(
+                `[QA] Möglicher Sprachmix in der Rollenspiel-Antwort von ${activeConv.persona.name}:`,
+                lang.markers.slice(0, 8).join(", ")
+              );
+            }
             setConversations((prev) =>
               prev.map((c) =>
                 c.persona.id === activeConv.persona.id

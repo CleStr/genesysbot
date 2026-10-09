@@ -7,13 +7,23 @@ interface Props {
   title?: string;
   /** Size in px (width = height). */
   size?: number;
+  /** Label for the value series (e.g. the persona's name). */
+  valueLabel?: string;
+  /** Label for the average series. */
+  averageLabel?: string;
 }
 
 /**
  * Animated SVG radar chart that compares a persona's energy indices
  * against the regional average. Pure SVG, no external chart library.
  */
-export default function RadarChart({ values, title, size = 260 }: Props) {
+export default function RadarChart({
+  values,
+  title,
+  size = 260,
+  valueLabel = "Werte",
+  averageLabel = "Regionsdurchschnitt",
+}: Props) {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -123,12 +133,15 @@ export default function RadarChart({ values, title, size = 260 }: Props) {
         ))}
       </svg>
 
-      <div className="mt-2 flex items-center gap-4 text-xs text-slate-500">
+      {/* Legend — Farben entsprechen exakt den Polygonen oben */}
+      <div className="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1 text-xs text-slate-600">
         <span className="inline-flex items-center gap-1.5">
-          <span className="h-2.5 w-2.5 rounded-full bg-brand-500" /> Du
+          <span className="h-2.5 w-2.5 rounded-full bg-[#3366ff]" aria-hidden="true" />
+          {valueLabel}
         </span>
         <span className="inline-flex items-center gap-1.5">
-          <span className="h-2.5 w-2.5 rounded-full bg-slate-400" /> Regionsdurchschnitt
+          <span className="h-2.5 w-2.5 rounded-full bg-[#94a3b8]" aria-hidden="true" />
+          {averageLabel}
         </span>
       </div>
     </div>

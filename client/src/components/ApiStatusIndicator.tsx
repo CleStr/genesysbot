@@ -1,9 +1,23 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Settings2, Loader2 } from "lucide-react";
-import { getConfig, testConnection } from "../lib/api";
+import { checkHealth, getConfig } from "../lib/api";
 import ApiConfigModal from "./ApiConfigModal";
 
-type Status = "checking" | "ok" | "no-key" | "placeholder" | "error" | "offline";
+/**
+ * Status-Anzeige (P1):
+ *  - Unterscheidet: Backend erreichbar / Sitzung gültig / FhGenie-Endpunkt.
+ *  - Kein automatisches Polling mit echten LLM-Anfragen mehr (Kosten!);
+ *    der Backend-Health wird günstig alle 60 s geprüft, der FhGenie-Test
+ *    nur auf ausdrücklichen Klick ("Verbindung testen").
+ *  - Ein einzelner transienter Fehler schaltet nicht dauerhaft auf "offline".
+ */
+
+type Status =
+  | "checking"
+  | "ok"
+  | "session-invalid"
+  | "backend-offline"
+  | "transient";
 
 const STATUS_META: Record<
   Status,
@@ -12,83 +26,77 @@ const STATUS_META: Record<
   checking: {
     color: "text-slate-500 hover:bg-slate-100",
     ring: "ring-slate-200",
-    label: "Prüfe…",
+    label: "Verbindung wird geprüft",
     dot: "bg-slate-400",
   },
   ok: {
     color: "text-brand-700 hover:bg-brand-50",
     ring: "ring-brand-200",
-    label: "API aktiv",
+    label: "Verbindung verfügbar",
     dot: "bg-brand-500",
   },
-  "no-key": {
-    color: "text-red-700 hover:bg-red-50",
-    ring: "ring-red-200",
-    label: "Kein API-Key",
-    dot: "bg-red-500",
+  "session-invalid": {
+    color: "text-amber-700 hover:bg-amber-50",
+    ring: "ring-amber-200",
+    label: "Sitzung abgelaufen",
+    dot: "bg-amber-500",
   },
-  placeholder: {
-    color: "text-red-700 hover:bg-red-50",
-    ring: "ring-red-200",
-    label: "API-URL fehlt",
-    dot: "bg-red-500",
-  },
-  error: {
-    color: "text-red-700 hover:bg-red-50",
-    ring: "ring-red-200",
-    label: "API nicht erreichbar",
-    dot: "bg-red-500",
-  },
-  offline: {
+  "backend-offline": {
     color: "text-red-700 hover:bg-red-50",
     ring: "ring-red-200",
     label: "Server offline",
     dot: "bg-red-500",
   },
+  transient: {
+    color: "text-amber-700 hover:bg-amber-50",
+    ring: "ring-amber-200",
+    label: "Verbindungsproblem – erneut versuchen",
+    dot: "bg-amber-500",
+  },
 };
+
+const HEALTH_INTERVAL_MS = 60000;
+const TRANSIENT_THRESHOLD = 2; // erst nach 2 aufeinanderfolgenden Fehlern "offline"
 
 export default function ApiStatusIndicator() {
   const [status, setStatus] = useState<Status>("checking");
   const [modalOpen, setModalOpen] = useState(false);
-  const refreshTimer = useRef<ReturnType<typeof setInterval> | null>(null);
+  const failCount = useRef(0);
+  const mounted = useRef(true);
 
   const refresh = useCallback(async () => {
     try {
-      const cfg = await getConfig();
-      if (!cfg.hasApiKey) {
-        setStatus("no-key");
-        return;
-      }
-      if (cfg.baseUrlIsPlaceholder) {
-        setStatus("placeholder");
-        return;
-      }
-      // Config looks good — do a quick connection test.
-      const test = await testConnection();
-      if (test.ok) {
+      await checkHealth();
+      if (!mounted.current) return;
+      failCount.current = 0;
+      // Sitzung (Cookie) ist vorhanden, solange die App nicht neu geladen wurde.
+      try {
+        await getConfig();
+        if (!mounted.current) return;
         setStatus("ok");
-      } else if (test.reason === "no-key") {
-        setStatus("no-key");
-      } else if (test.reason === "placeholder-url") {
-        setStatus("placeholder");
-      } else {
-        setStatus("error");
+      } catch (cfgErr) {
+        if (!mounted.current) return;
+        const expired = (cfgErr as { sessionExpired?: boolean }).sessionExpired;
+        setStatus(expired ? "session-invalid" : "transient");
       }
     } catch {
-      setStatus("offline");
+      if (!mounted.current) return;
+      failCount.current += 1;
+      // Erst wiederholte Fehlschläge deuten auf einen echten Serverausfall.
+      setStatus(failCount.current >= TRANSIENT_THRESHOLD ? "backend-offline" : "transient");
     }
   }, []);
 
-  // Check on mount and periodically.
   useEffect(() => {
+    mounted.current = true;
     refresh();
-    refreshTimer.current = setInterval(refresh, 30000); // every 30s
+    const timer = setInterval(refresh, HEALTH_INTERVAL_MS);
     return () => {
-      if (refreshTimer.current) clearInterval(refreshTimer.current);
+      mounted.current = false;
+      clearInterval(timer);
     };
   }, [refresh]);
 
-  // Re-check immediately after the config modal closes.
   const handleModalClose = () => {
     setModalOpen(false);
     setStatus("checking");

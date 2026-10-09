@@ -9,6 +9,7 @@ import RolePlay from "../components/RolePlay";
 import ApiStatusIndicator from "../components/ApiStatusIndicator";
 import BrandHeader from "../components/BrandHeader";
 import FundingFooter from "../components/FundingFooter";
+import HelpPanel from "../components/HelpPanel";
 
 type Tab = "chat" | "compare" | "selftest" | "roles";
 
@@ -65,7 +66,8 @@ export default function ChatPage() {
             icon={<Gamepad2 className="h-4 w-4" />}
             label="Rollen-Spiel"
           />
-          <div className="ml-auto py-2">
+          <div className="ml-auto flex items-center gap-1 py-2">
+            <HelpPanel />
             <ApiStatusIndicator />
           </div>
         </div>

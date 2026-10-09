@@ -34,14 +34,14 @@ export default function SetupScreen({ onDone }: Props) {
     e.preventDefault();
     setError(null);
     if (apiKey.trim().length < 8) {
-      setError("Bitte einen gültigen API-Key eingeben (mindestens 8 Zeichen).");
+      setError("Bitte einen gültigen API-Token eingeben (mindestens 8 Zeichen).");
       return;
     }
     setLoading(true);
     const res = await submitSetup(password, apiKey.trim());
     setLoading(false);
     if (!res.ok) {
-      setError(res.error ?? "Setup fehlgeschlagen.");
+      setError(res.error ?? "Anmeldung fehlgeschlagen.");
       return;
     }
     onDone();
@@ -74,7 +74,7 @@ export default function SetupScreen({ onDone }: Props) {
           <div className="mb-6 flex items-center justify-center gap-2 text-xs">
             <StepDot active={step === "password"} done={step === "apiKey"} label="Passwort" />
             <div className={`h-px w-8 ${step === "apiKey" ? "bg-brand-500" : "bg-white/20"}`} />
-            <StepDot active={step === "apiKey"} done={false} label="API-Key" />
+            <StepDot active={step === "apiKey"} done={false} label="API-Token" />
           </div>
 
           {step === "password" ? (
@@ -103,7 +103,9 @@ export default function SetupScreen({ onDone }: Props) {
                   </button>
                 </div>
                 <p className="mt-2 text-xs leading-5 text-slate-400">
-                  Admin-Passwort in Render hinterlegt. Den FhG API-Key gibst du im nächsten Schritt ein.
+                  Bitte gib das Admin-Passwort ein. Danach benötigst du deinen
+                  persönlichen FhGenie API-Token — er wird bei jedem Besuch neu
+                  abgefragt und nur für diese Sitzung verwendet.
                 </p>
               </div>
 
@@ -117,12 +119,12 @@ export default function SetupScreen({ onDone }: Props) {
             <form onSubmit={handleApiKey} className="space-y-4">
               <div className="flex items-center gap-2 rounded-lg bg-brand-500/10 px-3 py-2 text-xs text-brand-200">
                 <ShieldCheck className="h-4 w-4 shrink-0" />
-                Passwort bestätigt — jetzt API-Key eingeben.
+                Passwort bestätigt — jetzt deinen persönlichen API-Token eingeben.
               </div>
 
               <div>
                 <label className="mb-1.5 block text-sm font-medium text-slate-200">
-                  FhG API-Key
+                  Persönlicher FhGenie API-Token
                 </label>
                 <div className="relative">
                   <KeyRound className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
@@ -130,7 +132,7 @@ export default function SetupScreen({ onDone }: Props) {
                     type={showKey ? "text" : "password"}
                     value={apiKey}
                     onChange={(e) => setApiKey(e.target.value)}
-                    placeholder="API-Key eingeben"
+                    placeholder="Persönlichen Token eingeben"
                     autoFocus
                     className="w-full rounded-xl border border-white/10 bg-white/5 py-3 pl-10 pr-10 text-sm text-white placeholder-slate-500 transition-colors focus:border-brand-500 focus:outline-none focus:ring-2 focus:ring-brand-500/30"
                   />
@@ -144,7 +146,9 @@ export default function SetupScreen({ onDone }: Props) {
                   </button>
                 </div>
                 <p className="mt-1.5 text-xs text-slate-500">
-                  Der Key wird sicher im Backend gespeichert und nie an den Browser gesendet.
+                  Der Token wird nur für diese Sitzung im Arbeitsspeicher des
+                  Servers gehalten — nicht dauerhaft gespeichert und nie an den
+                  Browser gesendet. Beim Neuladen der Seite wird er erneut abgefragt.
                 </p>
               </div>
 
@@ -162,7 +166,7 @@ export default function SetupScreen({ onDone }: Props) {
                   Zurück
                 </button>
                 <button type="submit" disabled={loading} className="btn-primary flex-1">
-                  {loading ? "Speichern…" : <>Speichern & starten <ArrowRight className="h-4 w-4" /></>}
+                  {loading ? "Verbinden…" : <>Sitzung starten <ArrowRight className="h-4 w-4" /></>}
                 </button>
               </div>
             </form>
