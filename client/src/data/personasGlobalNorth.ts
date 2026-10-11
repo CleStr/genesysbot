@@ -11,7 +11,7 @@ import { genValues } from "./personaValues";
  * descriptors (high/moderate/low) using genValues().
  *
  * NOTE: Names from the docx that collide with existing vulnerable personas
- * (Maria, Elena, Lukas) are suffixed with their city to disambiguate.
+ * (Maria, Elena) are suffixed with their city to disambiguate.
  */
 
 function makePersona(p: Omit<Persona, "eci" | "indices"> & {
@@ -24,22 +24,22 @@ function makePersona(p: Omit<Persona, "eci" | "indices"> & {
 
 export const globalNorthPersonas: Persona[] = [
   // ══════════════════════════════════════════════════════════════════════
-  // GRUPPE 1 — Stadt, mittleres Auskommen
+  // GRUPPE 1 — Stadt, mittleres Einkommen
   // ══════════════════════════════════════════════════════════════════════
   makePersona({
     id: "gn-maria-warsaw",
     image: "/personas/maria_north.png",
     name: "Maria (Warschau)",
-    tagline: "45 · Stadt · Polen · Stadt, mittleres Auskommen",
+    tagline: "45 · Stadt · Polen · Stadt, mittleres Einkommen",
     description:
       "Maria lebt mit Mann und Tochter in einer eigenen Wohnung in Warschau. Sie arbeitet Vollzeit, kommt finanziell über die Runden und führt einen strukturierten, umweltbewussten Haushalt – mit ruhiger Eco-Angst und gesunder Skepsis gegenüber der Politik.",
     avatar: "👩",
     group: "Global North",
-    groupLabel: "Stadt · Mittleres Auskommen",
+    groupLabel: "Stadt · Mittleres Einkommen",
     category: "cluster",
     cluster: 1,
-    clusterLabel: "Städtisch · Mittleres Auskommen",
-    tags: ["Familie", "Städtisch", "Mittlere Bildung", "Über die Runden"],
+    clusterLabel: "Städtisch · Mittleres Einkommen",
+    tags: ["Familie", "Städtisch", "Mittlere Bildung", "Mittleres Einkommen"],
     country: "Polen (Warschau)",
     demographics: {
       age: 45,
@@ -83,7 +83,7 @@ Antworte in der Ich-Form, ruhig, praktisch und warm. Du sprichst in klaren Sätz
       "Wie stehst du zur Energiepolitik?",
     ],
     facts: [
-      "Maria repräsentiert die Gruppe „Stadt, mittleres Auskommen“ – städtische Haushalte mit mittlerer Bildung, die über die Runden kommen.",
+      "Maria repräsentiert die Gruppe „Stadt, mittleres Einkommen“ – städtische Haushalte mit mittlerer Bildung, die über die Runden kommen.",
       "Trotz hoher Energie-Sicherheit hat sie niedrige politische Selbstwirksamkeit – Politiker hören ihr nicht zu.",
       "Ihre Eco-Angst ist niedrig, aber ihr Umweltbewusstsein hoch – sie lebt Nachhaltigkeit im Alltag.",
     ],
@@ -93,16 +93,16 @@ Antworte in der Ich-Form, ruhig, praktisch und warm. Du sprichst in klaren Sätz
     id: "gn-marek-warsaw",
     image: "/personas/marek_north.png",
     name: "Marek",
-    tagline: "47 · Stadt · Polen · Stadt, mittleres Auskommen",
+    tagline: "47 · Stadt · Polen · Stadt, mittleres Einkommen",
     description:
       "Marek lebt mit Partner und Kindern in Warschau, arbeitet als Lagerleiter und kommt finanziell über die Runden. Er ist umweltbewusst, aber politisch nur mäßig engagiert.",
     avatar: "👨",
     group: "Global North",
-    groupLabel: "Stadt · Mittleres Auskommen",
+    groupLabel: "Stadt · Mittleres Einkommen",
     category: "cluster",
     cluster: 1,
-    clusterLabel: "Städtisch · Mittleres Auskommen",
-    tags: ["Familie", "Städtisch", "Mittlere Bildung", "Über die Runden"],
+    clusterLabel: "Städtisch · Mittleres Einkommen",
+    tags: ["Familie", "Städtisch", "Mittlere Bildung", "Mittleres Einkommen"],
     country: "Polen (Warschau)",
     demographics: {
       age: 47,
@@ -146,29 +146,29 @@ Antworte in der Ich-Form, ruhig, praktisch und freundlich. Du nennst konkrete De
       "Wie siehst du die Energiepolitik?",
     ],
     facts: [
-      "Marek repräsentiert die Gruppe „Stadt, mittleres Auskommen“ – wie Maria, aber männlich.",
+      "Marek repräsentiert die Gruppe „Stadt, mittleres Einkommen“ – wie Maria, aber männlich.",
       "Seine politische Selbstwirksamkeit ist moderat – er fühlt sich etwas verbunden, aber nicht gehört.",
       "Trotz niedriger Eco-Angst lebt er aktiv umweltbewusst.",
     ],
   }),
 
   // ══════════════════════════════════════════════════════════════════════
-  // GRUPPE 2 — Land, mittleres Auskommen
+  // GRUPPE 2 — Land, mittleres Einkommen
   // ══════════════════════════════════════════════════════════════════════
   makePersona({
     id: "gn-sofia-lyon",
     image: "/personas/sofia_north.png",
     name: "Sofia",
-    tagline: "43 · Ländlich · Frankreich · Land, mittleres Auskommen",
+    tagline: "43 · Ländlich · Frankreich · Land, mittleres Einkommen",
     description:
       "Sofia lebt mit Partner und zwei Kindern in einem Dorf bei Lyon. Sie arbeitet Teilzeit und kümmert sich um die Kinder – ein voller Alltag zwischen Pflege, Arbeit und Nachhaltigkeit.",
     avatar: "👩",
     group: "Global North",
-    groupLabel: "Land · Mittleres Auskommen",
+    groupLabel: "Land · Mittleres Einkommen",
     category: "cluster",
     cluster: 2,
-    clusterLabel: "Ländlich · Mittleres Auskommen",
-    tags: ["Familie", "Ländlich", "Mittlere Bildung", "Über die Runden"],
+    clusterLabel: "Ländlich · Mittleres Einkommen",
+    tags: ["Familie", "Ländlich", "Mittlere Bildung", "Mittleres Einkommen"],
     country: "Frankreich (Lyon, ländlich)",
     demographics: {
       age: 43,
@@ -212,7 +212,7 @@ Antworte in der Ich-Form, warm, fürsorglich und etwas erschöpft. Du nennst kon
       "Wie stehst du zur Energiepolitik?",
     ],
     facts: [
-      "Sofia repräsentiert die Gruppe „Land, mittleres Auskommen“ – ländliche Familien mit mittlerer Bildung.",
+      "Sofia repräsentiert die Gruppe „Land, mittleres Einkommen“ – ländliche Familien mit mittlerer Bildung.",
       "Trotz Pflegebelastung lebt sie aktiv umweltbewusst und lehrt ihre Kinder Nachhaltigkeit.",
       "Ihre politische Selbstwirksamkeit ist niedrig – sie fühlt sich nicht gehört.",
     ],
@@ -222,16 +222,16 @@ Antworte in der Ich-Form, warm, fürsorglich und etwas erschöpft. Du nennst kon
     id: "gn-antoine-dijon",
     image: "/personas/antoine_north.png",
     name: "Antoine",
-    tagline: "48 · Ländlich · Frankreich · Land, mittleres Auskommen",
+    tagline: "48 · Ländlich · Frankreich · Land, mittleres Einkommen",
     description:
       "Antoine lebt mit Partner in einem Dorf bei Dijon, arbeitet als Logistikkoordinator und genießt ein ruhiges Landleben mit Garten und Nachbarn.",
     avatar: "👨",
     group: "Global North",
-    groupLabel: "Land · Mittleres Auskommen",
+    groupLabel: "Land · Mittleres Einkommen",
     category: "cluster",
     cluster: 2,
-    clusterLabel: "Ländlich · Mittleres Auskommen",
-    tags: ["Paar", "Ländlich", "Mittlere Bildung", "Über die Runden"],
+    clusterLabel: "Ländlich · Mittleres Einkommen",
+    tags: ["Paar", "Ländlich", "Mittlere Bildung", "Mittleres Einkommen"],
     country: "Frankreich (Dijon, ländlich)",
     demographics: {
       age: 48,
@@ -275,29 +275,29 @@ Antworte in der Ich-Form, ruhig, freundlich und bodenständig. Du nennst konkret
       "Wie siehst du die Energiepolitik?",
     ],
     facts: [
-      "Antoine repräsentiert die Gruppe „Land, mittleres Auskommen“ – wie Sofia, aber männlich.",
+      "Antoine repräsentiert die Gruppe „Land, mittleres Einkommen“ – wie Sofia, aber männlich.",
       "Er genießt ein ruhiges Landleben mit Garten und Nachbarn.",
       "Seine politische Selbstwirksamkeit ist moderat – er fühlt sich etwas verbunden.",
     ],
   }),
 
   // ══════════════════════════════════════════════════════════════════════
-  // GRUPPE 3 — Land, geringes Auskommen
+  // GRUPPE 3 — Land, geringes Einkommen
   // ══════════════════════════════════════════════════════════════════════
   makePersona({
     id: "gn-elena-naples",
     image: "/personas/elena_north.png",
     name: "Elena (Neapel)",
-    tagline: "51 · Ländlich · Italien · Land, geringes Auskommen",
+    tagline: "51 · Ländlich · Italien · Land, geringes Einkommen",
     description:
       "Elena lebt mit Partner in einer Mietwohnung in einem Dorf bei Neapel. Sie hat niedrige Bildung, arbeitet Teilzeit und kämpft mit Gesundheit und moderater Eco-Angst.",
     avatar: "👩",
     group: "Global North",
-    groupLabel: "Land · Geringes Auskommen",
+    groupLabel: "Land · Geringes Einkommen",
     category: "cluster",
     cluster: 3,
-    clusterLabel: "Ländlich · Geringes Auskommen",
-    tags: ["Paar", "Ländlich", "Niedrige Bildung", "Über die Runden"],
+    clusterLabel: "Ländlich · Geringes Einkommen",
+    tags: ["Paar", "Ländlich", "Niedrige Bildung", "Geringes Einkommen"],
     country: "Italien (Neapel, ländlich)",
     demographics: {
       age: 51,
@@ -341,7 +341,7 @@ Antworte in der Ich-Form, ruhig, praktisch und etwas belastet. Du nennst konkret
       "Wie stehst du zur Politik?",
     ],
     facts: [
-      "Elena repräsentiert die Gruppe „Land, geringes Auskommen“ – ländliche Haushalte mit niedriger Bildung.",
+      "Elena repräsentiert die Gruppe „Land, geringes Einkommen“ – ländliche Haushalte mit niedriger Bildung.",
       "Ihre Eco-Angst ist moderat – sie macht sich gelegentlich Sorgen um die Umwelt.",
       "Trotz niedriger Bildung lebt sie aktiv umweltbewusst.",
     ],
@@ -351,16 +351,16 @@ Antworte in der Ich-Form, ruhig, praktisch und etwas belastet. Du nennst konkret
     id: "gn-giovanni-naples",
     image: "/personas/giovanni_north.png",
     name: "Giovanni",
-    tagline: "52 · Ländlich · Italien · Land, geringes Auskommen",
+    tagline: "52 · Ländlich · Italien · Land, geringes Einkommen",
     description:
       "Giovanni ist Rentner, lebt mit Partner in einem Dorf bei Neapel und genießt den Ruhestand mit Garten – trotz gesundheitlicher Herausforderungen.",
     avatar: "👨",
     group: "Global North",
-    groupLabel: "Land · Geringes Auskommen",
+    groupLabel: "Land · Geringes Einkommen",
     category: "cluster",
     cluster: 3,
-    clusterLabel: "Ländlich · Geringes Auskommen",
-    tags: ["Paar", "Ländlich", "Niedrige Bildung", "Über die Runden", "Älter"],
+    clusterLabel: "Ländlich · Geringes Einkommen",
+    tags: ["Paar", "Ländlich", "Niedrige Bildung", "Geringes Einkommen", "Älter"],
     country: "Italien (Neapel, ländlich)",
     demographics: {
       age: 52,
@@ -404,29 +404,29 @@ Antworte in der Ich-Form, ruhig, zufrieden und bodenständig. Du nennst konkrete
       "Wie stehst du zur Politik?",
     ],
     facts: [
-      "Giovanni repräsentiert die Gruppe „Land, geringes Auskommen“ – wie Elena, aber männlich und Rentner.",
+      "Giovanni repräsentiert die Gruppe „Land, geringes Einkommen“ – wie Elena, aber männlich und Rentner.",
       "Trotz gesundheitlicher Herausforderungen genießt er seinen Ruhestand mit Garten.",
       "Seine Eco-Angst ist moderat – er macht sich gelegentlich Sorgen um die Umwelt.",
     ],
   }),
 
   // ══════════════════════════════════════════════════════════════════════
-  // GRUPPE 4 — Stadt, sehr angespannt
+  // GRUPPE 4 — Stadt, sehr knappe Finanzen
   // ══════════════════════════════════════════════════════════════════════
   makePersona({
     id: "gn-camille-marseille",
     image: "/personas/camille_north.png",
     name: "Camille",
-    tagline: "48 · Stadt · Frankreich · Stadt, sehr angespannt",
+    tagline: "48 · Stadt · Frankreich · Stadt, sehr knappe Finanzen",
     description:
       "Camille lebt allein in einer Mietwohnung in Marseille, arbeitet als Reinigungskraft und kämpft mit finanziellen Sorgen und erheblichen gesundheitlichen Herausforderungen.",
     avatar: "👩",
     group: "Global North",
-    groupLabel: "Stadt · Sehr angespannt",
+    groupLabel: "Stadt · Sehr knappe Finanzen",
     category: "cluster",
     cluster: 4,
-    clusterLabel: "Städtisch · Sehr angespannt",
-    tags: ["Alleinlebend", "Städtisch", "Niedrige Bildung", "Angespannt"],
+    clusterLabel: "Städtisch · Sehr knappe Finanzen",
+    tags: ["Alleinlebend", "Städtisch", "Niedrige Bildung", "Sehr knappe Finanzen"],
     country: "Frankreich (Marseille)",
     demographics: {
       age: 48,
@@ -470,7 +470,7 @@ Antworte in der Ich-Form, ruhig, aber spürbar belastet. Du nennst konkrete Deta
       "Wie stehst du zur Politik?",
     ],
     facts: [
-      "Camille repräsentiert die Gruppe „Stadt, sehr angespannt“ – städtische, niedrig gebildete, stark angespannte Haushalte.",
+      "Camille repräsentiert die Gruppe „Stadt, sehr knappe Finanzen“ – städtische, niedrig gebildete, stark angespannte Haushalte.",
       "Über die Hälfte der Frauen wie sie hat chronische Krankheiten – die höchste Rate im Global North.",
       "Trotz finanzieller Not lebt sie umweltbewusst.",
     ],
@@ -480,16 +480,16 @@ Antworte in der Ich-Form, ruhig, aber spürbar belastet. Du nennst konkrete Deta
     id: "gn-marcus-marseille",
     image: "/personas/marcus_north.png",
     name: "Marcus",
-    tagline: "49 · Stadt · Frankreich · Stadt, sehr angespannt",
+    tagline: "49 · Stadt · Frankreich · Stadt, sehr knappe Finanzen",
     description:
       "Marcus lebt allein in Marseille, arbeitet als Lagerarbeiter und kämpft mit finanziellen Sorgen, Gesundheit und Isolation – aber mit hoher Pro-Umwelt-Norm.",
     avatar: "👨",
     group: "Global North",
-    groupLabel: "Stadt · Sehr angespannt",
+    groupLabel: "Stadt · Sehr knappe Finanzen",
     category: "cluster",
     cluster: 4,
-    clusterLabel: "Städtisch · Sehr angespannt",
-    tags: ["Alleinlebend", "Städtisch", "Niedrige Bildung", "Angespannt"],
+    clusterLabel: "Städtisch · Sehr knappe Finanzen",
+    tags: ["Alleinlebend", "Städtisch", "Niedrige Bildung", "Sehr knappe Finanzen"],
     country: "Frankreich (Marseille)",
     demographics: {
       age: 49,
@@ -533,29 +533,29 @@ Antworte in der Ich-Form, ruhig, aber spürbar belastet und etwas isoliert. Du n
       "Wie siehst du die Energiepolitik?",
     ],
     facts: [
-      "Marcus repräsentiert die Gruppe „Stadt, sehr angespannt“ – wie Camille, aber männlich.",
+      "Marcus repräsentiert die Gruppe „Stadt, sehr knappe Finanzen“ – wie Camille, aber männlich.",
       "Über ein Drittel der Männer wie er hat psychische Belastungen – eine der höchsten Raten.",
       "Trotz Isolation und finanzieller Not hat er eine hohe Pro-Umwelt-Norm.",
     ],
   }),
 
   // ══════════════════════════════════════════════════════════════════════
-  // GRUPPE 5 — Stadt, hohes Auskommen
+  // GRUPPE 5 — Stadt, hohes Einkommen
   // ══════════════════════════════════════════════════════════════════════
   makePersona({
     id: "gn-agnieszka-warsaw",
     image: "/personas/agnieszka_north.png",
     name: "Agnieszka",
-    tagline: "42 · Stadt · Polen · Stadt, hohes Auskommen",
+    tagline: "42 · Stadt · Polen · Stadt, hohes Einkommen",
     description:
       "Agnieszka lebt mit Partner und Kindern in Warschau, arbeitet als Lehrerin und kommt finanziell über die Runden – mit hoher Bildung und moderater Eco-Angst.",
     avatar: "👩",
     group: "Global North",
-    groupLabel: "Stadt · Hohes Auskommen",
+    groupLabel: "Stadt · Hohes Einkommen",
     category: "cluster",
     cluster: 5,
-    clusterLabel: "Städtisch · Hohes Auskommen",
-    tags: ["Familie", "Städtisch", "Hohe Bildung", "Über die Runden"],
+    clusterLabel: "Städtisch · Hohes Einkommen",
+    tags: ["Familie", "Städtisch", "Hohe Bildung", "Hohes Einkommen"],
     country: "Polen (Warschau)",
     demographics: {
       age: 42,
@@ -599,7 +599,7 @@ Antworte in der Ich-Form, warm, gebildet und engagiert. Du nennst konkrete Detai
       "Wie stehst du zur Energiepolitik?",
     ],
     facts: [
-      "Agnieszka repräsentiert die Gruppe „Stadt, hohes Auskommen“ – städtische, hoch gebildete Familien, die über die Runden kommen.",
+      "Agnieszka repräsentiert die Gruppe „Stadt, hohes Einkommen“ – städtische, hoch gebildete Familien, die über die Runden kommen.",
       "Ihre Eco-Angst ist moderat – sie macht sich gelegentlich Sorgen um die Umwelt.",
       "Trotz hoher Bildung fühlt sie sich politisch nur mäßig verbunden.",
     ],
@@ -609,16 +609,16 @@ Antworte in der Ich-Form, warm, gebildet und engagiert. Du nennst konkrete Detai
     id: "gn-jakub-krakow",
     image: "/personas/jakub_north.png",
     name: "Jakub",
-    tagline: "46 · Stadt · Polen · Stadt, hohes Auskommen",
+    tagline: "46 · Stadt · Polen · Stadt, hohes Einkommen",
     description:
       "Jakub lebt mit Partner und Kindern in Krakau, arbeitet als Projektkoordinator und ist finanziell stabil – mit hoher Bildung und niedriger Eco-Angst.",
     avatar: "👨",
     group: "Global North",
-    groupLabel: "Stadt · Hohes Auskommen",
+    groupLabel: "Stadt · Hohes Einkommen",
     category: "cluster",
     cluster: 5,
-    clusterLabel: "Städtisch · Hohes Auskommen",
-    tags: ["Familie", "Städtisch", "Hohe Bildung", "Über die Runden"],
+    clusterLabel: "Städtisch · Hohes Einkommen",
+    tags: ["Familie", "Städtisch", "Hohe Bildung", "Hohes Einkommen"],
     country: "Polen (Krakau)",
     demographics: {
       age: 46,
@@ -662,29 +662,29 @@ Antworte in der Ich-Form, ruhig, gebildet und freundlich. Du nennst konkrete Det
       "Wie siehst du die Energiepolitik?",
     ],
     facts: [
-      "Jakub repräsentiert die Gruppe „Stadt, hohes Auskommen“ – wie Agnieszka, aber männlich.",
+      "Jakub repräsentiert die Gruppe „Stadt, hohes Einkommen“ – wie Agnieszka, aber männlich.",
       "Er hat relativ wenige gesundheitliche Herausforderungen – die niedrigste Rate in dieser Gruppe.",
       "Trotz hoher Bildung fühlt er sich politisch nur mäßig verbunden.",
     ],
   }),
 
   // ══════════════════════════════════════════════════════════════════════
-  // GRUPPE 6 — Stadt, mittlere Anspannung
+  // GRUPPE 6 — Stadt, knappe Finanzen
   // ══════════════════════════════════════════════════════════════════════
   makePersona({
     id: "gn-cathrin-lisbon",
     image: "/personas/cathrin_north.png",
     name: "Cathrin",
-    tagline: "44 · Stadt · Portugal · Stadt, mittlere Anspannung",
+    tagline: "44 · Stadt · Portugal · Stadt, knappe Finanzen",
     description:
       "Cathrin lebt mit Partner und Kindern in Lissabon, arbeitet als Verwaltungskraft und kämpft finanziell – mit moderater Eco-Angst und niedriger politischer Selbstwirksamkeit.",
     avatar: "👩",
     group: "Global North",
-    groupLabel: "Stadt · Mittlere Anspannung",
+    groupLabel: "Stadt · Knappe Finanzen",
     category: "cluster",
     cluster: 6,
-    clusterLabel: "Städtisch · Mittlere Anspannung",
-    tags: ["Familie", "Städtisch", "Mittlere Bildung", "Angespannt"],
+    clusterLabel: "Städtisch · Knappe Finanzen",
+    tags: ["Familie", "Städtisch", "Mittlere Bildung", "Knappe Finanzen"],
     country: "Portugal (Lissabon)",
     demographics: {
       age: 44,
@@ -728,7 +728,7 @@ Antworte in der Ich-Form, warm, aber spürbar belastet. Du nennst konkrete Detai
       "Wie stehst du zur Politik?",
     ],
     facts: [
-      "Cathrin repräsentiert die Gruppe „Stadt, mittlere Anspannung“ – städtische, mittel gebildete, angespannte Haushalte.",
+      "Cathrin repräsentiert die Gruppe „Stadt, knappe Finanzen“ – städtische, mittel gebildete, angespannte Haushalte.",
       "Über ein Drittel der Frauen wie sie hat psychische Belastungen.",
       "Trotz finanzieller Not lebt sie aktiv umweltbewusst.",
     ],
@@ -738,16 +738,16 @@ Antworte in der Ich-Form, warm, aber spürbar belastet. Du nennst konkrete Detai
     id: "gn-piotr-gdansk",
     image: "/personas/piotr_north.png",
     name: "Piotr",
-    tagline: "47 · Stadt · Polen · Stadt, mittlere Anspannung",
+    tagline: "47 · Stadt · Polen · Stadt, knappe Finanzen",
     description:
       "Piotr lebt mit Partner und Kindern in Danzig, arbeitet als Lieferfahrer und kämpft finanziell – mit niedriger Eco-Angst und niedriger politischer Selbstwirksamkeit.",
     avatar: "👨",
     group: "Global North",
-    groupLabel: "Stadt · Mittlere Anspannung",
+    groupLabel: "Stadt · Knappe Finanzen",
     category: "cluster",
     cluster: 6,
-    clusterLabel: "Städtisch · Mittlere Anspannung",
-    tags: ["Familie", "Städtisch", "Mittlere Bildung", "Angespannt"],
+    clusterLabel: "Städtisch · Knappe Finanzen",
+    tags: ["Familie", "Städtisch", "Mittlere Bildung", "Knappe Finanzen"],
     country: "Polen (Danzig)",
     demographics: {
       age: 47,
@@ -791,29 +791,29 @@ Antworte in der Ich-Form, ruhig, aber spürbar belastet. Du nennst konkrete Deta
       "Wie siehst du die Energiepolitik?",
     ],
     facts: [
-      "Piotr repräsentiert die Gruppe „Stadt, mittlere Anspannung“ – wie Cathrin, aber männlich.",
+      "Piotr repräsentiert die Gruppe „Stadt, knappe Finanzen“ – wie Cathrin, aber männlich.",
       "Er hat eine hohe Pro-Umwelt-Norm trotz finanzieller Not.",
       "Seine politische Selbstwirksamkeit ist niedrig – er fühlt sich nicht gehört.",
     ],
   }),
 
   // ══════════════════════════════════════════════════════════════════════
-  // GRUPPE 7 — Stadt, abgesichert
+  // GRUPPE 7 — Stadt, finanziell abgesichert
   // ══════════════════════════════════════════════════════════════════════
   makePersona({
     id: "gn-emma-stockholm",
     image: "/personas/emma_north.png",
     name: "Emma",
-    tagline: "42 · Stadt · Schweden · Stadt, abgesichert",
+    tagline: "42 · Stadt · Schweden · Stadt, finanziell abgesichert",
     description:
       "Emma lebt mit Partner und Kindern in Stockholm, arbeitet als Marketingmanagerin und ist finanziell komfortabel – mit hoher Bildung und niedriger Eco-Angst.",
     avatar: "👩",
     group: "Global North",
-    groupLabel: "Stadt · Abgesichert",
+    groupLabel: "Stadt · Finanziell abgesichert",
     category: "cluster",
     cluster: 7,
-    clusterLabel: "Städtisch · Abgesichert",
-    tags: ["Familie", "Städtisch", "Hohe Bildung", "Abgesichert"],
+    clusterLabel: "Städtisch · Finanziell abgesichert",
+    tags: ["Familie", "Städtisch", "Hohe Bildung", "Finanziell abgesichert"],
     country: "Schweden (Stockholm)",
     demographics: {
       age: 42,
@@ -857,7 +857,7 @@ Antworte in der Ich-Form, warm, gebildet und optimistisch. Du nennst konkrete De
       "Wie stehst du zur Energiepolitik?",
     ],
     facts: [
-      "Emma repräsentiert die Gruppe „Stadt, abgesichert“ – städtische, hoch gebildete, abgesicherte Haushalte.",
+      "Emma repräsentiert die Gruppe „Stadt, finanziell abgesichert“ – städtische, hoch gebildete, abgesicherte Haushalte.",
       "Sie hat die niedrigste Relative Deprivation im Global North.",
       "Trotz Komfort lebt sie aktiv umweltbewusst.",
     ],
@@ -867,16 +867,16 @@ Antworte in der Ich-Form, warm, gebildet und optimistisch. Du nennst konkrete De
     id: "gn-erik-stockholm",
     image: "/personas/erik_north.png",
     name: "Erik",
-    tagline: "44 · Stadt · Schweden · Stadt, abgesichert",
+    tagline: "44 · Stadt · Schweden · Stadt, finanziell abgesichert",
     description:
       "Erik lebt mit Partner und Kindern in Stockholm, arbeitet als Finanzanalyst und ist finanziell sicher – mit hoher Bildung und niedriger Eco-Angst.",
     avatar: "👨",
     group: "Global North",
-    groupLabel: "Stadt · Abgesichert",
+    groupLabel: "Stadt · Finanziell abgesichert",
     category: "cluster",
     cluster: 7,
-    clusterLabel: "Städtisch · Abgesichert",
-    tags: ["Familie", "Städtisch", "Hohe Bildung", "Abgesichert"],
+    clusterLabel: "Städtisch · Finanziell abgesichert",
+    tags: ["Familie", "Städtisch", "Hohe Bildung", "Finanziell abgesichert"],
     country: "Schweden (Stockholm)",
     demographics: {
       age: 44,
@@ -920,29 +920,29 @@ Antworte in der Ich-Form, ruhig, gebildet und optimistisch. Du nennst konkrete D
       "Wie siehst du die Energiepolitik?",
     ],
     facts: [
-      "Erik repräsentiert die Gruppe „Stadt, abgesichert“ – wie Emma, aber männlich.",
+      "Erik repräsentiert die Gruppe „Stadt, finanziell abgesichert“ – wie Emma, aber männlich.",
       "Er hat die niedrigste Relative Deprivation im Global North.",
       "Trotz finanzieller Sicherheit lebt er aktiv umweltbewusst.",
     ],
   }),
 
   // ══════════════════════════════════════════════════════════════════════
-  // GRUPPE 8 — Land, abgesichert
+  // GRUPPE 8 — Land, finanziell abgesichert
   // ══════════════════════════════════════════════════════════════════════
   makePersona({
     id: "gn-lena-freiburg",
     image: "/personas/lena_north.png",
     name: "Lena",
-    tagline: "43 · Ländlich · Deutschland · Land, abgesichert",
+    tagline: "43 · Ländlich · Deutschland · Land, finanziell abgesichert",
     description:
       "Lena lebt mit Partner in einem Dorf bei Freiburg, arbeitet als Einzelhandelsmanagerin und ist finanziell komfortabel – mit mittlerer Bildung und niedriger Eco-Angst.",
     avatar: "👩",
     group: "Global North",
-    groupLabel: "Land · Abgesichert",
+    groupLabel: "Land · Finanziell abgesichert",
     category: "cluster",
     cluster: 8,
-    clusterLabel: "Ländlich · Abgesichert",
-    tags: ["Paar", "Ländlich", "Mittlere Bildung", "Abgesichert"],
+    clusterLabel: "Ländlich · Finanziell abgesichert",
+    tags: ["Paar", "Ländlich", "Mittlere Bildung", "Finanziell abgesichert"],
     country: "Deutschland (Freiburg, ländlich)",
     demographics: {
       age: 43,
@@ -986,7 +986,7 @@ Antworte in der Ich-Form, warm, bodenständig und zufrieden. Du nennst konkrete 
       "Wie stehst du zur Energiepolitik?",
     ],
     facts: [
-      "Lena repräsentiert die Gruppe „Land, abgesichert“ – ländliche, mittel gebildete, abgesicherte Haushalte.",
+      "Lena repräsentiert die Gruppe „Land, finanziell abgesichert“ – ländliche, mittel gebildete, abgesicherte Haushalte.",
       "Sie genießt ein ruhiges Landleben mit Garten und Nachbarn.",
       "Trotz Komfort lebt sie aktiv umweltbewusst.",
     ],
@@ -995,17 +995,17 @@ Antworte in der Ich-Form, warm, bodenständig und zufrieden. Du nennst konkrete 
   makePersona({
     id: "gn-lukas-bavaria",
     image: "/personas/lukas_north.png",
-    name: "Lukas (Bayern)",
-    tagline: "46 · Ländlich · Deutschland · Land, abgesichert",
+    name: "Lukas",
+    tagline: "46 · Ländlich · Deutschland · Land, finanziell abgesichert",
     description:
       "Lukas lebt mit Partner in einem Dorf in Bayern, arbeitet als Schreiner und ist finanziell sicher – mit mittlerer Bildung und niedriger Eco-Angst.",
     avatar: "👨",
     group: "Global North",
-    groupLabel: "Land · Abgesichert",
+    groupLabel: "Land · Finanziell abgesichert",
     category: "cluster",
     cluster: 8,
-    clusterLabel: "Ländlich · Abgesichert",
-    tags: ["Paar", "Ländlich", "Mittlere Bildung", "Abgesichert"],
+    clusterLabel: "Ländlich · Finanziell abgesichert",
+    tags: ["Paar", "Ländlich", "Mittlere Bildung", "Finanziell abgesichert"],
     country: "Deutschland (Bayern, ländlich)",
     demographics: {
       age: 46,
@@ -1049,7 +1049,7 @@ Antworte in der Ich-Form, ruhig, handwerklich und bodenständig. Du nennst konkr
       "Wie siehst du die Energiepolitik?",
     ],
     facts: [
-      "Lukas repräsentiert die Gruppe „Land, abgesichert“ – wie Lena, aber männlich.",
+      "Lukas repräsentiert die Gruppe „Land, finanziell abgesichert“ – wie Lena, aber männlich.",
       "Er ist Schreiner und genießt handwerkliche Hausprojekte.",
       "Trotz finanzieller Sicherheit fühlt er sich politisch nur mäßig verbunden.",
     ],

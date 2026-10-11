@@ -230,31 +230,31 @@ function PersonasSection() {
           <PersonaRow
             emoji="👩"
             name="Maria (Warschau)"
-            desc="Stadt, Familie, mittlere Bildung, Auskommen."
+            desc="Stadt, Familie, mittlere Bildung, Mittleres Einkommen."
             tags={["Städtisch", "Familie", "Europa"]}
           />
           <PersonaRow
             emoji="👨"
             name="Marek (Warschau)"
-            desc="Stadt, Familie, mittlere Bildung, Auskommen."
+            desc="Stadt, Familie, mittlere Bildung, Mittleres Einkommen."
             tags={["Städtisch", "Familie", "Europa"]}
           />
           <PersonaRow
             emoji="👩"
             name="Sofia (Lyon)"
-            desc="Land, Familie, mittlere Bildung, Auskommen."
+            desc="Land, Familie, mittlere Bildung, Mittleres Einkommen."
             tags={["Ländlich", "Familie", "Europa"]}
           />
           <PersonaRow
             emoji="👨"
             name="Antoine (Dijon)"
-            desc="Land, Paar, mittlere Bildung, Auskommen."
+            desc="Land, Paar, mittlere Bildung, Mittleres Einkommen."
             tags={["Ländlich", "Paar", "Europa"]}
           />
           <PersonaRow
             emoji="👩"
             name="Elena (Neapel)"
-            desc="Land, Paar, niedrige Bildung, Auskommen."
+            desc="Land, Paar, niedrige Bildung, Geringes Einkommen."
             tags={["Ländlich", "Paar", "Europa"]}
           />
           <PersonaRow
@@ -266,61 +266,61 @@ function PersonasSection() {
           <PersonaRow
             emoji="👩"
             name="Camille (Marseille)"
-            desc="Stadt, alleinlebend, niedrige Bildung, Anspannung."
+            desc="Stadt, alleinlebend, niedrige Bildung, Sehr knappe Finanzen."
             tags={["Städtisch", "Alleinlebend", "Europa"]}
           />
           <PersonaRow
             emoji="👨"
             name="Marcus (Marseille)"
-            desc="Stadt, alleinlebend, niedrige Bildung, Anspannung."
+            desc="Stadt, alleinlebend, niedrige Bildung, Sehr knappe Finanzen."
             tags={["Städtisch", "Alleinlebend", "Europa"]}
           />
           <PersonaRow
             emoji="👩"
             name="Agnieszka (Warschau)"
-            desc="Stadt, Familie, hohe Bildung, Auskommen."
+            desc="Stadt, Familie, hohe Bildung, Hohes Einkommen."
             tags={["Städtisch", "Familie", "Europa"]}
           />
           <PersonaRow
             emoji="👨"
             name="Jakub (Krakau)"
-            desc="Stadt, Familie, hohe Bildung, Auskommen."
+            desc="Stadt, Familie, hohe Bildung, Hohes Einkommen."
             tags={["Städtisch", "Familie", "Europa"]}
           />
           <PersonaRow
             emoji="👩"
             name="Cathrin (Lissabon)"
-            desc="Stadt, Familie, mittlere Bildung, Anspannung."
+            desc="Stadt, Familie, mittlere Bildung, Knappe Finanzen."
             tags={["Städtisch", "Familie", "Europa"]}
           />
           <PersonaRow
             emoji="👨"
             name="Piotr (Danzig)"
-            desc="Stadt, Familie, mittlere Bildung, Anspannung."
+            desc="Stadt, Familie, mittlere Bildung, Knappe Finanzen."
             tags={["Städtisch", "Familie", "Europa"]}
           />
           <PersonaRow
             emoji="👩"
             name="Emma (Stockholm)"
-            desc="Stadt, Familie, hohe Bildung, Abgesichert."
+            desc="Stadt, Familie, hohe Bildung, Finanziell abgesichert."
             tags={["Städtisch", "Familie", "Europa"]}
           />
           <PersonaRow
             emoji="👨"
             name="Erik (Stockholm)"
-            desc="Stadt, Familie, hohe Bildung, Abgesichert."
+            desc="Stadt, Familie, hohe Bildung, Finanziell abgesichert."
             tags={["Städtisch", "Familie", "Europa"]}
           />
           <PersonaRow
             emoji="👩"
             name="Lena (Freiburg)"
-            desc="Land, Paar, mittlere Bildung, Abgesichert."
+            desc="Land, Paar, mittlere Bildung, Finanziell abgesichert."
             tags={["Ländlich", "Paar", "Europa"]}
           />
           <PersonaRow
             emoji="👨"
-            name="Lukas (Bayern)"
-            desc="Land, Paar, mittlere Bildung, Abgesichert."
+            name="Lukas"
+            desc="Land, Paar, mittlere Bildung, Finanziell abgesichert."
             tags={["Ländlich", "Paar", "Europa"]}
           />
         </div>
@@ -339,97 +339,97 @@ function PersonasSection() {
           <PersonaRow
             emoji="👩🏾"
             name="Sarah (Gulu)"
-            desc="Land, Familie, mittlere Bildung, Anspannung."
+            desc="Land, Familie, mittlere Bildung, Knappe Finanzen."
             tags={["Ländlich", "Familie", "Afrika"]}
           />
           <PersonaRow
             emoji="👨🏿"
             name="Juma (Kenia)"
-            desc="Land, Familie, mittlere Bildung, Anspannung."
+            desc="Land, Familie, mittlere Bildung, Knappe Finanzen."
             tags={["Ländlich", "Familie", "Afrika"]}
           />
           <PersonaRow
             emoji="👩🏾"
             name="Amara (Nairobi)"
-            desc="Stadt, Familie, hohe Bildung, Anspannung."
+            desc="Stadt, Familie, hohe Bildung, Sehr knappe Finanzen."
             tags={["Städtisch", "Familie", "Afrika"]}
           />
           <PersonaRow
             emoji="👨🏿"
             name="Chidi (Lagos)"
-            desc="Stadt, Familie, hohe Bildung, Anspannung."
+            desc="Stadt, Familie, hohe Bildung, Sehr knappe Finanzen."
             tags={["Städtisch", "Familie", "Afrika"]}
           />
           <PersonaRow
             emoji="👩🏾"
             name="Lerato (Joburg)"
-            desc="Stadt, Paar, hohe Bildung, Abgesichert."
+            desc="Stadt, Paar, hohe Bildung, Finanziell abgesichert."
             tags={["Städtisch", "Paar", "Afrika"]}
           />
           <PersonaRow
             emoji="👨🏿"
             name="Ade (Abuja)"
-            desc="Stadt, Paar, hohe Bildung, Abgesichert."
+            desc="Stadt, Paar, hohe Bildung, Finanziell abgesichert."
             tags={["Städtisch", "Paar", "Afrika"]}
           />
           <PersonaRow
             emoji="👩🏾"
             name="Zawadi (Mbale)"
-            desc="Land, Familie, hohe Bildung, Auskommen."
+            desc="Land, Familie, hohe Bildung, Hohes Einkommen."
             tags={["Ländlich", "Familie", "Afrika"]}
           />
           <PersonaRow
             emoji="👨🏿"
             name="Kamau (Nairobi)"
-            desc="Stadt, Familie, hohe Bildung, Auskommen."
+            desc="Stadt, Familie, hohe Bildung, Hohes Einkommen."
             tags={["Städtisch", "Familie", "Afrika"]}
           />
           <PersonaRow
             emoji="👩🏾"
             name="Nia (Lagos)"
-            desc="Stadt, Familie, hohe Bildung, Auskommen."
+            desc="Stadt, Familie, hohe Bildung, Hohes Einkommen."
             tags={["Städtisch", "Familie", "Afrika"]}
           />
           <PersonaRow
             emoji="👨🏿"
             name="Tunde (Lagos)"
-            desc="Stadt, Familie, hohe Bildung, Auskommen."
+            desc="Stadt, Familie, hohe Bildung, Hohes Einkommen."
             tags={["Städtisch", "Familie", "Afrika"]}
           />
           <PersonaRow
             emoji="👩🏾"
             name="Aisha (Kapstadt)"
-            desc="Stadt, Familie, mittlere Bildung, Auskommen."
+            desc="Stadt, Familie, mittlere Bildung, Mittleres Einkommen."
             tags={["Städtisch", "Familie", "Afrika"]}
           />
           <PersonaRow
             emoji="👨🏿"
             name="Sipho (Joburg)"
-            desc="Stadt, Familie, mittlere Bildung, Auskommen."
+            desc="Stadt, Familie, mittlere Bildung, Mittleres Einkommen."
             tags={["Städtisch", "Familie", "Afrika"]}
           />
           <PersonaRow
             emoji="👩🏾"
             name="Fatima (Kampala)"
-            desc="Stadt, alleinlebend, niedrige Bildung, Prekär."
+            desc="Stadt, alleinlebend, niedrige Bildung, Finanziell prekär."
             tags={["Städtisch", "Alleinlebend", "Afrika"]}
           />
           <PersonaRow
             emoji="👨🏿"
             name="Okello (Kampala)"
-            desc="Stadt, alleinlebend, niedrige Bildung, Prekär."
+            desc="Stadt, alleinlebend, niedrige Bildung, Finanziell prekär."
             tags={["Städtisch", "Alleinlebend", "Afrika"]}
           />
           <PersonaRow
             emoji="👩🏾"
             name="Jamilla (Joburg)"
-            desc="Stadt, alleinlebend, mittlere Bildung, Prekär."
+            desc="Stadt, alleinlebend, mittlere Bildung, Finanziell stark belastet."
             tags={["Städtisch", "Alleinlebend", "Afrika"]}
           />
           <PersonaRow
             emoji="👨🏿"
             name="Thabo (Kapstadt)"
-            desc="Stadt, alleinlebend, mittlere Bildung, Prekär."
+            desc="Stadt, alleinlebend, mittlere Bildung, Finanziell stark belastet."
             tags={["Städtisch", "Alleinlebend", "Afrika"]}
           />
         </div>

@@ -19,7 +19,7 @@ const tagGroups: { label: string; tags: string[] }[] = [
   { label: "Haushalt", tags: ["Alleinlebend", "Familie", "Paar"] },
   { label: "Wohnort", tags: ["Städtisch", "Ländlich"] },
   { label: "Bildung", tags: ["Niedrige Bildung", "Mittlere Bildung", "Hohe Bildung"] },
-  { label: "Einkommenssituation", tags: ["Angespannt", "Über die Runden", "Abgesichert", "Prekär"] },
+  { label: "Einkommenssituation", tags: ["Angespannt", "Über die Runden", "Knappe Finanzen", "Sehr knappe Finanzen", "Mittleres Einkommen", "Geringes Einkommen", "Hohes Einkommen", "Finanziell abgesichert", "Finanziell prekär", "Finanziell stark belastet"] },
   { label: "Alter & Minderheit", tags: ["Jung", "Älter", "Minderheit"] },
 ];
 
@@ -71,7 +71,7 @@ export default function PersonaPicker({ onPick, onNavigateTab }: Props) {
           <div className="mb-4 flex justify-end">
             <button
               onClick={() => setShowAbout(true)}
-              className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-xs font-medium text-slate-600 ring-1 ring-slate-200 transition-colors hover:bg-brand-50 hover:text-brand-700 hover:ring-brand-200"
+              className="inline-flex items-center gap-1.5 rounded-full bg-brand-600 px-3 py-1.5 text-xs font-medium text-white ring-1 ring-brand-600 transition-colors hover:bg-brand-700 hover:text-white hover:ring-brand-700"
             >
               <BookOpen className="h-3.5 w-3.5" />
               Hintergrund
@@ -213,7 +213,7 @@ export default function PersonaPicker({ onPick, onNavigateTab }: Props) {
           </button>
           <button
             onClick={() => setShowAbout(true)}
-            className="inline-flex items-center gap-1.5 rounded-full bg-white px-3 py-1.5 text-xs font-medium text-slate-600 ring-1 ring-slate-200 transition-colors hover:bg-brand-50 hover:text-brand-700 hover:ring-brand-200"
+            className="inline-flex items-center gap-1.5 rounded-full bg-brand-600 px-3 py-1.5 text-xs font-medium text-white ring-1 ring-brand-600 transition-colors hover:bg-brand-700 hover:text-white hover:ring-brand-700"
           >
             <BookOpen className="h-3.5 w-3.5" />
             Hintergrund

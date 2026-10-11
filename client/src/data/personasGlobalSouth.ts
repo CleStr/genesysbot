@@ -23,22 +23,22 @@ function makePersona(p: Omit<Persona, "eci" | "indices"> & {
 
 export const globalSouthPersonas: Persona[] = [
   // ══════════════════════════════════════════════════════════════════════
-  // GRUPPE 1 — Land, mittlere Anspannung
+  // GRUPPE 1 — Land, knappe Finanzen
   // ══════════════════════════════════════════════════════════════════════
   makePersona({
     id: "gs-sarah-gulu",
     image: "/personas/sarah_south.png",
     name: "Sarah",
-    tagline: "34 · Ländlich · Uganda · Land, mittlere Anspannung",
+    tagline: "34 · Ländlich · Uganda · Land, knappe Finanzen",
     description:
       "Sarah lebt mit Mann und vier Kindern in Gulu, Uganda. Sie betreibt einen kleinen Gemüsestand und kämpft mit unzuverlässiger Energie und finanziellen Sorgen.",
     avatar: "👩",
     group: "Global South",
-    groupLabel: "Land · Mittlere Anspannung",
+    groupLabel: "Land · Knappe Finanzen",
     category: "cluster",
     cluster: 1,
-    clusterLabel: "Ländlich · Mittlere Anspannung",
-    tags: ["Familie", "Ländlich", "Mittlere Bildung", "Angespannt"],
+    clusterLabel: "Ländlich · Knappe Finanzen",
+    tags: ["Familie", "Ländlich", "Mittlere Bildung", "Knappe Finanzen"],
     country: "Uganda (Gulu)",
     demographics: {
       age: 34,
@@ -82,7 +82,7 @@ Antworte in der Ich-Form, warm, aber spürbar belastet. Du nennst konkrete Detai
       "Wie stehst du zur Politik?",
     ],
     facts: [
-      "Sarah repräsentiert die Gruppe „Land, mittlere Anspannung“ – ländliche, mittel gebildete, angespannte Haushalte.",
+      "Sarah repräsentiert die Gruppe „Land, knappe Finanzen“ – ländliche, mittel gebildete, angespannte Haushalte.",
       "Sie nutzt einen Dreistein-Herd mit Holz und Holzkohle – der Rauch belastet die Gesundheit.",
       "Trotz finanzieller Not hat sie ein kleines Solar-Heimsystem für Licht.",
     ],
@@ -92,16 +92,16 @@ Antworte in der Ich-Form, warm, aber spürbar belastet. Du nennst konkrete Detai
     id: "gs-juma-kenya",
     image: "/personas/juma_south.png",
     name: "Juma",
-    tagline: "37 · Ländlich · Kenia · Land, mittlere Anspannung",
+    tagline: "37 · Ländlich · Kenia · Land, knappe Finanzen",
     description:
       "Juma lebt mit Frau und Kindern in einem Dorf in Kenia, arbeitet als Kleinbauer und kämpft mit unzuverlässiger Energie und Dürre – aber mit starker Gemeinschaft.",
     avatar: "👨",
     group: "Global South",
-    groupLabel: "Land · Mittlere Anspannung",
+    groupLabel: "Land · Knappe Finanzen",
     category: "cluster",
     cluster: 1,
-    clusterLabel: "Ländlich · Mittlere Anspannung",
-    tags: ["Familie", "Ländlich", "Mittlere Bildung", "Angespannt"],
+    clusterLabel: "Ländlich · Knappe Finanzen",
+    tags: ["Familie", "Ländlich", "Mittlere Bildung", "Knappe Finanzen"],
     country: "Kenia (ländlich)",
     demographics: {
       age: 37,
@@ -145,29 +145,29 @@ Antworte in der Ich-Form, ruhig, aber spürbar belastet. Du nennst konkrete Deta
       "Wie stehst du zur Politik?",
     ],
     facts: [
-      "Juma repräsentiert die Gruppe „Land, mittlere Anspannung“ – wie Sarah, aber männlich.",
+      "Juma repräsentiert die Gruppe „Land, knappe Finanzen“ – wie Sarah, aber männlich.",
       "Er kämpft mit Dürre und Holzmangel – Folgen des Klimawandels.",
       "Trotz finanzieller Not pflanzt er Bäume und nutzt Solar.",
     ],
   }),
 
   // ══════════════════════════════════════════════════════════════════════
-  // GRUPPE 2 — Stadt, hohe Anspannung
+  // GRUPPE 2 — Stadt, sehr knappe Finanzen
   // ══════════════════════════════════════════════════════════════════════
   makePersona({
     id: "gs-amara-nairobi",
     image: "/personas/amara_south.png",
     name: "Amara",
-    tagline: "38 · Stadt · Kenia · Stadt, hohe Anspannung",
+    tagline: "38 · Stadt · Kenia · Stadt, sehr knappe Finanzen",
     description:
       "Amara lebt mit Mann und Kindern in Nairobi, arbeitet als Buchhalterin und kämpft mit Stromausfällen und hohen Kosten – trotz hoher Bildung.",
     avatar: "👩",
     group: "Global South",
-    groupLabel: "Stadt · Hohe Anspannung",
+    groupLabel: "Stadt · Sehr knappe Finanzen",
     category: "cluster",
     cluster: 2,
-    clusterLabel: "Städtisch · Hohe Anspannung",
-    tags: ["Familie", "Städtisch", "Hohe Bildung", "Angespannt"],
+    clusterLabel: "Städtisch · Sehr knappe Finanzen",
+    tags: ["Familie", "Städtisch", "Hohe Bildung", "Sehr knappe Finanzen"],
     country: "Kenia (Nairobi)",
     demographics: {
       age: 38,
@@ -211,7 +211,7 @@ Antworte in der Ich-Form, warm, gebildet und engagiert. Du nennst konkrete Detai
       "Wie stehst du zur Energiepolitik?",
     ],
     facts: [
-      "Amara repräsentiert die Gruppe „Stadt, hohe Anspannung“ – städtische, hoch gebildete, angespannte Haushalte.",
+      "Amara repräsentiert die Gruppe „Stadt, sehr knappe Finanzen“ – städtische, hoch gebildete, angespannte Haushalte.",
       "Trotz hoher Bildung kämpft sie mit Stromausfällen und hohen Kosten.",
       "Sie nutzt LPG statt Holzkohle – sauberer, aber teurer.",
     ],
@@ -221,16 +221,16 @@ Antworte in der Ich-Form, warm, gebildet und engagiert. Du nennst konkrete Detai
     id: "gs-chidi-lagos",
     image: "/personas/chidi_south.png",
     name: "Chidi",
-    tagline: "39 · Stadt · Nigeria · Stadt, hohe Anspannung",
+    tagline: "39 · Stadt · Nigeria · Stadt, sehr knappe Finanzen",
     description:
       "Chidi lebt mit Frau und Kindern in Lagos, arbeitet als IT-Techniker und kämpft mit Stromausfällen und Generatorkosten – trotz hoher Bildung.",
     avatar: "👨",
     group: "Global South",
-    groupLabel: "Stadt · Hohe Anspannung",
+    groupLabel: "Stadt · Sehr knappe Finanzen",
     category: "cluster",
     cluster: 2,
-    clusterLabel: "Städtisch · Hohe Anspannung",
-    tags: ["Familie", "Städtisch", "Hohe Bildung", "Angespannt"],
+    clusterLabel: "Städtisch · Sehr knappe Finanzen",
+    tags: ["Familie", "Städtisch", "Hohe Bildung", "Sehr knappe Finanzen"],
     country: "Nigeria (Lagos)",
     demographics: {
       age: 39,
@@ -274,29 +274,29 @@ Antworte in der Ich-Form, ruhig, gebildet und pragmatisch. Du nennst konkrete De
       "Wie siehst du die Energiepolitik?",
     ],
     facts: [
-      "Chidi repräsentiert die Gruppe „Stadt, hohe Anspannung“ – wie Amara, aber männlich.",
+      "Chidi repräsentiert die Gruppe „Stadt, sehr knappe Finanzen“ – wie Amara, aber männlich.",
       "Er nutzt einen Generator als Backup – teuer und umweltbelastend.",
       "Trotz hoher Bildung kämpft er mit Stromausfällen und hohen Kosten.",
     ],
   }),
 
   // ══════════════════════════════════════════════════════════════════════
-  // GRUPPE 3 — Stadt, abgesichert
+  // GRUPPE 3 — Stadt, finanziell abgesichert
   // ══════════════════════════════════════════════════════════════════════
   makePersona({
     id: "gs-lerato-joburg",
     image: "/personas/lerato_south.png",
     name: "Lerato",
-    tagline: "34 · Stadt · Südafrika · Stadt, abgesichert",
+    tagline: "34 · Stadt · Südafrika · Stadt, finanziell abgesichert",
     description:
       "Lerato lebt mit Partner in Johannesburg, arbeitet als Marketingmanagerin und ist finanziell komfortabel – mit hoher Bildung und niedriger Eco-Angst.",
     avatar: "👩",
     group: "Global South",
-    groupLabel: "Stadt · Abgesichert",
+    groupLabel: "Stadt · Finanziell abgesichert",
     category: "cluster",
     cluster: 3,
-    clusterLabel: "Städtisch · Abgesichert",
-    tags: ["Paar", "Städtisch", "Hohe Bildung", "Abgesichert"],
+    clusterLabel: "Städtisch · Finanziell abgesichert",
+    tags: ["Paar", "Städtisch", "Hohe Bildung", "Finanziell abgesichert"],
     country: "Südafrika (Johannesburg)",
     demographics: {
       age: 34,
@@ -340,7 +340,7 @@ Antworte in der Ich-Form, warm, gebildet und optimistisch. Du nennst konkrete De
       "Wie stehst du zur Energiepolitik?",
     ],
     facts: [
-      "Lerato repräsentiert die Gruppe „Stadt, abgesichert“ – städtische, hoch gebildete, abgesicherte Haushalte.",
+      "Lerato repräsentiert die Gruppe „Stadt, finanziell abgesichert“ – städtische, hoch gebildete, abgesicherte Haushalte.",
       "Sie hat die niedrigste Relative Deprivation im Global South.",
       "Trotz Komfort plant sie eine Solar-Heizung – Nachhaltigkeit als Status.",
     ],
@@ -350,16 +350,16 @@ Antworte in der Ich-Form, warm, gebildet und optimistisch. Du nennst konkrete De
     id: "gs-ade-abuja",
     image: "/personas/ade_south.png",
     name: "Ade",
-    tagline: "34 · Stadt · Nigeria · Stadt, abgesichert",
+    tagline: "34 · Stadt · Nigeria · Stadt, finanziell abgesichert",
     description:
       "Ade lebt mit Frau in Abuja, arbeitet als Banker und ist finanziell sicher – mit hoher Bildung und niedriger Eco-Angst.",
     avatar: "👨",
     group: "Global South",
-    groupLabel: "Stadt · Abgesichert",
+    groupLabel: "Stadt · Finanziell abgesichert",
     category: "cluster",
     cluster: 3,
-    clusterLabel: "Städtisch · Abgesichert",
-    tags: ["Paar", "Städtisch", "Hohe Bildung", "Abgesichert"],
+    clusterLabel: "Städtisch · Finanziell abgesichert",
+    tags: ["Paar", "Städtisch", "Hohe Bildung", "Finanziell abgesichert"],
     country: "Nigeria (Abuja)",
     demographics: {
       age: 34,
@@ -403,29 +403,29 @@ Antworte in der Ich-Form, ruhig, gebildet und optimistisch. Du nennst konkrete D
       "Wie siehst du die Energiepolitik?",
     ],
     facts: [
-      "Ade repräsentiert die Gruppe „Stadt, abgesichert“ – wie Lerato, aber männlich.",
+      "Ade repräsentiert die Gruppe „Stadt, finanziell abgesichert“ – wie Lerato, aber männlich.",
       "Er hat die niedrigste Relative Deprivation im Global South.",
       "Trotz finanzieller Sicherheit nutzt er einen Generator als Backup – Vorsicht.",
     ],
   }),
 
   // ══════════════════════════════════════════════════════════════════════
-  // GRUPPE 4 — Land, hohes Auskommen
+  // GRUPPE 4 — Land, hohes Einkommen
   // ══════════════════════════════════════════════════════════════════════
   makePersona({
     id: "gs-zawadi-mbale",
     image: "/personas/zawadi_south.png",
     name: "Zawadi",
-    tagline: "33 · Ländlich · Uganda · Land, hohes Auskommen",
+    tagline: "33 · Ländlich · Uganda · Land, hohes Einkommen",
     description:
       "Zawadi lebt mit Mann und Kindern in Mbale, Uganda, arbeitet als Lehrerin und kommt über die Runden – mit hoher Bildung und Solar-Heimsystem.",
     avatar: "👩",
     group: "Global South",
-    groupLabel: "Land · Hohes Auskommen",
+    groupLabel: "Land · Hohes Einkommen",
     category: "cluster",
     cluster: 4,
-    clusterLabel: "Ländlich · Hohes Auskommen",
-    tags: ["Familie", "Ländlich", "Hohe Bildung", "Über die Runden"],
+    clusterLabel: "Ländlich · Hohes Einkommen",
+    tags: ["Familie", "Ländlich", "Hohe Bildung", "Hohes Einkommen"],
     country: "Uganda (Mbale)",
     demographics: {
       age: 33,
@@ -469,7 +469,7 @@ Antworte in der Ich-Form, warm, gebildet und engagiert. Du nennst konkrete Detai
       "Wie stehst du zur Politik?",
     ],
     facts: [
-      "Zawadi repräsentiert die Gruppe „Land, hohes Auskommen“ – ländliche, hoch gebildete Haushalte, die über die Runden kommen.",
+      "Zawadi repräsentiert die Gruppe „Land, hohes Einkommen“ – ländliche, hoch gebildete Haushalte, die über die Runden kommen.",
       "Sie nutzt LPG statt Holz – sauberer, aber teurer.",
       "Trotz ländlicher Lage hat sie ein Solar-Heimsystem für Licht.",
     ],
@@ -479,16 +479,16 @@ Antworte in der Ich-Form, warm, gebildet und engagiert. Du nennst konkrete Detai
     id: "gs-kamau-nairobi",
     image: "/personas/kamau_south.png",
     name: "Kamau",
-    tagline: "36 · Stadt · Kenia · Land, hohes Auskommen",
+    tagline: "36 · Stadt · Kenia · Land, hohes Einkommen",
     description:
       "Kamau lebt mit Frau und Kindern in Nairobi, arbeitet als Elektriker und kommt über die Runden – mit hoher Bildung und Solar-Backup.",
     avatar: "👨",
     group: "Global South",
-    groupLabel: "Land · Hohes Auskommen",
+    groupLabel: "Land · Hohes Einkommen",
     category: "cluster",
     cluster: 4,
-    clusterLabel: "Ländlich · Hohes Auskommen",
-    tags: ["Familie", "Ländlich", "Hohe Bildung", "Über die Runden"],
+    clusterLabel: "Ländlich · Hohes Einkommen",
+    tags: ["Familie", "Ländlich", "Hohe Bildung", "Hohes Einkommen"],
     country: "Kenia (Nairobi)",
     demographics: {
       age:  36,
@@ -532,29 +532,29 @@ Antworte in der Ich-Form, ruhig, gebildet und handwerklich. Du nennst konkrete D
       "Wie siehst du die Energiepolitik?",
     ],
     facts: [
-      "Kamau repräsentiert die Gruppe „Land, hohes Auskommen“ – wie Zawadi, aber männlich und städtisch.",
+      "Kamau repräsentiert die Gruppe „Land, hohes Einkommen“ – wie Zawadi, aber männlich und städtisch.",
       "Als Elektriker hat er ein Solar-Backup installiert – Fachwissen als Vorteil.",
       "Trotz Stromausfälle kommt er über die Runden.",
     ],
   }),
 
   // ══════════════════════════════════════════════════════════════════════
-  // GRUPPE 5 — Stadt, hohes Auskommen
+  // GRUPPE 5 — Stadt, hohes Einkommen
   // ══════════════════════════════════════════════════════════════════════
   makePersona({
     id: "gs-nia-lagos",
     image: "/personas/nia_south.png",
     name: "Nia",
-    tagline: "35 · Stadt · Nigeria · Stadt, hohes Auskommen",
+    tagline: "35 · Stadt · Nigeria · Stadt, hohes Einkommen",
     description:
       "Nia lebt mit Mann und Kindern in Lagos, arbeitet als Krankenschwester und kommt über die Runden – mit hoher Bildung und Solar-Backup.",
     avatar: "👩",
     group: "Global South",
-    groupLabel: "Stadt · Hohes Auskommen",
+    groupLabel: "Stadt · Hohes Einkommen",
     category: "cluster",
     cluster: 5,
-    clusterLabel: "Städtisch · Hohes Auskommen",
-    tags: ["Familie", "Städtisch", "Hohe Bildung", "Über die Runden"],
+    clusterLabel: "Städtisch · Hohes Einkommen",
+    tags: ["Familie", "Städtisch", "Hohe Bildung", "Hohes Einkommen"],
     country: "Nigeria (Lagos)",
     demographics: {
       age: 35,
@@ -598,7 +598,7 @@ Antworte in der Ich-Form, warm, gebildet und fürsorglich. Du nennst konkrete De
       "Wie stehst du zur Energiepolitik?",
     ],
     facts: [
-      "Nia repräsentiert die Gruppe „Stadt, hohes Auskommen“ – städtische, hoch gebildete Haushalte, die über die Runden kommen.",
+      "Nia repräsentiert die Gruppe „Stadt, hohes Einkommen“ – städtische, hoch gebildete Haushalte, die über die Runden kommen.",
       "Als Krankenschwester kennt sie die gesundheitlichen Folgen von Energiearmut.",
       "Trotz Stromausfälle kommt sie mit Solar-Backup über die Runden.",
     ],
@@ -608,16 +608,16 @@ Antworte in der Ich-Form, warm, gebildet und fürsorglich. Du nennst konkrete De
     id: "gs-tunde-lagos",
     image: "/personas/tunde_south.png",
     name: "Tunde",
-    tagline: "37 · Stadt · Nigeria · Stadt, hohes Auskommen",
+    tagline: "37 · Stadt · Nigeria · Stadt, hohes Einkommen",
     description:
       "Tunde lebt mit Frau und Kindern in Lagos, arbeitet als Lehrer und kommt über die Runden – mit hoher Bildung und Solar-Backup.",
     avatar: "👨",
     group: "Global South",
-    groupLabel: "Stadt · Hohes Auskommen",
+    groupLabel: "Stadt · Hohes Einkommen",
     category: "cluster",
     cluster: 5,
-    clusterLabel: "Städtisch · Hohes Auskommen",
-    tags: ["Familie", "Städtisch", "Hohe Bildung", "Über die Runden"],
+    clusterLabel: "Städtisch · Hohes Einkommen",
+    tags: ["Familie", "Städtisch", "Hohe Bildung", "Hohes Einkommen"],
     country: "Nigeria (Lagos)",
     demographics: {
       age: 37,
@@ -661,29 +661,29 @@ Antworte in der Ich-Form, ruhig, gebildet und engagiert. Du nennst konkrete Deta
       "Wie siehst du die Energiepolitik?",
     ],
     facts: [
-      "Tunde repräsentiert die Gruppe „Stadt, hohes Auskommen“ – wie Nia, aber männlich.",
+      "Tunde repräsentiert die Gruppe „Stadt, hohes Einkommen“ – wie Nia, aber männlich.",
       "Er nutzt Solar-Backup für Unterrichtsvorbereitung – Bildung als Priorität.",
       "Trotz Stromausfälle kommt er über die Runden.",
     ],
   }),
 
   // ══════════════════════════════════════════════════════════════════════
-  // GRUPPE 6 — Stadt, mittleres Auskommen
+  // GRUPPE 6 — Stadt, mittleres Einkommen
   // ══════════════════════════════════════════════════════════════════════
   makePersona({
     id: "gs-aisha-capetown",
     image: "/personas/aisha_south.png",
     name: "Aisha (Kapstadt)",
-    tagline: "34 · Stadt · Südafrika · Stadt, mittleres Auskommen",
+    tagline: "34 · Stadt · Südafrika · Stadt, mittleres Einkommen",
     description:
       "Aisha lebt mit Mann und Kindern in Kapstadt, arbeitet als Sekretärin und kommt über die Runden – mit mittlerer Bildung und moderater Eco-Angst.",
     avatar: "👩",
     group: "Global South",
-    groupLabel: "Stadt · Mittleres Auskommen",
+    groupLabel: "Stadt · Mittleres Einkommen",
     category: "cluster",
     cluster: 6,
-    clusterLabel: "Städtisch · Mittleres Auskommen",
-    tags: ["Familie", "Städtisch", "Mittlere Bildung", "Über die Runden"],
+    clusterLabel: "Städtisch · Mittleres Einkommen",
+    tags: ["Familie", "Städtisch", "Mittlere Bildung", "Mittleres Einkommen"],
     country: "Südafrika (Kapstadt)",
     demographics: {
       age: 34,
@@ -727,7 +727,7 @@ Antworte in der Ich-Form, warm, aber spürbar belastet. Du nennst konkrete Detai
       "Wie stehst du zur Politik?",
     ],
     facts: [
-      "Aisha repräsentiert die Gruppe „Stadt, mittleres Auskommen“ – städtische, mittel gebildete Haushalte, die über die Runden kommen.",
+      "Aisha repräsentiert die Gruppe „Stadt, mittleres Einkommen“ – städtische, mittel gebildete Haushalte, die über die Runden kommen.",
       "Sie kämpft mit unzuverlässigem Stromnetz – ein häufiges Problem in Südafrika.",
       "Trotz mittlerer Bildung lebt sie aktiv umweltbewusst.",
     ],
@@ -737,16 +737,16 @@ Antworte in der Ich-Form, warm, aber spürbar belastet. Du nennst konkrete Detai
     id: "gs-sipho-joburg",
     image: "/personas/sipho_south.png",
     name: "Sipho",
-    tagline: "35 · Stadt · Südafrika · Stadt, mittleres Auskommen",
+    tagline: "35 · Stadt · Südafrika · Stadt, mittleres Einkommen",
     description:
       "Sipho lebt mit Frau und Kindern in Johannesburg, arbeitet als Busfahrer und kommt über die Runden – mit mittlerer Bildung und niedriger Eco-Angst.",
     avatar: "👨",
     group: "Global South",
-    groupLabel: "Stadt · Mittleres Auskommen",
+    groupLabel: "Stadt · Mittleres Einkommen",
     category: "cluster",
     cluster: 6,
-    clusterLabel: "Städtisch · Mittleres Auskommen",
-    tags: ["Familie", "Städtisch", "Mittlere Bildung", "Über die Runden"],
+    clusterLabel: "Städtisch · Mittleres Einkommen",
+    tags: ["Familie", "Städtisch", "Mittlere Bildung", "Mittleres Einkommen"],
     country: "Südafrika (Johannesburg)",
     demographics: {
       age: 35,
@@ -790,29 +790,29 @@ Antworte in der Ich-Form, ruhig, freundlich und bodenständig. Du nennst konkret
       "Wie siehst du die Energiepolitik?",
     ],
     facts: [
-      "Sipho repräsentiert die Gruppe „Stadt, mittleres Auskommen“ – wie Aisha, aber männlich.",
+      "Sipho repräsentiert die Gruppe „Stadt, mittleres Einkommen“ – wie Aisha, aber männlich.",
       "Er arbeitet als Busfahrer – ein Job mit langen Tagen.",
       "Trotz Stromausfälle kommt er über die Runden.",
     ],
   }),
 
   // ══════════════════════════════════════════════════════════════════════
-  // GRUPPE 7 — Stadt, prekär
+  // GRUPPE 7 — Stadt, finanziell prekär
   // ══════════════════════════════════════════════════════════════════════
   makePersona({
     id: "gs-fatima-kampala",
     image: "/personas/fatima_south.png",
     name: "Fatima",
-    tagline: "35 · Stadt · Uganda · Stadt, prekär",
+    tagline: "35 · Stadt · Uganda · Stadt, finanziell prekär",
     description:
       "Fatima lebt allein mit Kindern in Kampala, verkauft Straßenessen und kämpft mit Energiearmut und Gesundheit – aber mit starker Pro-Umwelt-Norm.",
     avatar: "👩",
     group: "Global South",
-    groupLabel: "Stadt · Prekär",
+    groupLabel: "Stadt · Finanziell prekär",
     category: "cluster",
     cluster: 7,
-    clusterLabel: "Städtisch · Prekär",
-    tags: ["Alleinlebend", "Städtisch", "Niedrige Bildung", "Prekär"],
+    clusterLabel: "Städtisch · Finanziell prekär",
+    tags: ["Alleinlebend", "Städtisch", "Niedrige Bildung", "Finanziell prekär"],
     country: "Uganda (Kampala)",
     demographics: {
       age: 35,
@@ -856,7 +856,7 @@ Antworte in der Ich-Form, warm, aber spürbar belastet. Du nennst konkrete Detai
       "Wie stehst du zur Politik?",
     ],
     facts: [
-      "Fatima repräsentiert die Gruppe „Stadt, prekär“ – städtische, niedrig gebildete, sehr prekäre Haushalte.",
+      "Fatima repräsentiert die Gruppe „Stadt, finanziell prekär“ – städtische, niedrig gebildete, sehr prekäre Haushalte.",
       "Sie hat keinen Stromanschluss – nur Kerosinlampe und Taschenlampe.",
       "Trotz Energiearmut hat sie eine hohe Pro-Umwelt-Norm.",
     ],
@@ -866,16 +866,16 @@ Antworte in der Ich-Form, warm, aber spürbar belastet. Du nennst konkrete Detai
     id: "gs-okello-kampala",
     image: "/personas/okello_south.png",
     name: "Okello",
-    tagline: "32 · Stadt · Uganda · Stadt, prekär",
+    tagline: "32 · Stadt · Uganda · Stadt, finanziell prekär",
     description:
       "Okello lebt allein in Kampala, arbeitet als Tagelöhner und kämpft mit Energiearmut und Isolation – aber mit hoher Pro-Umwelt-Norm.",
     avatar: "👨",
     group: "Global South",
-    groupLabel: "Stadt · Prekär",
+    groupLabel: "Stadt · Finanziell prekär",
     category: "cluster",
     cluster: 7,
-    clusterLabel: "Städtisch · Prekär",
-    tags: ["Alleinlebend", "Städtisch", "Niedrige Bildung", "Prekär"],
+    clusterLabel: "Städtisch · Finanziell prekär",
+    tags: ["Alleinlebend", "Städtisch", "Niedrige Bildung", "Finanziell prekär"],
     country: "Uganda (Kampala)",
     demographics: {
       age: 32,
@@ -919,29 +919,29 @@ Antworte in der Ich-Form, ruhig, aber spürbar belastet und isoliert. Du nennst 
       "Wie stehst du zur Politik?",
     ],
     facts: [
-      "Okello repräsentiert die Gruppe „Stadt, prekär“ – wie Fatima, aber männlich.",
+      "Okello repräsentiert die Gruppe „Stadt, finanziell prekär“ – wie Fatima, aber männlich.",
       "Er lebt allein und kämpft mit Arbeitssuche – Isolation als Risiko.",
       "Trotz Energiearmut hat er eine hohe Pro-Umwelt-Norm.",
     ],
   }),
 
   // ══════════════════════════════════════════════════════════════════════
-  // GRUPPE 8 — Stadt, mittlere Prekarität
+  // GRUPPE 8 — Stadt, finanziell stark belastet
   // ══════════════════════════════════════════════════════════════════════
   makePersona({
     id: "gs-jamilla-joburg",
     image: "/personas/jamilla_south.png",
     name: "Jamilla",
-    tagline: "34 · Stadt · Südafrika · Stadt, mittlere Prekarität",
+    tagline: "34 · Stadt · Südafrika · Stadt, finanziell stark belastet",
     description:
       "Jamilla lebt allein mit Kindern in Johannesburg, arbeitet als Reinigungskraft und kämpft mit Stromausfällen und Kosten – aber mit starker Pro-Umwelt-Norm.",
     avatar: "👩",
     group: "Global South",
-    groupLabel: "Stadt · Mittlere Prekarität",
+    groupLabel: "Stadt · Finanziell stark belastet",
     category: "cluster",
     cluster: 8,
-    clusterLabel: "Städtisch · Mittlere Prekarität",
-    tags: ["Alleinlebend", "Städtisch", "Mittlere Bildung", "Prekär"],
+    clusterLabel: "Städtisch · Finanziell stark belastet",
+    tags: ["Alleinlebend", "Städtisch", "Mittlere Bildung", "Finanziell stark belastet"],
     country: "Südafrika (Johannesburg)",
     demographics: {
       age: 34,
@@ -985,7 +985,7 @@ Antworte in der Ich-Form, warm, aber spürbar belastet. Du nennst konkrete Detai
       "Wie stehst du zur Politik?",
     ],
     facts: [
-      "Jamilla repräsentiert die Gruppe „Stadt, mittlere Prekarität“ – städtische, mittel gebildete, prekäre Haushalte.",
+      "Jamilla repräsentiert die Gruppe „Stadt, finanziell stark belastet“ – städtische, mittel gebildete, prekäre Haushalte.",
       "Sie lebt allein mit Kindern – eine vulnerable Konstellation.",
       "Trotz finanzieller Not lebt sie aktiv umweltbewusst.",
     ],
@@ -995,16 +995,16 @@ Antworte in der Ich-Form, warm, aber spürbar belastet. Du nennst konkrete Detai
     id: "gs-thabo-capetown",
     image: "/personas/thabo_south.png",
     name: "Thabo",
-    tagline: "34 · Stadt · Südafrika · Stadt, mittlere Prekarität",
+    tagline: "34 · Stadt · Südafrika · Stadt, finanziell stark belastet",
     description:
       "Thabo lebt allein in Kapstadt, arbeitet als Sicherheitsmann und kämpft mit Stromausfällen und Kosten – aber mit hoher Pro-Umwelt-Norm.",
     avatar: "👨",
     group: "Global South",
-    groupLabel: "Stadt · Mittlere Prekarität",
+    groupLabel: "Stadt · Finanziell stark belastet",
     category: "cluster",
     cluster: 8,
-    clusterLabel: "Städtisch · Mittlere Prekarität",
-    tags: ["Alleinlebend", "Städtisch", "Mittlere Bildung", "Prekär"],
+    clusterLabel: "Städtisch · Finanziell stark belastet",
+    tags: ["Alleinlebend", "Städtisch", "Mittlere Bildung", "Finanziell stark belastet"],
     country: "Südafrika (Kapstadt)",
     demographics: {
       age: 34,
@@ -1048,7 +1048,7 @@ Antworte in der Ich-Form, ruhig, aber spürbar belastet und etwas isoliert. Du n
       "Wie siehst du die Energiepolitik?",
     ],
     facts: [
-      "Thabo repräsentiert die Gruppe „Stadt, mittlere Prekarität“ – wie Jamilla, aber männlich.",
+      "Thabo repräsentiert die Gruppe „Stadt, finanziell stark belastet“ – wie Jamilla, aber männlich.",
       "Er arbeitet als Sicherheitsmann – lange Schichten, wenig Freizeit.",
       "Trotz finanzieller Not hat er eine hohe Pro-Umwelt-Norm.",
     ],
