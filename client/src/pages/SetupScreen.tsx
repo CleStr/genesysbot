@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Lock, KeyRound, ArrowRight, ShieldCheck, AlertCircle, Eye, EyeOff } from "lucide-react";
+import { Lock, KeyRound, ArrowRight, ShieldCheck, AlertCircle, Eye, EyeOff, Bot } from "lucide-react";
 import { submitSetup, verifyAdminPassword } from "../lib/api";
 
 interface Props {
@@ -66,6 +66,10 @@ export default function SetupScreen({ onDone }: Props) {
           <h1 className="text-2xl font-bold tracking-tight text-white">gEneSysBot</h1>
           <p className="mt-1 text-sm text-slate-400">
             Persona-Chatbot für Messen
+          </p>
+          <p className="mx-auto mt-3 inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs text-slate-300 ring-1 ring-white/20">
+            <Bot className="h-3.5 w-3.5 text-slate-400" aria-hidden />
+            KI-gestützter Chat mit fiktiven Personas
           </p>
         </div>
 

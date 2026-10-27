@@ -4,6 +4,7 @@ import type { Persona } from "../types";
 import { personas } from "../data/personas";
 import { sendChat } from "../lib/api";
 import PersonaAvatar from "./PersonaAvatar";
+import { AiBadge } from "./AiDisclosure";
 
 interface Props {
   onPick: (persona: Persona) => void;
@@ -119,6 +120,7 @@ export default function CompareView({ onPick }: Props) {
             Stelle eine Frage an mehrere Personen gleichzeitig und vergleiche ihre
             Antworten direkt nebeneinander.
           </p>
+          <AiBadge className="mt-2" />
         </div>
       </header>
 

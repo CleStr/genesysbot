@@ -7,6 +7,7 @@ import PersonaAvatar from "./PersonaAvatar";
 import MessageBubble, { TypingIndicator } from "./MessageBubble";
 import PersonaDetail from "./PersonaDetail";
 import HelpPanel from "./HelpPanel";
+import { AiBadge, AiDisclosureNote } from "./AiDisclosure";
 
 interface Props {
   persona: Persona;
@@ -123,6 +124,7 @@ export default function ChatWindow({ persona, onBack, onNavigateTab }: Props) {
               <h3 className="text-lg font-semibold text-slate-900">
                 Chat mit {persona.name}
               </h3>
+              <AiBadge className="mt-2" />
               <p className="mt-1 max-w-md text-sm text-slate-500">
                 {persona.description}
               </p>
@@ -208,6 +210,9 @@ export default function ChatWindow({ persona, onBack, onNavigateTab }: Props) {
         <p className="mx-auto mt-1.5 max-w-3xl text-center text-xs text-slate-400">
           Enter zum Senden · Shift+Enter für neue Zeile
         </p>
+        <div className="mx-auto mt-1 max-w-3xl">
+          <AiDisclosureNote personaName={persona.name} />
+        </div>
       </div>
 
       {showDetail && (

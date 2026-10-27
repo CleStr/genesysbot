@@ -14,6 +14,7 @@ import {
   FlaskConical,
   Database,
   ShieldCheck,
+  Bot,
 } from "lucide-react";
 
 interface Props {
@@ -616,6 +617,16 @@ function DataSection() {
           der Person als „Rolle" und antwortet so, wie diese Person es tun würde.
           Die Antworten sind <strong>nicht vorab geschrieben</strong> – sie entstehen
           live aus den Daten.
+        </p>
+      </InfoCard>
+
+      <InfoCard icon={<Bot className="h-5 w-5" />} title="KI-Kennzeichnung" color="amber">
+        <p>
+          <strong>Alle Personen in diesem Chatbot sind fiktiv.</strong> Sie wurden
+          auf Basis anonymisierter Umfragedaten von KI erstellt und ihre Antworten
+          werden live von einer KI erzeugt. Es gibt keine echten Menschen hinter
+          den Bildern und Namen. Diese Kennzeichnung erfolgt gemäß der
+          Transparenzpflichten der EU-KI-Verordnung (EU AI Act, Art. 50).
         </p>
       </InfoCard>
 

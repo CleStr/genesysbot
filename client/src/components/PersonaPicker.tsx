@@ -6,6 +6,7 @@ import { personas } from "../data/personas";
 import PersonaAvatar from "./PersonaAvatar";
 import PersonaDetail from "./PersonaDetail";
 import AboutBot from "./AboutBot";
+import { AiBadge } from "./AiDisclosure";
 
 interface Props {
   onPick: (persona: Persona) => void;
@@ -107,6 +108,9 @@ export default function PersonaPicker({ onPick, onNavigateTab }: Props) {
                 Sprich mit 38 Personen aus Europa und Sub-Sahara-Afrika.
                 Sie basieren auf echten Umfragedaten von mehr als 30.000 Menschen.
               </p>
+              <div className="mt-3 flex justify-center">
+                <AiBadge variant="onDark" />
+              </div>
             </div>
           </div>
 

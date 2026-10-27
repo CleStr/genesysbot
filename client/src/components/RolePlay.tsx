@@ -27,6 +27,7 @@ import { sendRoleChat, evaluateConversation } from "../lib/api";
 import { detectEnglishMix } from "../lib/languageCheck";
 import PersonaAvatar from "./PersonaAvatar";
 import MessageBubble, { TypingIndicator } from "./MessageBubble";
+import { AiBadge, AiDisclosureNote } from "./AiDisclosure";
 
 /* ── Icon helper ────────────────────────────────────────────────────── */
 
@@ -697,6 +698,7 @@ function ConversationPhase({
               <h3 className="mt-4 text-lg font-semibold text-slate-900">
                 Sprich mit {activeConv.persona.name}
               </h3>
+              <AiBadge className="mt-2" />
               <p className="mt-1 max-w-md text-sm text-slate-500">
                 {activeConv.persona.description}
               </p>
@@ -760,11 +762,16 @@ function ConversationPhase({
             <Send className="h-4 w-4" />
           </button>
         </div>
-        <div className="mx-auto mt-1.5 flex max-w-3xl items-center justify-between">
+        <div className="mx-auto mt-1.5 flex max-w-3xl flex-col items-center gap-1">
           <p className="text-center text-xs text-slate-400">
             Enter zum Senden · Shift+Enter für neue Zeile
           </p>
-          {activeConv && activeConv.messages.length >= 2 && !activeConv.loading && (
+          {activeConv && (
+            <AiDisclosureNote personaName={activeConv.persona.name} />
+          )}
+        </div>
+        {activeConv && activeConv.messages.length >= 2 && !activeConv.loading && (
+          <div className="mx-auto mt-2 max-w-3xl text-right">
             <button
               onClick={onFinishPersona}
               className="inline-flex items-center gap-1.5 rounded-lg bg-brand-50 px-3 py-1.5 text-xs font-semibold text-brand-700 transition-colors hover:bg-brand-100"
@@ -772,8 +779,8 @@ function ConversationPhase({
               <Check className="h-3.5 w-3.5" />
               Gespräch abschließen
             </button>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   );
