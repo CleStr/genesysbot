@@ -7,5 +7,7 @@ export default defineConfig({
     environment: "jsdom",
     globals: true,
     setupFiles: ["./src/test/setup.ts"],
+    // forks-Pool startet auf dieser Umgebung nicht zuverlässig; threads ist hier stabil
+    pool: "threads",
   },
 });
