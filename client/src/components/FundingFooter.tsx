@@ -4,6 +4,7 @@
  * Includes the official "Funded by the EU" logo, matching the project website.
  * Also carries the persistent AI disclosure (EU AI Act, Art. 50 (1)).
  */
+import { Link } from "react-router-dom";
 import { Bot } from "lucide-react";
 
 export default function FundingFooter() {
@@ -22,6 +23,12 @@ export default function FundingFooter() {
           <span className="font-medium text-brand-700">101094326</span>.
         </p>
         <div className="flex shrink-0 items-center gap-3">
+          <Link
+            to="/impressum"
+            className="text-[10px] font-medium text-slate-400 underline decoration-slate-300 underline-offset-2 transition-colors hover:text-slate-600"
+          >
+            Impressum
+          </Link>
           <span className="text-[10px] font-medium text-slate-400">
             © 2026 gEneSys
           </span>

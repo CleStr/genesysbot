@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { useState } from "react";
 import SetupScreen from "./pages/SetupScreen";
 import ChatPage from "./pages/ChatPage";
+import Impressum from "./pages/Impressum";
 
 /**
  * Authentifizierung ist rein sitzungsbasiert (P0):
@@ -27,6 +28,8 @@ export default function App() {
         path="/chat/*"
         element={authed ? <ChatPage /> : <Navigate to="/setup" replace />}
       />
+      {/* Impressum: öffentlich erreichbar ohne Login (§ 5 DDG) */}
+      <Route path="/impressum" element={<Impressum />} />
       <Route path="*" element={<Navigate to={authed ? "/chat" : "/setup"} replace />} />
     </Routes>
   );

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { Lock, KeyRound, ArrowRight, ShieldCheck, AlertCircle, Eye, EyeOff, Bot } from "lucide-react";
 import { submitSetup, verifyAdminPassword } from "../lib/api";
 
@@ -178,7 +178,10 @@ export default function SetupScreen({ onDone }: Props) {
         </div>
 
         <p className="mt-6 text-center text-xs text-slate-600">
-          Fraunhofer IAO · gEneSysBot Demo
+          Fraunhofer IAO · gEneSysBot Demo ·{" "}
+          <Link to="/impressum" className="underline decoration-slate-500 underline-offset-2 hover:text-slate-400">
+            Impressum
+          </Link>
         </p>
       </div>
     </div>
