@@ -17,7 +17,7 @@ server/   # Backend Proxy (Express)
 
 ## Setup-Workflow
 1. Beim Start erscheint ein Setup-Screen zur Eingabe der FhG-API.
-2. Die API-Eingabe ist durch das Passwort `FhG2026#!` geschützt.
+2. Die API-Eingabe ist durch ein Admin-Passwort geschützt (Server: Umgebungsvariable `ADMIN_PASSWORD`; das Passwort steht bewusst nicht in diesem Repo).
 3. Nach erfolgreicher Eingabe wird der API-Key an den Backend-Proxy gesendet und dort gespeichert.
 4. Danach gelangt der Besucher zum Chat, wo er eine Persona auswählt und chattet.
 
