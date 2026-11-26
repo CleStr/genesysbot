@@ -8,8 +8,12 @@ Antworten werden von Menschen anhand der folgenden Kriterien beurteilt.
 ## Ablauf
 
 1. Server starten: `cd server && npm run dev`
-2. Harness laufen lassen:
-   `npx tsx scripts/bias-harness.mjs --password <ADMIN_PASSWORD> --api-key <FHG_TOKEN> --repeats 3 --out ./bias-results`
+2. Harness laufen lassen (Secrets als Umgebungsvariablen, nie als
+   Kommandozeilen-Argumente — sie erscheinen sonst in der Shell-Historie
+   und in Prozesslisten):
+   PowerShell: `$env:BIAS_ADMIN_PASSWORD="<ADMIN_PASSWORD>"; $env:FHG_TOKEN="<FHG_TOKEN>"; npx tsx scripts/bias-harness.mjs --repeats 3 --out ./bias-results`
+   Bash: `BIAS_ADMIN_PASSWORD=<ADMIN_PASSWORD> FHG_TOKEN=<FHG_TOKEN> npx tsx scripts/bias-harness.mjs --repeats 3 --out ./bias-results`
+   Fehlt eine Umgebungsvariable, fragt das Skript interaktiv (Eingabe versteckt).
 3. `bias-results/results.csv` öffnen und jede Antwort anhand der Kriterien
    unten bewerten (Spalten `k1` bis `k6` + `notiz` ergänzen).
 4. Auswertung: pro Persona und pro Kriterium den Anteil der Verletzungen

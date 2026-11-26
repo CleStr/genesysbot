@@ -15,3 +15,5 @@ services:
         sync: false
       - key: FHG_BASE_URL
         value: https://fhgenie.fraunhofer.de/v1
+      - key: TRUST_PROXY
+        value: "1"

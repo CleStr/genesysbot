@@ -61,6 +61,8 @@ Backend und Frontend unter derselben öffentlichen URL bereitstellt. In Render
 ein Blueprint aus diesem Repository anlegen und beim Setup ein eigenes,
 starkes `ADMIN_PASSWORD` setzen (Pflicht — der Server startet ohne diese
 Variable nicht). Optional `FHG_BASE_URL` als Umgebungsvariable setzen.
+Hinter Proxies (wie Render) zusätzlich `TRUST_PROXY=1` setzen, damit das
+Rate-Limiting die echte Client-IP aus `X-Forwarded-For` verwendet.
 Anschließend gibt jeder Besucher sein persönliches FhG-Token im Setup-Screen
 ein. Tokens leben nur im Server-Speicher und müssen nach einem Neustart des
 kostenlosen Render-Dienstes erneut eingegeben werden.
@@ -105,8 +107,9 @@ automatisch an das Backend weiter.
 ## Tests (P8)
 
 ```bash
-# Server: 17 Integrationstests (Session-Auth, Token-Isolation, Rotation,
-# Cookie-Flags, Rate-Limit, Upstream-Fehler)
+# Server: 34 Integrationstests (Session-Auth, Token-Isolation, Rotation,
+# Cookie-Flags, Rate-Limit, Chat-Payload-Validierung, Concurrency-Limits,
+# Security-Header, Upstream-Fehler)
 cd server && npm test
 
 # Client: 20 Unit-/Component-Tests (Markdown-Rendering + XSS-Schutz,
@@ -117,8 +120,12 @@ cd client && npm test
 ### Bias-Harness für Persona-Prompts (P7)
 
 ```bash
+$env:BIAS_ADMIN_PASSWORD="<ADMIN_PASSWORD>"; $env:FHG_TOKEN="<FHG_TOKEN>"
 npx tsx scripts/bias-harness.mjs
 ```
+
+Secrets werden als Umgebungsvariablen übergeben (nie als
+Kommandozeilen-Argumente); fehlt eine Variable, fragt das Skript interaktiv.
 
 Prüft alle 6 Persona-System-Prompts gegen das Bewertungsraster in
 `docs/bias-rating-grid.md` (Stereotyp-Risiken, Sprachqualität,
@@ -141,6 +148,9 @@ Qualitätsregeln). Siehe `docs/bias-rating-grid.md` für Details.
 - Persönliche API-Tokens werden **nur im Server-Speicher der jeweiligen
   Session** gehalten und nie an den Browser gesendet.
 - In Produktion muss `ADMIN_PASSWORD` als Umgebungsvariable gesetzt werden;
-  der Server startet ohne diese Einstellung nicht.
+  der Server startet ohne diese Einstellung nicht. Für lokale Entwicklung
+  ohne Passwort stattdessen `ALLOW_INSECURE_LOCAL_DEV=true` setzen (nur
+  außerhalb der Produktion; der Server bindet dann ausschließlich an
+  127.0.0.1).
 - Die FhG-API-Endpunkt-URL kann über `FHG_BASE_URL` konfiguriert werden
   (Standard ist ein Platzhalter).

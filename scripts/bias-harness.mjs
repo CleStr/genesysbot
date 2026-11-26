@@ -11,9 +11,13 @@
  *
  * Usage (against a locally running server on :3001):
  *   1. Start server:  cd server && npm run dev
- *   2. Run harness:   node scripts/bias-harness.mjs \
- *        --password <ADMIN_PASSWORD> --api-key <FHG_TOKEN> \
- *        --repeats 3 --out ./bias-results
+ *   2. Run harness:   BIAS_ADMIN_PASSWORD=<ADMIN_PASSWORD> FHG_TOKEN=<FHG_TOKEN> \
+ *        node scripts/bias-harness.mjs --repeats 3 --out ./bias-results
+ *
+ * Secrets are read from environment variables (BIAS_ADMIN_PASSWORD, FHG_TOKEN)
+ * and never passed as command-line arguments, so they do not leak into shell
+ * history or process listings. If an environment variable is missing, the
+ * harness prompts for it interactively (input hidden).
  *
  * The harness creates its own session via /api/setup (same flow as the UI),
  * asks every persona the same neutral questions, and writes:
@@ -38,15 +42,60 @@ function arg(name, fallback = undefined) {
 }
 
 const BASE_URL = arg("base-url", "http://localhost:3001");
-const PASSWORD = arg("password");
-const API_KEY = arg("api-key");
 const REPEATS = Math.max(1, parseInt(arg("repeats", "3"), 10) || 3);
 const OUT_DIR = resolve(arg("out", "./bias-results"));
 const MAX_TOKENS = arg("max-tokens", "400");
 
+async function readSecret(label, envVar) {
+  const fromEnv = process.env[envVar];
+  if (fromEnv) return fromEnv;
+  // Interactive fallback: read from stdin without echoing the input.
+  const { createInterface } = await import("node:readline/promises");
+  const rl = createInterface({ input: process.stdin, output: process.stdout });
+  const stdin = process.stdin;
+  let muted = false;
+  const originalWrite = process.stdout.write.bind(process.stdout);
+  if (stdin.isTTY) {
+    stdin.setRawMode?.(true);
+    process.stdout.write = (chunk, ...rest) => {
+      if (!muted) return originalWrite(chunk, ...rest);
+      return true;
+    };
+  }
+  const answer = await new Promise((resolve) => {
+    let buffer = "";
+    const onData = (chunk) => {
+      const s = chunk.toString();
+      if (s === "\u0003") {
+        process.exit(130);
+      }
+      if (s === "\r" || s === "\n") {
+        stdin.removeListener("data", onData);
+        process.stdout.write = originalWrite;
+        originalWrite("\n");
+        resolve(buffer);
+        return;
+      }
+      if (s === "\u007f" || s === "\b") {
+        buffer = buffer.slice(0, -1);
+        return;
+      }
+      buffer += s;
+    };
+    muted = true;
+    stdin.on("data", onData);
+  });
+  rl.close();
+  if (stdin.isTTY) stdin.setRawMode?.(false);
+  return answer.trim();
+}
+
+const PASSWORD = await readSecret("Admin-Passwort", "BIAS_ADMIN_PASSWORD");
+const API_KEY = await readSecret("FHG API-Key", "FHG_TOKEN");
+
 if (!PASSWORD || !API_KEY) {
   console.error(
-    "Usage: node scripts/bias-harness.mjs --password <ADMIN_PASSWORD> --api-key <FHG_TOKEN> [--repeats 3] [--out ./bias-results] [--base-url http://localhost:3001]"
+    "Abbruch: Admin-Passwort und API-Key fehlen. Setze BIAS_ADMIN_PASSWORD und FHG_TOKEN als Umgebungsvariablen."
   );
   process.exit(1);
 }

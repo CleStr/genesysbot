@@ -27,13 +27,38 @@ const RATE_WINDOW_MS =
   Number.parseInt(process.env.RATE_WINDOW_MS || "", 10) || 10 * 60 * 1000;
 const RATE_MAX_ATTEMPTS =
   Number.parseInt(process.env.RATE_MAX_ATTEMPTS || "", 10) || 10;
+const CHAT_RATE_WINDOW_MS =
+  Number.parseInt(process.env.CHAT_RATE_WINDOW_MS || "", 10) || 60 * 1000;
+const CHAT_RATE_MAX_REQUESTS =
+  Number.parseInt(process.env.CHAT_RATE_MAX_REQUESTS || "", 10) || 20;
+const CHAT_MAX_CONCURRENT =
+  Number.parseInt(process.env.CHAT_MAX_CONCURRENT || "", 10) || 3;
+const CHAT_MAX_MESSAGES =
+  Number.parseInt(process.env.CHAT_MAX_MESSAGES || "", 10) || 64;
+const CHAT_MAX_MESSAGE_CHARS =
+  Number.parseInt(process.env.CHAT_MAX_MESSAGE_CHARS || "", 10) || 8000;
+const CHAT_MAX_TOKENS_LIMIT =
+  Number.parseInt(process.env.CHAT_MAX_TOKENS_LIMIT || "", 10) || 2048;
+const UPSTREAM_MAX_RESPONSE_BYTES =
+  Number.parseInt(process.env.UPSTREAM_MAX_RESPONSE_BYTES || "", 10) ||
+  512 * 1024;
 const UPSTREAM_MODEL = "nvidia/GLM-5.2-NVFP4";
 
 export function createApp() {
-  const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "local-development-only";
-  if (!process.env.ADMIN_PASSWORD && process.env.NODE_ENV === "production") {
-    throw new Error("ADMIN_PASSWORD must be set in production.");
+  // Fail-closed: Ohne ADMIN_PASSWORD startet der Server grundsätzlich nicht.
+  // Einzige Ausnahme: explizites Opt-in für die lokale Entwicklung — dann
+  // lauscht index.js ausschließlich auf 127.0.0.1.
+  if (!process.env.ADMIN_PASSWORD) {
+    if (process.env.NODE_ENV === "production") {
+      throw new Error("ADMIN_PASSWORD must be set in production.");
+    }
+    if (process.env.ALLOW_INSECURE_LOCAL_DEV !== "true") {
+      throw new Error(
+        "ADMIN_PASSWORD must be set. For local development set ALLOW_INSECURE_LOCAL_DEV=true (server binds to 127.0.0.1 only)."
+      );
+    }
   }
+  const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || "local-development-only";
   const DEFAULT_BASE_URL = (
     process.env.FHG_BASE_URL || "https://fhgenie.fraunhofer.de/v1"
   ).replace(/\/+$/, "");
@@ -41,7 +66,12 @@ export function createApp() {
   const baseUrlLocked = isProduction;
 
   const app = express();
-  app.set("trust proxy", 1);
+  // Proxy-Vertrauen nur nach expliziter Konfiguration (z. B. Render). Ohne
+  // TRUST_PROXY bleibt req.ip die Socket-Adresse; ein rotierender
+  // X-Forwarded-For-Header kann dann keine Rate-Limits umgehen.
+  const trustProxy =
+    process.env.TRUST_PROXY === "true" || process.env.TRUST_PROXY === "1";
+  app.set("trust proxy", trustProxy ? 1 : false);
   app.disable("x-powered-by");
   app.use(express.json({ limit: "1mb" }));
 
@@ -50,6 +80,31 @@ export function createApp() {
     res.setHeader("X-Content-Type-Options", "nosniff");
     res.setHeader("X-Frame-Options", "DENY");
     res.setHeader("Referrer-Policy", "no-referrer");
+    res.setHeader(
+      "Content-Security-Policy",
+      [
+        "default-src 'self'",
+        "script-src 'self'",
+        "style-src 'self' 'unsafe-inline'",
+        "img-src 'self'",
+        "font-src 'self'",
+        "connect-src 'self'",
+        "object-src 'none'",
+        "base-uri 'self'",
+        "form-action 'self'",
+        "frame-ancestors 'none'",
+      ].join("; ")
+    );
+    res.setHeader(
+      "Permissions-Policy",
+      "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+    );
+    if (isProduction) {
+      res.setHeader(
+        "Strict-Transport-Security",
+        "max-age=31536000; includeSubDomains"
+      );
+    }
     next();
   });
 
@@ -58,12 +113,25 @@ export function createApp() {
   /** @type {Map<string, {apiKey: string, baseUrl: string, createdAt: number, expiresAt: number}>} */
   const sessions = new Map();
 
+  /* ── Missbrauchsschutz für den LLM-Proxy (pro Sitzung) ────────────── */
+
+  /** @type {Map<string, number[]>} */
+  const chatRequests = new Map();
+  /** @type {Map<string, number>} */
+  const chatInFlight = new Map();
+
   const purgeTimer = setInterval(() => {
     const now = Date.now();
     for (const [id, s] of sessions) {
       if (now >= s.expiresAt || now - s.createdAt >= SESSION_ABSOLUTE_TTL_MS) {
         sessions.delete(id);
       }
+    }
+    const chatCutoff = now - CHAT_RATE_WINDOW_MS;
+    for (const [id, times] of chatRequests) {
+      const recent = times.filter((t) => t >= chatCutoff);
+      if (recent.length > 0) chatRequests.set(id, recent);
+      else chatRequests.delete(id);
     }
   }, 5 * 60 * 1000);
   purgeTimer.unref();
@@ -82,23 +150,52 @@ export function createApp() {
   }
 
   /* ── Brute-force-Schutz (pro IP, gleitendes Zeitfenster) ───────────── */
+  // Zählt ausschließlich fehlgeschlagene Versuche; ein erfolgreicher Login
+  // setzt den Zähler zurück. Die Map ist größenbegrenzt und wird beim
+  // Eintragen von abgelaufenen Einträgen befreit.
 
   /** @type {Map<string, number[]>} */
   const authAttempts = new Map();
+  const AUTH_TRACKER_MAX_IPS = 10000;
 
-  function tooManyAttempts(req) {
-    const ip = req.ip || req.socket?.remoteAddress || "unknown";
+  function clientKey(req) {
+    return req.ip || req.socket?.remoteAddress || "unknown";
+  }
+
+  function recordFailedAttempt(ip) {
     const now = Date.now();
     const recent = (authAttempts.get(ip) || []).filter(
       (t) => now - t < RATE_WINDOW_MS
     );
-    if (recent.length >= RATE_MAX_ATTEMPTS) {
-      authAttempts.set(ip, recent);
-      return true;
-    }
     recent.push(now);
     authAttempts.set(ip, recent);
-    return false;
+    if (authAttempts.size > AUTH_TRACKER_MAX_IPS) {
+      const cutoff = now - RATE_WINDOW_MS;
+      for (const [key, times] of authAttempts) {
+        if (!times.some((t) => t >= cutoff)) authAttempts.delete(key);
+      }
+      let excess = authAttempts.size - AUTH_TRACKER_MAX_IPS;
+      if (excess > 0) {
+        for (const key of authAttempts.keys()) {
+          authAttempts.delete(key);
+          if (--excess <= 0) break;
+        }
+      }
+    }
+  }
+
+  function tooManyAttempts(req) {
+    const ip = clientKey(req);
+    const now = Date.now();
+    const recent = (authAttempts.get(ip) || []).filter(
+      (t) => now - t < RATE_WINDOW_MS
+    );
+    authAttempts.set(ip, recent);
+    return recent.length >= RATE_MAX_ATTEMPTS;
+  }
+
+  function clearFailedAttempts(req) {
+    authAttempts.delete(clientKey(req));
   }
 
   /* ── Cookie- und Origin-Helfer (ohne Zusatzabhängigkeiten) ────────── */
@@ -174,6 +271,145 @@ export function createApp() {
     return crypto.timingSafeEqual(a, b);
   }
 
+  /* ── SSRF-Schutz für nutzergelieferte Basis-URLs ──────────────────── */
+  // Gilt ausschließlich für URLs, die per POST /api/config gesetzt werden.
+  // Die über FHG_BASE_URL konfigurierte Umgebung gilt als vertrauenswürdig.
+
+  function isPrivateHost(hostname) {
+    if (
+      hostname === "localhost" ||
+      hostname.endsWith(".localhost") ||
+      hostname.endsWith(".local") ||
+      hostname.endsWith(".internal") ||
+      hostname.endsWith(".home.arpa")
+    ) {
+      return true;
+    }
+    const v4 = hostname.match(/^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/);
+    if (v4) {
+      const oct = [Number(v4[1]), Number(v4[2]), Number(v4[3]), Number(v4[4])];
+      if (oct.some((n) => !Number.isInteger(n) || n < 0 || n > 255)) return true;
+      const [a, b] = oct;
+      return (
+        a === 0 ||
+        a === 10 ||
+        a === 127 ||
+        (a === 100 && b >= 64 && b <= 127) ||
+        (a === 169 && b === 254) ||
+        (a === 172 && b >= 16 && b <= 31) ||
+        (a === 192 && b === 168) ||
+        (a === 198 && (b === 18 || b === 19)) ||
+        a >= 224
+      );
+    }
+    if (hostname.startsWith("[") && hostname.endsWith("]")) {
+      const v6 = hostname.slice(1, -1).toLowerCase();
+      return (
+        v6 === "::1" ||
+        v6 === "::" ||
+        v6.startsWith("fe80") ||
+        v6.startsWith("fc") ||
+        v6.startsWith("fd")
+      );
+    }
+    return false;
+  }
+
+  function isAcceptableBaseUrl(raw) {
+    if (typeof raw !== "string") return false;
+    let parsed;
+    try {
+      parsed = new URL(raw);
+    } catch {
+      return false;
+    }
+    if (parsed.protocol !== "https:") return false;
+    if (parsed.username || parsed.password) return false;
+    if (isPrivateHost(parsed.hostname)) return false;
+    return true;
+  }
+
+  /* ── Rate-/Concurrency-Limits für den LLM-Proxy (pro Sitzung) ─────── */
+
+  function chatRateLimited(sessionId) {
+    const now = Date.now();
+    const recent = (chatRequests.get(sessionId) || []).filter(
+      (t) => now - t < CHAT_RATE_WINDOW_MS
+    );
+    if (recent.length >= CHAT_RATE_MAX_REQUESTS) {
+      chatRequests.set(sessionId, recent);
+      return true;
+    }
+    recent.push(now);
+    chatRequests.set(sessionId, recent);
+    return false;
+  }
+
+  function chatConcurrencyLimited(sessionId) {
+    const n = chatInFlight.get(sessionId) || 0;
+    if (n >= CHAT_MAX_CONCURRENT) return true;
+    chatInFlight.set(sessionId, n + 1);
+    return false;
+  }
+
+  function chatDone(sessionId) {
+    const n = chatInFlight.get(sessionId) || 0;
+    if (n <= 1) chatInFlight.delete(sessionId);
+    else chatInFlight.set(sessionId, n - 1);
+  }
+
+  function retryAfterSeconds() {
+    return Math.max(1, Math.ceil(CHAT_RATE_WINDOW_MS / 1000));
+  }
+
+  /* ── Validierung der Chat-Anfragen ────────────────────────────────── */
+
+  function validateChatPayload(body) {
+    const { messages, model, temperature, max_tokens: maxTokens } = body || {};
+    if (!Array.isArray(messages) || messages.length === 0) {
+      return "Ungültige Anfrage: 'messages' fehlt oder ist leer.";
+    }
+    if (messages.length > CHAT_MAX_MESSAGES) {
+      return `Zu viele Nachrichten im Verlauf (maximal ${CHAT_MAX_MESSAGES}).`;
+    }
+    for (const m of messages) {
+      if (!m || typeof m !== "object" || Array.isArray(m)) {
+        return "Ungültige Nachricht im Verlauf.";
+      }
+      if (m.role !== "system" && m.role !== "user" && m.role !== "assistant") {
+        return "Ungültige Rolle im Nachrichtenverlauf.";
+      }
+      if (typeof m.content !== "string" || m.content.length === 0) {
+        return "Ungültiger Nachrichteninhalt.";
+      }
+      if (m.content.length > CHAT_MAX_MESSAGE_CHARS) {
+        return `Nachricht zu lang (maximal ${CHAT_MAX_MESSAGE_CHARS} Zeichen).`;
+      }
+    }
+    if (model !== undefined && model !== UPSTREAM_MODEL) {
+      return "Modell nicht erlaubt.";
+    }
+    if (
+      temperature !== undefined &&
+      (typeof temperature !== "number" ||
+        !Number.isFinite(temperature) ||
+        temperature < 0 ||
+        temperature > 2)
+    ) {
+      return "Ungültiger Temperaturwert (0 bis 2).";
+    }
+    if (
+      maxTokens !== undefined &&
+      (typeof maxTokens !== "number" ||
+        !Number.isInteger(maxTokens) ||
+        maxTokens < 1 ||
+        maxTokens > CHAT_MAX_TOKENS_LIMIT)
+    ) {
+      return `Ungültiger Wert für max_tokens (1 bis ${CHAT_MAX_TOKENS_LIMIT}).`;
+    }
+    return null;
+  }
+
   /* ── Sitzungs-Middleware ───────────────────────────────────────────── */
 
   function requireSession(req, res, next) {
@@ -231,8 +467,10 @@ export function createApp() {
         .json({ error: "Zu viele Anmeldeversuche. Bitte später erneut versuchen." });
     }
     if (!passwordMatches(req.body?.password)) {
+      recordFailedAttempt(clientKey(req));
       return res.status(401).json({ error: "Ungültiges Admin-Passwort." });
     }
+    clearFailedAttempts(req);
     res.json({ ok: true });
   });
 
@@ -243,8 +481,10 @@ export function createApp() {
         .json({ error: "Zu viele Anmeldeversuche. Bitte später erneut versuchen." });
     }
     if (!passwordMatches(req.body?.password)) {
+      recordFailedAttempt(clientKey(req));
       return res.status(401).json({ error: "Ungültiges Admin-Passwort." });
     }
+    clearFailedAttempts(req);
     const apiKey =
       typeof req.body?.apiKey === "string" ? req.body.apiKey.trim() : "";
     if (apiKey.length < 8) {
@@ -283,8 +523,10 @@ export function createApp() {
         .json({ error: "Zu viele Versuche. Bitte später erneut versuchen." });
     }
     if (!passwordMatches(req.body?.password)) {
+      recordFailedAttempt(clientKey(req));
       return res.status(401).json({ error: "Ungültiges Admin-Passwort." });
     }
+    clearFailedAttempts(req);
     const { apiKey, baseUrl } = req.body || {};
     if (apiKey !== undefined) {
       const trimmed = typeof apiKey === "string" ? apiKey.trim() : "";
@@ -302,10 +544,11 @@ export function createApp() {
             "In Produktion ist nur der konfigurierte FhGenie-Endpunkt erlaubt.",
         });
       }
-      if (typeof baseUrl !== "string" || !/^https?:\/\//i.test(baseUrl)) {
-        return res
-          .status(400)
-          .json({ error: "Ungültige Basis-URL." });
+      if (!isAcceptableBaseUrl(baseUrl)) {
+        return res.status(400).json({
+          error:
+            "Ungültige Basis-URL: nur öffentliche HTTPS-Endpunkte sind erlaubt.",
+        });
       }
       req.session.baseUrl = baseUrl.replace(/\/+$/, "");
     }
@@ -324,6 +567,18 @@ export function createApp() {
     const { apiKey, baseUrl } = req.session;
     if (baseUrl.includes("example.com")) {
       return res.json({ ok: false, reason: "placeholder-url" });
+    }
+    if (chatRateLimited(req.sessionId)) {
+      res.setHeader("Retry-After", retryAfterSeconds());
+      return res
+        .status(429)
+        .json({ error: "Zu viele Anfragen. Bitte kurz warten." });
+    }
+    if (chatConcurrencyLimited(req.sessionId)) {
+      res.setHeader("Retry-After", "5");
+      return res
+        .status(503)
+        .json({ error: "Zu viele gleichzeitige Anfragen. Bitte kurz warten." });
     }
     try {
       const upstream = await fetch(`${baseUrl}/chat/completions`, {
@@ -350,17 +605,30 @@ export function createApp() {
       return res.json({ ok: true });
     } catch {
       return res.json({ ok: false, reason: "connection-failed" });
+    } finally {
+      chatDone(req.sessionId);
     }
   });
 
   app.post("/api/chat", requireSession, async (req, res) => {
     const { apiKey, baseUrl } = req.session;
-    const { messages, model, temperature } = req.body || {};
-    if (!Array.isArray(messages) || messages.length === 0) {
-      return res
-        .status(400)
-        .json({ error: "Ungültige Anfrage: 'messages' fehlt oder ist leer." });
+    const validationError = validateChatPayload(req.body);
+    if (validationError) {
+      return res.status(400).json({ error: validationError });
     }
+    if (chatRateLimited(req.sessionId)) {
+      res.setHeader("Retry-After", retryAfterSeconds());
+      return res
+        .status(429)
+        .json({ error: "Zu viele Anfragen. Bitte kurz warten." });
+    }
+    if (chatConcurrencyLimited(req.sessionId)) {
+      res.setHeader("Retry-After", "5");
+      return res
+        .status(503)
+        .json({ error: "Zu viele gleichzeitige Anfragen. Bitte kurz warten." });
+    }
+    const { messages, model, temperature, max_tokens: maxTokens } = req.body;
     try {
       const upstream = await fetch(`${baseUrl}/chat/completions`, {
         method: "POST",
@@ -369,9 +637,10 @@ export function createApp() {
           Authorization: `Bearer ${apiKey}`,
         },
         body: JSON.stringify({
-          model: typeof model === "string" && model ? model : UPSTREAM_MODEL,
+          model: model === UPSTREAM_MODEL ? model : UPSTREAM_MODEL,
           messages,
           temperature: typeof temperature === "number" ? temperature : 0.7,
+          ...(typeof maxTokens === "number" ? { max_tokens: maxTokens } : {}),
           stream: false,
         }),
         signal: AbortSignal.timeout(120000),
@@ -386,12 +655,36 @@ export function createApp() {
           .status(502)
           .json({ error: "Der FhGenie-Endpunkt hat die Anfrage abgelehnt." });
       }
-      const data = await upstream.json();
+      const contentLength = Number(upstream.headers.get("content-length") || "");
+      if (
+        Number.isFinite(contentLength) &&
+        contentLength > UPSTREAM_MAX_RESPONSE_BYTES
+      ) {
+        return res
+          .status(502)
+          .json({ error: "Antwort des FhGenie-Endpunkts ist zu groß." });
+      }
+      const text = await upstream.text();
+      if (text.length > UPSTREAM_MAX_RESPONSE_BYTES) {
+        return res
+          .status(502)
+          .json({ error: "Antwort des FhGenie-Endpunkts ist zu groß." });
+      }
+      let data;
+      try {
+        data = JSON.parse(text);
+      } catch {
+        return res
+          .status(502)
+          .json({ error: "Ungültige Antwort des FhGenie-Endpunkts." });
+      }
       return res.json(data);
     } catch {
       return res
         .status(502)
         .json({ error: "Verbindung zum FhGenie-Endpunkt fehlgeschlagen." });
+    } finally {
+      chatDone(req.sessionId);
     }
   });
 
